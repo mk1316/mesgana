@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "mesgana",
+    "name": "Mesgana",
     "slug": "mesgana",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,17 +10,35 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.mesgana.app"
+      "bundleIdentifier": "com.mesgana.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "ascAppId": "6747017556"
     },
     "android": {
-      "package": "com.mesgana.app"
+      "package": "com.mesgana.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/ios-light.png"
     },
-    "plugins": ["expo-router", "expo-font", "expo-web-browser"],
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-web-browser"
+    ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "3e077963-643d-434e-9004-32ba01274296"
+      }
     }
   }
 }

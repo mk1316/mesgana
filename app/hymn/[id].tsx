@@ -19,7 +19,7 @@ import {
   Minus
 } from 'lucide-react-native';
 import { router, useLocalSearchParams } from 'expo-router';
-import { hymnsData } from '@/data/hymnsData';
+import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
 
 type DisplayMode = 'english' | 'amharic' | 'both';
@@ -28,7 +28,7 @@ export default function HymnDetailScreen() {
   const systemColorScheme = useColorScheme();
   const { id } = useLocalSearchParams();
   const [fontSize, setFontSize] = useState(16);
-  const [displayMode, setDisplayMode] = useState<DisplayMode>('english');
+  const [displayMode, setDisplayMode] = useState<DisplayMode>('both');
   const [showFontSizeOptions, setShowFontSizeOptions] = useState(false);
   
   const { language, theme, favorites, toggleFavorite } = useAppStore();

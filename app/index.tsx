@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { Heart, Search, Settings as SettingsIcon } from 'lucide-react-native';
 import { router } from 'expo-router';
-import { hymnsData, categories } from '@/data/hymnsData';
+import { allHymns as hymnsData, categories } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
 
 export default function HymnsScreen() {
@@ -78,7 +78,7 @@ export default function HymnsScreen() {
       >
         <View style={styles.hymnHeader}>
           <View style={styles.hymnInfo}>
-            <Text style={styles.hymnTitle}>{title}</Text>
+            <Text style={styles.hymnTitle}>{hymn.id}. {title}</Text>
             <Text style={styles.hymnAuthor}>{author}</Text>
           </View>
           <TouchableOpacity
