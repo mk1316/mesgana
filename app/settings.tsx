@@ -42,7 +42,7 @@ export default function SettingsScreen() {
   };
 
   const handleFeedback = async () => {
-    const email = 'feedback.mesgana@gmail.com';
+    const email = 'support@mesgana.com';
     const subject = 'Mesgana App Feedback';
     const body = `Hi,\n\nI'd like to share some feedback about the Mesgana app:\n\n[Please write your feedback here]\n\nApp Version: ${appVersion}\n\nThank you!`;
     
@@ -56,8 +56,8 @@ export default function SettingsScreen() {
         Alert.alert(
           language === 'amharic' ? 'ስህተት' : 'Error',
           language === 'amharic' 
-            ? 'የኢሜይል መተግበሪያ አልተገኘም። እባክዎ feedback.mesgana@gmail.com ላይ ኢሜይል ይላኩ።'
-            : 'No email app found. Please send feedback to feedback.mesgana@gmail.com'
+            ? 'የኢሜይል መተግበሪያ አልተገኘም። እባክዎ support@mesgana.com ላይ ኢሜይል ይላኩ።'
+            : 'No email app found. Please send feedback to support@mesgana.com'
         );
       }
     } catch (error) {
