@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesgana - Ethiopian Hymnal App</title>
     <style>
+        :root {
+            --bg-primary: #F5F2E8;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #333333;
+            --text-secondary: #8B7355;
+            --accent: #D2691E;
+            --accent-hover: #B8860B;
+            --border: #E8E0D0;
+            --shadow: rgba(0,0,0,0.1);
+            --highlight: #F0EDE5;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1C1C1C;
+            --bg-secondary: #2D2D2D;
+            --text-primary: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --accent: #D2691E;
+            --accent-hover: #B8860B;
+            --border: #404040;
+            --shadow: rgba(0,0,0,0.3);
+            --highlight: #404040;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +38,9 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #F5F2E8;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container {
@@ -34,27 +59,28 @@
             height: 120px;
             border-radius: 16px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px var(--shadow);
         }
         
         h1 {
             font-size: 2.5rem;
-            color: #D2691E;
+            color: var(--accent);
             margin-bottom: 10px;
         }
         
         .tagline {
             font-size: 1.2rem;
-            color: #8B7355;
+            color: var(--text-secondary);
             margin-bottom: 30px;
         }
         
         .description {
-            background: white;
+            background: var(--bg-secondary);
             padding: 30px;
             border-radius: 12px;
             margin: 30px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px var(--shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         
         .features {
@@ -65,16 +91,21 @@
         }
         
         .feature {
-            background: white;
+            background: var(--bg-secondary);
             padding: 20px;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px var(--shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         
         .feature h3 {
-            color: #D2691E;
+            color: var(--accent);
             margin-bottom: 10px;
+        }
+        
+        .feature p {
+            color: var(--text-primary);
         }
         
         .download-section {
@@ -84,7 +115,7 @@
         
         .download-btn {
             display: inline-block;
-            background: #D2691E;
+            background: var(--accent);
             color: white;
             padding: 15px 30px;
             text-decoration: none;
@@ -95,25 +126,27 @@
         }
         
         .download-btn:hover {
-            background: #B8860B;
+            background: var(--accent-hover);
         }
         
         footer {
             text-align: center;
             padding: 20px;
-            color: #8B7355;
-            border-top: 1px solid #E8E0D0;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
             margin-top: 40px;
+            transition: border-color 0.3s ease;
         }
         
         .footer-links a {
-            color: #8B7355;
+            color: var(--text-secondary);
             text-decoration: none;
             margin: 0 10px;
+            transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
-            color: #D2691E;
+            color: var(--accent);
         }
         
         @media (max-width: 600px) {
@@ -178,5 +211,19 @@
         </div>
         <p>&copy; 2024 Mesgana. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Dark mode detection and application
+        function applyTheme() {
+            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        }
+
+        // Apply theme on load
+        applyTheme();
+
+        // Listen for theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+    </script>
 </body>
 </html> 

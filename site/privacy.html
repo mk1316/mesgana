@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Mesgana</title>
     <style>
+        :root {
+            --bg-primary: #F5F2E8;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #333333;
+            --text-secondary: #8B7355;
+            --accent: #D2691E;
+            --accent-hover: #B8860B;
+            --border: #E8E0D0;
+            --shadow: rgba(0,0,0,0.1);
+            --highlight: #F0EDE5;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1C1C1C;
+            --bg-secondary: #2D2D2D;
+            --text-primary: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --accent: #D2691E;
+            --accent-hover: #B8860B;
+            --border: #404040;
+            --shadow: rgba(0,0,0,0.3);
+            --highlight: #404040;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +38,9 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #F5F2E8;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container {
@@ -27,16 +52,18 @@
         header {
             text-align: center;
             padding: 20px 0;
-            border-bottom: 1px solid #E8E0D0;
+            border-bottom: 1px solid var(--border);
             margin-bottom: 30px;
+            transition: border-color 0.3s ease;
         }
         
         .back-link {
             display: inline-block;
-            color: #D2691E;
+            color: var(--accent);
             text-decoration: none;
             margin-bottom: 20px;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
         
         .back-link:hover {
@@ -45,31 +72,33 @@
         
         h1 {
             font-size: 2.5rem;
-            color: #D2691E;
+            color: var(--accent);
             margin-bottom: 10px;
         }
         
         .content {
-            background: white;
+            background: var(--bg-secondary);
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px var(--shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         
         h2 {
-            color: #D2691E;
+            color: var(--accent);
             margin: 30px 0 15px 0;
             font-size: 1.5rem;
         }
         
         h3 {
-            color: #8B7355;
+            color: var(--text-secondary);
             margin: 25px 0 10px 0;
             font-size: 1.2rem;
         }
         
         p {
             margin-bottom: 15px;
+            color: var(--text-primary);
         }
         
         ul {
@@ -79,28 +108,47 @@
         
         li {
             margin-bottom: 8px;
+            color: var(--text-primary);
         }
         
         .highlight {
-            background-color: #F0EDE5;
+            background-color: var(--highlight);
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
-            border-left: 4px solid #D2691E;
+            border-left: 4px solid var(--accent);
+            transition: background-color 0.3s ease;
         }
         
         .contact-info {
-            background-color: #F0EDE5;
+            background-color: var(--highlight);
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
         }
         
         footer {
             text-align: center;
             padding: 20px;
-            color: #8B7355;
+            color: var(--text-secondary);
             margin-top: 40px;
+        }
+        
+        hr {
+            margin: 40px 0;
+            border: none;
+            border-top: 1px solid var(--border);
+            transition: border-color 0.3s ease;
         }
         
         @media (max-width: 600px) {
@@ -189,7 +237,7 @@
             <h2>Your Rights</h2>
             <p>Since we don't collect or store your personal information on our servers, there is no personal data for us to access, modify, or delete. All your data is stored locally on your device and can be removed by uninstalling the app.</p>
             
-            <hr style="margin: 40px 0; border: none; border-top: 1px solid #E8E0D0;">
+            <hr>
             
             <p><em>This Privacy Policy is effective as of the date listed above and applies to all users of the Mesgana app.</em></p>
         </div>
@@ -198,5 +246,19 @@
     <footer>
         <p>&copy; 2024 Mesgana. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Dark mode detection and application
+        function applyTheme() {
+            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        }
+
+        // Apply theme on load
+        applyTheme();
+
+        // Listen for theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+    </script>
 </body>
 </html> 
