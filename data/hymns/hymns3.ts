@@ -77,7 +77,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '107',
-    title: { amharic: 'ፈተናን አሸንፍ', english: 'Yield not to Temptation' },
+    title: { amharic: 'ፈተናን አሸንፍ', english: 'Yield Not to Temptation' },
     author: { amharic: '', english: 'Horatio R Palmer' },
     verses: [
       { type: 'verse', amharic: 'ፈተናን አሸንፍ በአምላክ ጸጋ በየጊዜው፡\nተግተህ በእምነት ተቋቋም ልብህም በአንዳች፡\nአያመንታ የሱስን ብቻ እይ ከቶ አትወድቅም።', english: '' },
@@ -89,7 +89,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '108',
-    title: { amharic: 'የሱስ የምር ወዳጄ ነው', english: 'Jesus is All the world to Me' },
+    title: { amharic: 'የሱስ የምር ወዳጄ ነው', english: 'Jesus Is All the World to Me' },
     author: { amharic: '', english: 'Will L Thompson' },
     verses: [
       { type: 'verse', amharic: 'የሱስ የምር ወዳጄ ነው ተስፋዬ ሕይወቴም፡\nብርታቴ ነው በየቀኑ ያለ እርሱ እወድቃለሁ።\nባዘንሁ ጊዜ ይቀርበኛል መጽናናትም ይ\nሰጠኛል ባዘንሁ ጊዜ ደስታዬ ነው ወዳጄ።', english: '' },
@@ -101,7 +101,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '109',
-    title: { amharic: 'ለየሱስ ንገር', english: 'Tell it to Jesus' },
+    title: { amharic: 'ለየሱስ ንገር', english: 'Tell It to Jesus' },
     author: { amharic: '', english: 'J E Rankin D D\nE S Lorens' },
     verses: [
       { type: 'verse', amharic: 'ደክሞህ እንደሁ ከብዶህ እንደሁ ልብህ ለየሱስ ንገር፡\nለየሱስ ንገር ኃዘን ቢሰማህ ደስታም ቢለይህ፡', english: '' },
@@ -114,7 +114,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '110',
-    title: { amharic: 'እንዴት ያለ ወዳጅ አለኝ', english: 'I’ve found a Friend' },
+    title: { amharic: 'እንዴት ያለ ወዳጅ አለኝ', english: 'I\'ve Found a Friend' },
     author: { amharic: '', english: 'J G Small\nGeorge C Stebbins' },
     verses: [
       { type: 'verse', amharic: 'እንዴት ያለ ወዳጅ አለኝ አስቀድሞ ወደደኝ፡\nበፍቅሩ ወደርሱ ሳበኝ ወደርሱ አቀረበኝ፡\nበፍቅሩ ገመድ አሰረኝ ሊፈታ በማይቻል፡\nእኔ የርሱ እርሱም የኔ እስከ ዘላለም ድረስ።', english: '' },
@@ -162,7 +162,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '114',
-    title: { amharic: 'የሱስ ይሻለናል', english: 'I’d rather have Jesus' },
+    title: { amharic: 'የሱስ ይሻለናል', english: 'I\'d Rather Have Jesus' },
     author: { amharic: '', english: 'Rhea F Miller\nGeorge Beveriy Shea' },
     verses: [
       { type: 'verse', amharic: 'የሱስ ይሻለናል ከብር ከወርቅ የሱስ ይሻላል\nከምድራዊ ሃብት የሱስ ይሻለናል\nእንከተለው ቀድሞ ሲመራን በኒያ በጆቹ።', english: '' },
@@ -231,7 +231,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '120',
-    title: { amharic: 'ስሙ የሱስ ሲጠራችሁ', english: 'Hark the voice of Jesus Calling' },
+    title: { amharic: 'ስሙ የሱስ ሲጠራችሁ', english: 'Hark the Voice of Jesus Calling' },
     author: { amharic: '', english: 'Daniel March\nF E Belden' },
     verses: [
       { type: 'verse', amharic: 'ስሙ የሱስ ሲጠራችሁ ማንን ልዘዝ ሲላችሁ፡\nመከሩ ደረሰላችሁ ማን ይከውን ነዶውን፡\nየሱስ በጩኸት ይጠራል ዋጋችሁን ይሰጣል፡\nማን በደስታ ይመልሳል ጌታ ሆይ እኔን ላክ ሲል፡', english: '' },
@@ -243,7 +243,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '121',
-    title: { amharic: 'ቀርቧል ሌሊቱ', english: 'Work for the night is coming' },
+    title: { amharic: 'ቀርቧል ሌሊቱ', english: 'Work for the Night Is Coming' },
     author: { amharic: '', english: 'Mrs Anna L Coghill\nLowell Mason' },
     verses: [
       { type: 'verse', amharic: 'ቀርቧል ሌሊቱ ሥሩ ማልዳችሁ ተነሡ፡\nጤዛው ሣይረግፍ ሥሩ ባበቦች ዙሪያ፡\nቀኑ እንዳይሔድባችሁ ብርሃን ሣለ ሥሩ፡\nቀርቧል ሌሊቱ ሥሩ ሥራ ሊፈጸም።', english: '' },
@@ -293,7 +293,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '125',
-    title: { amharic: 'ወንድሜ ታማኝ ሁን', english: 'O Brother be faithful' },
+    title: { amharic: 'ወንድሜ ታማኝ ሁን', english: 'O Brother Be Faithful' },
     author: { amharic: '', english: 'U Smith\nUnknown' },
     verses: [
       { type: 'verse', amharic: 'ወንድሜ ታማኝ ሁን የሱስ ይመጣል፡\nእስከ ዛሬ የጠበቅነው በቅርብ ወደ ቤታችን፡\nእንገባለን የድል መዝሙር ልንዘምር፡\nወንድሜ ታማኝ ሁን አትጠራጠር፡\nያሳየን ፍቅር ታላቅ ነው ለዚህ ፍቅሩ ፍጹም ወደር የለውም\nእኛን ሊያድነን ሞተ።', english: '' },
@@ -316,7 +316,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '127',
-    title: { amharic: 'ክቡር መድኃኒት አለኝ', english: 'I have a friend So Precious' },
+    title: { amharic: 'ክቡር መድኃኒት አለኝ', english: 'I Have a Friend So Precious' },
     author: { amharic: '', english: 'Mrs L Sherev\nHubert P Main' },
     verses: [
       { type: 'verse', amharic: 'ክቡር መድኃኒት አለኝ በጣም የምወደው\nበርኅራኄው ይወደኛል በውነት ያፈቅረኛል\nያለርሱ ልኖር አልችልም እርሱን እጠጋለሁ\nስለዚህ ከጌታ ጋር እኖራለሁ።', english: '' },
@@ -328,7 +328,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '128',
-    title: { amharic: 'ያባቶች ሃይማኖት', english: 'Faith of our fathers' },
+    title: { amharic: 'ያባቶች ሃይማኖት', english: 'Faith of Our Fathers' },
     author: { amharic: '', english: 'Frederick W Faber\nHenri F Hemy\nAlt by James G Walton' },
     verses: [
       { type: 'verse', amharic: 'እሥራት ሰይፍና እሳትም ቢኖር ያባቶች ሃይማኖት አለን።\nልባችን በጣም ይደሰታል ይህን ግሩም ቃል ሲሰማ', english: '' },
@@ -378,7 +378,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '132',
-    title: { amharic: 'ወዳንተ የሱስ ሆይ', english: 'Longing to be with Jesus' },
+    title: { amharic: 'ወዳንተ የሱስ ሆይ', english: 'Longing to Be with Jesus' },
     author: { amharic: '', english: 'Ej Fort\nJ M Evans' },
     verses: [
       { type: 'verse', amharic: 'ወዳንተ የሱስ ሆይ ልቤ ይናፍቃል\nየአምላክ በግ ሆነህ ስለኔ ሞተሃል።', english: '' },
@@ -403,7 +403,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '134',
-    title: { amharic: 'ተስፋ ሁንልኝ', english: 'Be thou my vision' },
+    title: { amharic: 'ተስፋ ሁንልኝ', english: 'Be Thou My Vision' },
     author: { amharic: '', english: '8th century Irish Tr by Mary Byrne\nVersified by Eleanor Hull\nSlane\nArr by David Evans' },
     verses: [
       { type: 'verse', amharic: 'የነፍሴ ጌታ ተስፋ ሁንልኝ\nሌላ አዳኝ ከቶ የለምና\nዘወትር ጭንቀቴ የልቤ ሃሳብ\nካንተ መሆን ነው ቀንና ማታ።', english: '' },
@@ -415,7 +415,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '135',
-    title: { amharic: 'በደስታ ቀን', english: 'O Happy Day! That Fixed my choice' },
+    title: { amharic: 'በደስታ ቀን', english: 'O Happy Day! That Fixed My Choice' },
     author: { amharic: '', english: 'Philip Doddridge\nE F Rimbault' },
     verses: [
       { type: 'verse', amharic: 'በደስታ ቀን የመረጠኝ አዳኜ ና አምላኬ ነው\nልቤን እጅግ ደስ ያሰኛል ያረገውን እነግራለሁ።', english: '' },
@@ -427,7 +427,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '136',
-    title: { amharic: 'በልቤ ዜማ ይሰማኛል', english: 'In My heart there rings a melody' },
+    title: { amharic: 'በልቤ ዜማ ይሰማኛል', english: 'In My Heart There Rings a Melody' },
     author: { amharic: '', english: 'Elton M. Roth' },
     verses: [
       { type: 'verse', amharic: 'የሱስ የሰጠኝ መዝሙር አለኝ ከሰማይ የተላከ\nከሱ የተሻለ ዜማ የለም የፍቅሩ ዜማ ነው።', english: '' },
@@ -451,7 +451,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '138',
-    title: { amharic: 'በጌታ ደስ ይበላችሁ', english: 'Rejoice in the Lord always' },
+    title: { amharic: 'በጌታ ደስ ይበላችሁ', english: 'Rejoice in the Lord Always' },
     author: { amharic: '', english: 'Philippians\nAnonymous' },
     verses: [
       { type: 'verse', amharic: 'በጌታ ደስ ይበላችሁ ሁሌም ተደሰቱ\nበጌታ ደስ ይበላችሁ ሁሌም ተደሰቱ ተደሰቱ\nተደሰቱ ሁሌም ተደሰቱ ተደሰቱ ተደሰቱ ሁሌም ተደሰቱ።', english: '' }
@@ -460,7 +460,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '139',
-    title: { amharic: 'በልቤ ፀሐይ ታበራለች There’s', english: 'Sunshine in My soul today' },
+    title: { amharic: 'በልቤ ፀሐይ ታበራለች', english: 'There\'s Sunshine in My Soul Today' },
     author: { amharic: '', english: 'E E Hewttt\nJohn R Sweney' },
     verses: [
       { type: 'verse', amharic: 'በልቤ ፀሐይ ታበራለች በክብር በብርሃንዋ\nብርሃኑም ሁሉን ያበራል የሱስ የኔ ብርሃን።', english: '' },
@@ -473,7 +473,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '140',
-    title: { amharic: 'የደስታን ዜማ ይሰጥሀል', english: 'You May have the Joy Bells' },
+    title: { amharic: 'የደስታን ዜማ ይሰጥሀል', english: 'You May Have the Joy Bells' },
     author: { amharic: '', english: 'JEDW Ruarh\nW M J Kirkpatrick' },
     verses: [
       { type: 'verse', amharic: 'በልብህ የደስታ ዜማ ይኖራል ከቶ አይለይህም ፍጹም ሰላም\nበቀጭኗ መንገድ ሂድ ሁልጊዜ ለየሱስ ኑር', english: '' },
@@ -486,7 +486,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '141',
-    title: { amharic: 'ያንተን ሰላም', english: 'Give me your peace' },
+    title: { amharic: 'ያንተን ሰላም', english: 'Give Me Your Peace' },
     author: { amharic: '', english: 'Ira D Sankey' },
     verses: [
       { type: 'verse', amharic: 'ያንተን ሰላም ኦ የሱስ አውርድልን በሁከት ፀጥታን የሚያድል\nበእንግድነት ተስፋን የሚሰጠን በገነት የሚሰጠን ብርሃን።', english: '' },
@@ -498,7 +498,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '142',
-    title: { amharic: 'ሰላም እንደ ወንዝ', english: 'When peace like a river' },
+    title: { amharic: 'ሰላም እንደ ወንዝ', english: 'When Peace Like a River' },
     author: { amharic: '', english: 'H G Spafford\nP P Bliss' },
     verses: [
       { type: 'verse', amharic: 'ሰላም እንደ ወንዝ በመንገዱ ሲወርድ ኃዘን ሲመጣ\nእንደ ማዕበል የሆነ ቢሆን ካንተ ተምሬአለሁ\nሕይወቴ ደህና ነው እላለሁ።', english: '' },
@@ -511,7 +511,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '143',
-    title: { amharic: 'የሚያስደንቅ መድህን', english: 'A wonderful Saviour is Jesus my lord' },
+    title: { amharic: 'የሚያስደንቅ መድህን', english: 'A Wonderful Saviour Is Jesus My Lord' },
     author: { amharic: '', english: 'Fanny J Crosby\nWilliam J Kirkpatrick' },
     verses: [
       { type: 'verse', amharic: 'የሚያስደንቅ መድህን ነው የሱስ ጌታ አስደናቂ\nአዳኜ ነው ለነፍሴ ደግሞ መጠጊያዋ ነው የደስታን ወንዝ ባየሁ ጊዜ።', english: '' },
@@ -524,7 +524,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '144',
-    title: { amharic: 'ሰላም ፈልገሃል', english: 'Is your all on the altar?' },
+    title: { amharic: 'ሰላም ፈልገሃል', english: 'Is Your All on the Altar?' },
     author: { amharic: '', english: 'Elisha A. Hoffman' },
     verses: [
       { type: 'verse', amharic: 'ሰላም ፈልገሃል እምነትም ለማከል በናፍቆት በት\nጋት ጸልየሃል ግን መባረክና ማረፍ ያቅትህሃል\nሁሉንም በመሰውያው ጣል።', english: '' },
@@ -551,7 +551,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '146',
-    title: { amharic: 'እንደ ወንዝ ሰላም አለኝ', english: 'Peace like a river' },
+    title: { amharic: 'እንደ ወንዝ ሰላም አለኝ', english: 'Peace Like a River' },
     author: { amharic: '', english: 'Traditional' },
     verses: [
       { type: 'verse', amharic: 'እንደ ወንዝ ሰላም አለኝ ወንዝ ሰላም\nአለኝ እንደ ወንዝ ሰላም አለኝ በልቤ (ሰላም)\nእንደ ወንዝ ሰላም አለኝ እንደ\nወንዝ ሰላም አለኝ እንደ\nወንዝ ሰላም አለኝ በልቤ። (ሰላም)', english: '' },
@@ -562,7 +562,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '147',
-    title: { amharic: 'ደስ ብሎናል እናክብርህ', english: 'Joyful Joyful we adore thee' },
+    title: { amharic: 'ደስ ብሎናል እናክብርህ', english: 'Joyful Joyful We Adore Thee' },
     author: { amharic: '', english: 'Linda Lee Johnson\nLudwig Van Beethoven\nArr by Edward Hodges' },
     verses: [
       { type: 'verse', amharic: 'ደስ ብሎናል እናክብርህ አንተ የፍቅር ጌታ\nልቦች ላንተ ተከፈቱ ምስጋና ሊያቀርቡልህ\nኃጢያት ሐዘን ይወገዳል ጥርጥርም ይጠፋል\nጌታ ያንን ደስታ ስጠን ኦ በቀን ብርሃን ሙላን።', english: '' },
@@ -574,7 +574,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '148',
-    title: { amharic: 'እወድሃለሁ ኦ ጌታ', english: 'I know I Love thee better lord' },
+    title: { amharic: 'እወድሃለሁ ኦ ጌታ', english: 'I Know I Love Thee Better Lord' },
     author: { amharic: '', english: 'Frances R Havergal\nR W Hudson' },
     verses: [
       { type: 'verse', amharic: 'እወድህአለሁ ኦ ጌታ ከምድራዊ ደስታ\nኦ ያንተን ሰላም ሰጠኸኝ የማይጠፋብኝን።', english: '' },
@@ -587,7 +587,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '149',
-    title: { amharic: 'ፍቅር ኦ የሱስ ላንት', english: 'More love to thee' },
+    title: { amharic: 'ፍቅር ኦ የሱስ ላንት', english: 'More Love to Thee' },
     author: { amharic: '', english: 'Mrs E Prentiss\nW H Doane' },
     verses: [
       { type: 'verse', amharic: 'በብዙው ላፍቅርህ ኦ የሱስ ሆይ ልመናዬን ስማ\nስጸልይ ሣል ይህ ነው የኔ ምኞት', english: '' },
@@ -599,7 +599,7 @@ export const hymns3: Hymn[] = [
   },
   {
     id: '150',
-    title: { amharic: 'ወደደኝ ወደደኝ He’ll', english: 'love to the End' },
+    title: { amharic: 'ወደደኝ ወደደኝ', english: 'He\'ll Love to the End' },
     author: { amharic: '', english: '' },
     verses: [],
     tags: []

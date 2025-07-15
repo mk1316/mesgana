@@ -3,7 +3,7 @@ import { Hymn } from './types';
 export const hymns2: Hymn[] = [
   {
     id: '51',
-    title: { amharic: 'የሱስ ሆይ አትለፍብኝ', english: 'Pass me not, O Gentle Savior' },
+    title: { amharic: 'የሱስ ሆይ አትለፍብኝ', english: 'Pass Me Not, O Gentle Savior' },
     author: { amharic: '', english: 'Fanny J. Crosby\nWilliam H. Doane' },
     verses: [
       { type: 'verse', amharic: 'የሱስ ሆይ አትለፍብኝ ፀሎቴን ስማኝ\nሌሎች ፀጋህን ሲያገኙ አትለፍብኝ', english: '' },
@@ -16,7 +16,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '52',
-    title: { amharic: 'ኃይል አለው በደሙ', english: 'There is power in the blood' },
+    title: { amharic: 'ኃይል አለው በደሙ', english: 'There Is Power in the Blood' },
     author: { amharic: '', english: 'LEJ\nLE Jones' },
     verses: [
       { type: 'verse', amharic: 'ከኃጢአት መንፃት ትወዳለህን? ባፈሰሰልህ\nክቡር ደሙ ክፉን ማሸነፍ ምጎትህ ነውን? መልካም ኃይል አለው በደሙ።', english: '' },
@@ -29,7 +29,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '53',
-    title: { amharic: 'መጣሁ ወደ መስቀልህ', english: 'I am coming to the Cross' },
+    title: { amharic: 'መጣሁ ወደ መስቀልህ', english: 'I Am Coming to the Cross' },
     author: { amharic: '', english: 'William McDonald\nWilliam G Fischer' },
     verses: [
       { type: 'verse', amharic: 'መጣሁ ወደ መስቀልህ ምስኪን መኝ ደካማም ነኝ\nሁሉን ነገር ትቻለሁ መድኅንን አገኛለሁ', english: '' },
@@ -64,7 +64,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '56',
-    title: { amharic: 'ኃጥአትህ ቢቀላብህ', english: 'Through your sins be as scarlet' },
+    title: { amharic: 'ኃጥአትህ ቢቀላብህ', english: 'Through Your Sins Be as Scarlet' },
     author: { amharic: '', english: 'Fanny. J Crosby\nWilliam H.Doane' },
     verses: [
       { type: 'verse', amharic: 'ኃጢአትህ ቢቀላብህ እንደ በረድ ይነጻል\nኃጢአትህ ቢቀላብህ እንደ በረድ ይነጻል\nግን ቢቀላ ግን ቢቀላ እንደ ደም እንደ ጥጥ ነጻ\nኃጢአትህ ቢቀላብህ ኃጢአትህ ቢቀላብህ እንደ\nበረድ ይነጻል እንደ በረድ ይነጻል', english: '' },
@@ -204,7 +204,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '68',
-    title: { amharic: 'አምላኬ ወዳንተ', english: 'Nearer My Godro Thee' },
+    title: { amharic: 'አምላኬ ወዳንተ', english: 'Nearer My God to Thee' },
     author: { amharic: '', english: 'Sarah F Adams\nLowell Mason' },
     verses: [
       { type: 'verse', amharic: 'አምላኬ ወዳንተ እቀርባለሁ\nሸክሜ እንኳን ቢከብድ ከነ ሸክሜ\nአሁንም መዝሙሬ ወዳንተ መቅረብ ነው\nወዳንተ መቅረብ ነው አምላኬ ሆይ', english: '' },
@@ -325,7 +325,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '79',
-    title: { amharic: 'ጌታ ሆይ ክርስቲያን ልሁን', english: 'Lord I want to Be a Christian' },
+    title: { amharic: 'ጌታ ሆይ ክርስቲያን ልሁን', english: 'Lord I Want to Be a Christian' },
     author: { amharic: '', english: 'American Negro spiritual' },
     verses: [
       { type: 'verse', amharic: 'ጌታ ሆይ ክርስቲያን ልሁን\nጌታ ሆይ ክርስቲያን ልሁን በልቤ ውስጥ በልቤ ውስጥ\nጌታ ሆይ ክርስቲያን ልሁን', english: '' },
@@ -348,7 +348,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '81',
-    title: { amharic: 'እኔስ ጌታ ሆይ', english: 'O! Lord I am Freed' },
+    title: { amharic: 'እኔስ ጌታ ሆይ', english: 'O! Lord I Am Freed' },
     author: { amharic: '', english: '' },
     verses: [
       { type: 'verse', amharic: 'ቃልህን ለማንበብ ዓይኔ ታወረ እንዳልጸልይ ጉልበቴ ታሠረ\nአንተን እንዳላስብ አእምሮዬ ዛለ እግሬም ወደ ጥፋት ኮበለለ\nእኔስ ጌታ ሆይ ድካም ይዞኛል ድምጼንም ማሰማት አቅቶኛል\nወድቄአለሁኝ ጌታ ሆይ አንሳኝ እባክህ ሕይወቴን ለውጥልኝ።', english: '' },
@@ -359,7 +359,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '82',
-    title: { amharic: 'የሱስ ልንገር', english: 'I must tell Jesus' },
+    title: { amharic: 'የሱስ ልንገር', english: 'I Must Tell Jesus' },
     author: { amharic: '', english: 'Ehsha A Hoffman' },
     verses: [
       { type: 'verse', amharic: 'ለየሱስ ልንገር ስቃዬን ሁሉ ሸክሙ ብቻዬን\nአቅቶኛል በጭንቀቴ ጌታ ይረዳኛል\nይወደኛል ለኔም ያስባል።', english: '' },
@@ -371,7 +371,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '83',
-    title: { amharic: 'በልቤ ውስጥ', english: 'Into my heart' },
+    title: { amharic: 'በልቤ ውስጥ', english: 'Into My Heart' },
     author: { amharic: '', english: 'H D C\nHarv D Clarke' },
     verses: [
       { type: 'verse', amharic: 'በልቤ ውስጥ በልቤ ውስጥ አንተ ግባበት ኦ የሱስ\nግባ ዛሬ ከኔ ጋር ሁን በልቤ ግባ ኦ የሱስ።', english: '' },
@@ -381,7 +381,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '84',
-    title: { amharic: 'ጌታ ሆይ ስንጸልይ', english: 'As we come to you in prayer' },
+    title: { amharic: 'ጌታ ሆይ ስንጸልይ', english: 'As We Come to You in Prayer' },
     author: { amharic: '', english: 'Ralph Carmichael\nIrregular' },
     verses: [
       { type: 'verse', amharic: 'ጌታ ሆይ ስንጸልይ ሐሳባችንን አርቀው ከከበበን የዓለም ችግር ወዳንተ ፀጋ አቅርበን\nበፍቅርህ ሕይወታችን ለውጥ ነፍሳችንን ከላይ አርካልን በዚህ\nሰዓት ያንተ ልጆች ሁሉ በፀሎት በዙፋንህ ፊት ይምጡ አሜን።', english: '' }
@@ -390,7 +390,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '85',
-    title: { amharic: 'ልረፍ በየሱስ ክንዶች', english: 'Safe in the arms of Jesus' },
+    title: { amharic: 'ልረፍ በየሱስ ክንዶች', english: 'Safe in the Arms of Jesus' },
     author: { amharic: '', english: 'Fanny J Crosby\nW H Doane' },
     verses: [
       { type: 'verse', amharic: 'ልረፍ በየሱስ ክንዶች ልረፍ በእቅፉ በፍቅሩ\nከከለለኝ ነፍሴ አትፈራም ከቶ ስማ ከሰማይ መዝሙር\nበመላእክት ሲዘመር በክብር የሚዘመር በብርጭቆ ባሕር።', english: '' },
@@ -402,7 +402,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '86',
-    title: { amharic: 'የሱስ የልቤ ወዳጅ', english: 'Jesus lover of my soul' },
+    title: { amharic: 'የሱስ የልቤ ወዳጅ', english: 'Jesus Lover of My Soul' },
     author: { amharic: '', english: 'Charles Welsey\nSimeon B Marsh' },
     verses: [
       { type: 'verse', amharic: 'የሱስ የልቤ ወዳጅ ወደ አንተ አስጠጋኝ\nመከራ ሲመጣብኝ ሞገዱ ሲነሣብኝ\nሸሽገኝ ልዑል አምላክ የሕይወት ችግር እስኪያልፍ\nወደ ሰማይ አድርሰኝ መንገዴን ሁሉ ምራኝ።', english: '' },
@@ -414,7 +414,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '87',
-    title: { amharic: 'ከየሱስ ጋር በደኅና እሔዳለሁ', english: 'Any where with Jesus' },
+    title: { amharic: 'ከየሱስ ጋር በደኅና እሔዳለሁ', english: 'Any Where with Jesus' },
     author: { amharic: '', english: 'Jessie H Brown\nD B Towner' },
     verses: [
       { type: 'verse', amharic: 'ከየሱስ ጋር በደኅና እሔዳለሁ በዚህ ዓለም\nላይ በርሱ ከተመራሁ ያለርሱ ደስታዬ ከንቱ\nይሆናል እርሱ ግን ፍርሃትን ሁሉ ያጠፋል።', english: '' },
@@ -461,7 +461,7 @@ export const hymns2: Hymn[] = [
   },
   {
     id: '91',
-    title: { amharic: 'ወደ ጽዮን እንጓዝ', english: 'We are marching to Zion' },
+    title: { amharic: 'ወደ ጽዮን እንጓዝ', english: 'We Are Marching to Zion' },
     author: { amharic: '', english: 'Isaac Watts\nRobert Lowry' },
     verses: [
       { type: 'verse', amharic: 'ያምላክ ወዳጆች ኑ ደስታችሁ ትታወቅ\nኑ ባንድነት እንዘምር ላምላካችን ቅዱስ መዝሙር\nየርሱን ዙፋን ከበን እናንግሠው በክብር።', english: '' },

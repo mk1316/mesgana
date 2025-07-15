@@ -400,7 +400,7 @@ export const hymns1: Hymn[] = [
   }, 
   {
     id: '35',
-    title: { amharic: 'እንደ የሱስ ስም አይገኝም  There’s', english: 'No Other Name Like Jesus' },
+    title: { amharic: 'እንደ የሱስ ስም አይገኝም', english: 'There\'s No Other Name Like Jesus' },
     author: { amharic: '', english: 'F.E. Belden' },
     verses: [
       { type: 'verse', amharic: 'እንደ የሱስ ስም አይገኝም ይህ የተወደደ ስም፡\nለመላእክትም ደስታ ነው ለክርስቲያንም ተድላ ነው።', english: '' },

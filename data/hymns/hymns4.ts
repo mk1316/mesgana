@@ -104,7 +104,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '160',
-    title: { amharic: 'ቶሎ ወደ የሱስ ና Come to Jesus He\'ll', english: 'Teach the Way' },
+    title: { amharic: 'ቶሎ ወደ የሱስ ና', english: 'Come to Jesus He\'ll Teach the Way' },
     author: { amharic: '', english: 'Inner light\nG.F. Root' },
     verses: [
       { type: 'verse', amharic: 'ቶሎ ወደ የሱስ ና መንገዱን ያስ\nተምርሃል ከኛ ጋራ ይቆማል፡\nይጮሃልምና።', english: '' },
@@ -268,7 +268,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '173',
-    title: { amharic: 'አሁን ድንቅ እንቁ አገኘሁ Now I\'ve', english: 'found a Jewel' },
+    title: { amharic: 'አሁን ድንቅ እንቁ አገኘሁ', english: 'Now I\'ve Found a Jewel' },
     author: { amharic: '', english: 'Ej for fort\nHugh Wilson' },
     verses: [
       { type: 'verse', amharic: 'አሁን ድንቅ ዕንቁ አገኘሁ ነፍሴን ደስ የሚያሰኝ\nማነው ብለህ ብትጠይቀኝ የሱስ አዳኜ ነው።', english: '' },
@@ -377,7 +377,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '182',
-    title: { amharic: 'በራቀው ኮረብታ', english: 'The old rugged cross' },
+    title: { amharic: 'በራቀው ኮረብታ', english: 'The Old Rugged Cross' },
     author: { amharic: '', english: 'George Bennard' },
     verses: [
       { type: 'verse', amharic: 'በራቀው ኮረብታ መስቀል ይታየኛል\nየየሱስ መከራ መስቀል ከሁሉ\nይልቅ ያ መስቀል ደስ ይለኛል\nለዓለም ሞቱን ያሣያል።', english: '' },
@@ -389,7 +389,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '183',
-    title: { amharic: 'ሂድ ወደ ጌቴሴማኔ', english: 'Go to dark gethsemane' },
+    title: { amharic: 'ሂድ ወደ ጌቴሴማኔ', english: 'Go to Dark Gethsemane' },
     author: { amharic: '', english: 'James Montgomery\nRichard Redhead' },
     verses: [
       { type: 'verse', amharic: 'ሂድ ወደ ጌቴሴማኔ ፈተናን ፈሪ\nሰው ሆይ ላንዲት መራራ ሰዓት\nያዳኝህን ሥቃይ እይ ከኀዘኑም\nሳትርቅ ከርሱ ጸሎትን ተማር።', english: '' },
@@ -400,7 +400,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '184',
-    title: { amharic: 'በመስቀል በመስቀል', english: 'At the cross' },
+    title: { amharic: 'በመስቀል በመስቀል', english: 'At the Cross' },
     author: { amharic: '', english: 'Isac Watts\nR E Hudson' },
     verses: [
       { type: 'verse', amharic: 'አዳኜ  ደሙ  ፈሰሰ ንጉሤ ሞተልኝ\nራሱ ለውርደት ደረሰ እኔን ሊያድነኝ።', english: '' },
@@ -412,7 +412,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '185',
-    title: { amharic: 'የሱስ በደሙ ገዛን', english: 'Jesus bought us by his blood' },
+    title: { amharic: 'የሱስ በደሙ ገዛን', english: 'Jesus Bought Us by His Blood' },
     author: { amharic: '', english: 'P P Bliss' },
     verses: [
       { type: 'verse', amharic: 'ዕዳ ተከፍሎ ድልም ተሰጠ\nለኛ ሲል የሱስ ክርስቶስ ሞተ ከኦሪት\nመርገም ከኃጢዓት ክርስቶስ አዳነን ሁላችን።', english: '' },
@@ -424,7 +424,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '186',
-    title: { amharic: 'መስቀሉ እኔን ይምራኝ', english: 'The way of the cross leads home' },
+    title: { amharic: 'መስቀሉ እኔን ይምራኝ', english: 'The Way of the Cross Leads Home' },
     author: { amharic: '', english: 'Jessie brown pounds\nCharles H Gabriel' },
     verses: [
       { type: 'verse', amharic: 'መስቀሉን ይዤ ወደ ቤቴ ካልሄድሁ ሌላ\nመንገድ የለኝም ላየው አልችልም የብርሃኑን ደጅ የመስቀሉን መንገድ ባጣው።', english: '' },
@@ -436,7 +436,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '187',
-    title: { amharic: 'በመስቀል ላይ ሸክምህ ቀሏል', english: 'Burdens are lifted at calvary' },
+    title: { amharic: 'በመስቀል ላይ ሸክምህ ቀሏል', english: 'Burdens Are Lifted at Calvary' },
     author: { amharic: '', english: 'John M Moore' },
     verses: [
       { type: 'verse', amharic: 'ጊዜው በጭንቀት ተሞልቷል ልብ በኃዘን ዝሏል\nሸክምህን ሁሉ በርሱ ላይ ጣል ጌታ ከጎንህ ነው።', english: '' },
@@ -471,7 +471,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '190',
-    title: { amharic: 'የህፃናት ወዳጅ የሱስ', english: 'Friend of children' },
+    title: { amharic: 'የህፃናት ወዳጅ የሱስ', english: 'Friend of Children' },
     author: { amharic: '', english: 'Bethlehem H\nAmanuel B' },
     verses: [
       { type: 'verse', amharic: 'አትከልክሏቸው ህፃናትን ወደ እኔ ይምጡ\nእንደ ህፃናት ካልሆናችሁ መንግሥቱን አትወርሱም።', english: '' },
@@ -494,7 +494,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '192',
-    title: { amharic: 'እኛን አምላክ ወዷል', english: 'For God so loved the world' },
+    title: { amharic: 'እኛን አምላክ ወዷል', english: 'For God So Loved the World' },
     author: { amharic: '', english: 'Frances Townsend\nAlfred B Smith' },
     verses: [
       { type: 'verse', amharic: 'እኛን አምላክ ወዷል ልጁንም ሰጥቶናል በ\nመስቀል እንዲሞት ሊያድነን ከኃጢዓት አንድ ቀን ይመ\nጣል መልካም ቀን ይሆናል ፍቅሩን ለኛ ያሳያል።', english: '' }
@@ -503,7 +503,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '193',
-    title: { amharic: 'አልረሳውም I\'ll', english: 'not forget Gethsemane' },
+    title: { amharic: 'አልረሳውም', english: 'I\'ll Not Forget Gethsemane' },
     author: { amharic: '', english: 'Ldngsamt\nAsa Hull' },
     verses: [
       { type: 'verse', amharic: 'አልረሣውም ያንን ጊዜ በጌተሰማኔ\nበጣርህ ደም ሲያልብህ ስለኔ አምላኬ።', english: '' },
@@ -516,7 +516,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '194',
-    title: { amharic: 'የአምላክ የዕረፍት ቀን Holy Day, Jehovah\'s', english: 'Rest' },
+    title: { amharic: 'የአምላክ የዕረፍት ቀን', english: 'Holy Day, Jehovah\'s Rest' },
     author: { amharic: '', english: 'F E Belden Lyricist\nF E Belden' },
     verses: [
       { type: 'verse', amharic: 'የአምላክ የዕረፍት ቀን እግዚአብሔር የባረካት\nበሙሉ የቀደሳት በሰማይ ኃይል የሞላት።', english: '' },
@@ -539,7 +539,7 @@ export const hymns4: Hymn[] = [
   },
   {
     id: '196',
-    title: { amharic: 'ሰንበትን አንርሣ Don\'t', english: 'forget the Sabbath' },
+    title: { amharic: 'ሰንበትን አንርሣ', english: 'Don\'t Forget the Sabbath' },
     author: { amharic: '', english: 'Fanny J Crosby\nWilliam B Bradbury' },
     verses: [
       { type: 'verse', amharic: 'ሰንበትን አንርሣ የተባረከች ነች\nከቀን ሁሉ ያበራች በጣም የበለጠች\nዕረፍትን ታመጣለች ደስታን ትነግራለች\nመለኮታዊ ብርሃን ታወርድልናለች።', english: '' },
