@@ -14,6 +14,9 @@ import { router } from 'expo-router';
 import { allHymns as hymnsData, categories } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
 
+
+
+
 export default function HymnsScreen() {
   const systemColorScheme = useColorScheme();
   const [searchQuery, setSearchQuery] = useState('');
