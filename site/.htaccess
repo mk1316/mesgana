@@ -1,6 +1,8 @@
 RewriteEngine On
 
-# Handle /privacy route
+# Handle /privacy route - more specific rule
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^privacy/?$ privacy.html [L]
 
 # Ensure index.html is served for root
