@@ -9,6 +9,8 @@ import {
   Alert,
   Image,
   Linking,
+  ScrollView,
+  Dimensions,
 } from 'react-native';
 import { ChevronLeft, Share as ShareIcon, MessageCircle } from 'lucide-react-native';
 import { router } from 'expo-router';
@@ -70,6 +72,9 @@ export default function SettingsScreen() {
     }
   };
 
+  const { width, height } = Dimensions.get('window');
+  const isSmallScreen = height < 700;
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -84,7 +89,14 @@ export default function SettingsScreen() {
         </Text>
       </View>
 
-      <View style={styles.content}>
+      <ScrollView 
+        style={styles.content}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={[
+          styles.contentContainer,
+          isSmallScreen && styles.contentContainerSmall
+        ]}
+      >
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
             {language === 'amharic' ? 'ቋንቋ' : 'Language'}
@@ -195,22 +207,31 @@ export default function SettingsScreen() {
           </Text>
         </TouchableOpacity>
 
-        <View style={styles.appInfo}>
-          <View style={styles.appIcon}>
+        <View style={[
+          styles.appInfo,
+          isSmallScreen && styles.appInfoSmall
+        ]}>
+          <View style={[
+            styles.appIcon,
+            isSmallScreen && styles.appIconSmall
+          ]}>
             <Image 
               source={
                 effectiveTheme === 'dark' 
                   ? require('@/assets/images/ios-dark.png')
                   : require('@/assets/images/ios-light.png')
               } 
-              style={styles.appIconImage}
+              style={[
+                styles.appIconImage,
+                isSmallScreen && styles.appIconImageSmall
+              ]}
               resizeMode="contain"
             />
           </View>
           <Text style={styles.appName}>Mesgana</Text>
           <Text style={styles.appVersion}>Version {appVersion}</Text>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -239,10 +260,17 @@ const createStyles = (isDark: boolean) =>
     },
     content: {
       flex: 1,
+    },
+    contentContainer: {
       paddingHorizontal: 20,
+      paddingBottom: 20,
+    },
+    contentContainerSmall: {
+      paddingHorizontal: 20,
+      paddingBottom: 10,
     },
     section: {
-      marginBottom: 32,
+      marginBottom: 24,
     },
     sectionTitle: {
       fontSize: 18,
@@ -318,6 +346,10 @@ const createStyles = (isDark: boolean) =>
       paddingTop: 60,
       paddingBottom: 40,
     },
+    appInfoSmall: {
+      paddingTop: 30,
+      paddingBottom: 20,
+    },
     appIcon: {
       width: 120,
       height: 120,
@@ -332,10 +364,20 @@ const createStyles = (isDark: boolean) =>
       shadowRadius: 8,
       elevation: 4,
     },
+    appIconSmall: {
+      width: 80,
+      height: 80,
+      marginBottom: 12,
+    },
     appIconImage: {
       width: 120,
       height: 120,
       borderRadius: 12,
+    },
+    appIconImageSmall: {
+      width: 80,
+      height: 80,
+      borderRadius: 8,
     },
     appName: {
       fontSize: 24,

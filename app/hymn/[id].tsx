@@ -8,6 +8,7 @@ import {
   useColorScheme,
   Share,
   Alert,
+  Dimensions,
 } from 'react-native';
 import { 
   ChevronLeft, 
@@ -27,15 +28,20 @@ type DisplayMode = 'english' | 'amharic' | 'both';
 export default function HymnDetailScreen() {
   const systemColorScheme = useColorScheme();
   const { id } = useLocalSearchParams();
-  const [fontSize, setFontSize] = useState(16);
+  // const [fontSize, setFontSize] = useState(16); // Remove local state
   const [displayMode, setDisplayMode] = useState<DisplayMode>('both');
   const [showFontSizeOptions, setShowFontSizeOptions] = useState(false);
   
-  const { language, theme, favorites, toggleFavorite } = useAppStore();
+  const { language, theme, favorites, toggleFavorite, fontSize, setFontSize } = useAppStore();
   
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
-  const styles = createStyles(effectiveTheme === 'dark', fontSize);
+  
+  // Get screen dimensions for responsive design
+  const { width, height } = Dimensions.get('window');
+  const isSmallScreen = width < 400;
+  
+  const styles = createStyles(effectiveTheme === 'dark', fontSize, isSmallScreen);
 
   const hymn = hymnsData.find(h => h.id === id);
   
@@ -65,7 +71,7 @@ export default function HymnDetailScreen() {
   };
 
   const adjustFontSize = (increment: number) => {
-    setFontSize(prev => Math.max(12, Math.min(24, prev + increment)));
+    setFontSize(Math.max(12, Math.min(24, fontSize + increment)));
   };
 
   const cycleDisplayMode = () => {
@@ -102,7 +108,7 @@ export default function HymnDetailScreen() {
           <ChevronLeft size={24} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
         </TouchableOpacity>
         <View style={styles.headerCenter}>
-          <Text style={styles.hymnTitle}>{hymn.title[language]}</Text>
+          <Text style={styles.hymnTitle}>{hymn.id}. {hymn.title[language]}</Text>
           <Text style={styles.hymnAuthor}>{hymn.author[language]}</Text>
         </View>
       </View>
@@ -166,7 +172,10 @@ export default function HymnDetailScreen() {
             </TouchableOpacity>
             
             {showFontSizeOptions && (
-              <View style={styles.fontSizeExpanded}>
+              <View style={[
+                styles.fontSizeExpanded,
+                isSmallScreen && styles.fontSizeExpandedSmall
+              ]}>
                 <TouchableOpacity
                   style={styles.fontSizeOption}
                   onPress={() => adjustFontSize(-2)}
@@ -184,7 +193,10 @@ export default function HymnDetailScreen() {
           </View>
 
           {/* Right side - Other controls */}
-          <View style={styles.rightControls}>
+          <View style={[
+            styles.rightControls,
+            isSmallScreen && styles.rightControlsSmall
+          ]}>
             <TouchableOpacity
               style={styles.controlButton}
               onPress={cycleDisplayMode}
@@ -218,7 +230,7 @@ export default function HymnDetailScreen() {
   );
 }
 
-const createStyles = (isDark: boolean, fontSize: number) =>
+const createStyles = (isDark: boolean, fontSize: number, isSmallScreen: boolean) =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -239,8 +251,8 @@ const createStyles = (isDark: boolean, fontSize: number) =>
       flex: 1,
     },
     hymnTitle: {
-      fontSize: 20,
-      fontWeight: '700',
+      fontSize: 18,
+      fontWeight: '600',
       color: isDark ? '#FFFFFF' : '#333333',
       marginBottom: 4,
     },
@@ -302,7 +314,7 @@ const createStyles = (isDark: boolean, fontSize: number) =>
       left: 0,
       right: 0,
       backgroundColor: isDark ? '#1C1C1C' : '#F5F2E8',
-      paddingHorizontal: 20,
+      paddingHorizontal: 12,
       paddingVertical: 20,
       paddingBottom: 40,
     },
@@ -310,6 +322,9 @@ const createStyles = (isDark: boolean, fontSize: number) =>
       flexDirection: 'row',
       alignItems: 'center',
       marginLeft: 20,
+    },
+    fontSizeExpandedSmall: {
+      marginLeft: 8,
     },
     fontSizeOption: {
       paddingHorizontal: 12,
@@ -325,7 +340,7 @@ const createStyles = (isDark: boolean, fontSize: number) =>
       flexDirection: 'row',
       justifyContent: 'flex-end',
       alignItems: 'center',
-      paddingHorizontal: 20,
+      paddingHorizontal: 12,
     },
     leftControls: {
       position: 'absolute',
@@ -336,7 +351,10 @@ const createStyles = (isDark: boolean, fontSize: number) =>
     rightControls: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: 30,
+      gap: 8,
+    },
+    rightControlsSmall: {
+      gap: 8,
     },
     controlButton: {
       padding: 8,
