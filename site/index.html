@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesgana - Ethiopian Hymnal App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F5F2E8;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #D2691E;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #8B7355;
+            margin-bottom: 30px;
+        }
+        
+        .description {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .feature h3 {
+            color: #D2691E;
+            margin-bottom: 10px;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #D2691E;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #B8860B;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #8B7355;
+            border-top: 1px solid #E8E0D0;
+            margin-top: 40px;
+        }
+        
+        .footer-links a {
+            color: #8B7355;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .footer-links a:hover {
+            color: #D2691E;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="assets/images/ios-light.png" alt="Mesgana App Icon" class="logo">
+            <h1>Mesgana</h1>
+            <p class="tagline">Ethiopian Hymnal App</p>
+        </header>
+        
+        <div class="description">
+            <h2>About Mesgana</h2>
+            <p>Mesgana is a beautiful and user-friendly Ethiopian hymnal app that brings traditional Ethiopian hymns to your mobile device. With support for both Amharic and English languages, customizable themes, and offline access, Mesgana provides an authentic worship experience wherever you are.</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🌍 Bilingual Support</h3>
+                <p>Switch between Amharic and English languages seamlessly</p>
+            </div>
+            <div class="feature">
+                <h3>🎨 Customizable</h3>
+                <p>Choose from light, dark, or system themes with adjustable font sizes</p>
+            </div>
+            <div class="feature">
+                <h3>❤️ Favorites</h3>
+                <p>Save your favorite hymns for quick access</p>
+            </div>
+            <div class="feature">
+                <h3>📱 Offline Access</h3>
+                <p>All hymns available offline - no internet connection required</p>
+            </div>
+        </div>
+        
+        <div class="download-section">
+            <h2>Download Mesgana</h2>
+            <p>Available on iOS and Android devices</p>
+            <a href="#" class="download-btn">Download for iOS</a>
+            <a href="#" class="download-btn">Download for Android</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="mailto:support@mesgana.com">Contact Support</a>
+        </div>
+        <p>&copy; 2024 Mesgana. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
