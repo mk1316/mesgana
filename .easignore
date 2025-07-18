@@ -3,6 +3,7 @@ node_modules/
 
 # files
 docs/
+site/
 
 # expo
 .expo/
@@ -10,8 +11,7 @@ dist/
 web-build/
 expo-env.d.ts
 
-# service account
-ServiceAccountMesgana.json
+
 
 # native
 *.orig.*
