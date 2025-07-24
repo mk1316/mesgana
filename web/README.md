@@ -5,7 +5,7 @@ This folder contains the static website for mesgana.com.
 ## File Structure
 
 ```
-site/
+web/
 ├── index.html          # Homepage
 ├── privacy.html        # Privacy Policy page
 ├── .htaccess          # Apache configuration for URL routing
@@ -27,7 +27,7 @@ Upload all files in this folder to your web server's public directory (usually `
 
 ### Option 3: Netlify/Vercel
 1. Connect your repository to Netlify or Vercel
-2. Set build directory to `site/`
+2. Set build directory to `web/`
 3. Deploy
 
 ## URL Structure
