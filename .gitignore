@@ -3,6 +3,7 @@ node_modules/
 
 # files
 docs/
+backup/
 
 # expo
 .expo/

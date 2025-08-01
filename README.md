@@ -13,7 +13,7 @@
 # Mesgana - Multilingual Hymnal App
 
 <p align="center">
-  <img src="img/adaptive-icon.png" width="500" alt="Mesgana Logo"/>
+  <img src="img/adaptive-icon.png" width="350" alt="Mesgana Logo"/>
 </p>
 
 A cross-platform mobile application for browsing and reading Ethiopian hymns in both Amharic and English. Built with React Native and Expo, Mesgana provides an intuitive interface for discovering, searching, and organizing your favorite hymns.
