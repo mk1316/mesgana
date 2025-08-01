@@ -10,7 +10,11 @@
   <b>Note:</b> Access to closed testing requires your Google account to be added as a tester. Please contact the project maintainer to request access.
 </p>
 
-# Mesgana - Bilingual Ethiopian Hymnal App
+# Mesgana - Multilingual Hymnal App
+
+<p align="center">
+  <img src="img/adaptive-icon.png" width="500" alt="Mesgana Logo"/>
+</p>
 
 A cross-platform mobile application for browsing and reading Ethiopian hymns in both Amharic and English. Built with React Native and Expo, Mesgana provides an intuitive interface for discovering, searching, and organizing your favorite hymns.
 
@@ -28,13 +32,17 @@ A cross-platform mobile application for browsing and reading Ethiopian hymns in 
 
 ## 📱 Screenshots
 
-*Screenshots will be added here*
-
-
+<p align="center">
+  <img src="img/en-home-dk.png" width="200" alt="English Home Screen (Dark Mode)" style="margin: 0 10px;"/>
+  <img src="img/am-home.png" width="200" alt="Amharic Home Screen" style="margin: 0 10px;"/>
+  <img src="img/am-home-dk.png" width="200" alt="Amharic Home Screen (Dark Mode)" style="margin: 0 10px;"/>
+  <img src="img/am-hymn-dk.png" width="200" alt="Amharic Hymn View (Dark Mode)" style="margin: 0 10px;"/>
+</p>
 
 ## 🛠️ Technologies Used
 
 ### Mobile App
+
 - **React Native** - Cross-platform mobile development
 - **Expo** - Development platform and build tools
 - **Expo Router** - File-based routing system
@@ -45,6 +53,7 @@ A cross-platform mobile application for browsing and reading Ethiopian hymns in 
 - **React Native Reanimated** - Smooth animations
 
 ### Web Presence
+
 - **HTML5/CSS3** - Static website with responsive design
 - **JavaScript** - Interactive elements and theme switching
 - **Vercel** - Deployment and hosting
@@ -54,10 +63,10 @@ A cross-platform mobile application for browsing and reading Ethiopian hymns in 
 - **Android Play Store (Closed Testing):** [https://play.google.com/store/apps/details?id=com.mesgana.app](https://play.google.com/store/apps/details?id=com.mesgana.app)
 - **Web Closed Testing:** [https://play.google.com/apps/testing/com.mesgana.app](https://play.google.com/apps/testing/com.mesgana.app)
 
-
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm or yarn
 - Expo CLI (`npm install -g @expo/cli`)
@@ -65,23 +74,24 @@ A cross-platform mobile application for browsing and reading Ethiopian hymns in 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/mk1316/mesgana.git
    cd mesgana
    ```
-
 2. **Install dependencies**
+
    ```bash
    cd mobile
    npm install
    ```
-
 3. **Start the development server**
+
    ```bash
    npm run dev
    ```
-
 4. **Run on device/simulator**
+
    - Scan the QR code with Expo Go app (iOS/Android)
    - Or press 'i' for iOS simulator, 'a' for Android emulator
 
@@ -97,7 +107,6 @@ eas build --platform android
 # Build for web
 npm run build:web
 ```
-
 
 ## 🤝 Contributing
 
