@@ -13,6 +13,7 @@ import { Heart, Search, Settings as SettingsIcon } from 'lucide-react-native';
 import { router } from 'expo-router';
 import { allHymns as hymnsData, categories } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
+import * as Haptics from 'expo-haptics';
 
 
 
@@ -70,14 +71,17 @@ export default function HymnsScreen() {
 
   const renderHymnCard = (hymn: any) => {
     const title = language === 'amharic' ? hymn.title.amharic : hymn.title.english;
-    const author = language === 'amharic' ? hymn.author.amharic : hymn.author.english;
+    const author = hymn.author.english;
     const isFavorited = favorites.includes(hymn.id);
 
     return (
       <TouchableOpacity
         key={hymn.id}
         style={styles.hymnCard}
-        onPress={() => router.push(`/hymn/${hymn.id}`)}
+        onPress={async () => {
+          await Haptics.selectionAsync();
+          router.push(`/hymn/${hymn.id}`);
+        }}
       >
         <View style={styles.hymnHeader}>
           <View style={styles.hymnInfo}>
@@ -121,7 +125,10 @@ export default function HymnsScreen() {
         </View>
         <TouchableOpacity
           style={styles.settingsButton}
-          onPress={() => router.push('/settings')}
+          onPress={async () => {
+            await Haptics.selectionAsync();
+            router.push('/settings');
+          }}
         >
           <SettingsIcon size={24} color="#8B7355" />
         </TouchableOpacity>
@@ -133,6 +140,27 @@ export default function HymnsScreen() {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.categoriesContent}
         >
+          {/* "All" quick filter */}
+          <Pressable
+            key="All"
+            style={[
+              styles.categoryButton,
+              selectedCategory === null && styles.selectedCategoryButton,
+            ]}
+            onPress={async () => {
+              await Haptics.selectionAsync();
+              setSelectedCategory(null);
+            }}
+          >
+            <Text
+              style={[
+                styles.categoryText,
+                selectedCategory === null && styles.selectedCategoryText,
+              ]}
+            >
+              All
+            </Text>
+          </Pressable>
           {categories.map((category) => (
             <Pressable
               key={category}
@@ -140,7 +168,10 @@ export default function HymnsScreen() {
                 styles.categoryButton,
                 selectedCategory === category && styles.selectedCategoryButton,
               ]}
-              onPress={() => toggleCategory(category)}
+              onPress={async () => {
+                await Haptics.selectionAsync();
+                toggleCategory(category);
+              }}
             >
               <Text
                 style={[
@@ -155,8 +186,28 @@ export default function HymnsScreen() {
         </ScrollView>
       </View>
 
+      {/* Results meta */}
+      <View style={styles.resultsMeta}>
+        <Text style={styles.resultsText}>
+          {filteredHymns.length} {filteredHymns.length === 1 ? 'hymn' : 'hymns'}
+        </Text>
+      </View>
+
       <ScrollView style={styles.hymnsContainer} showsVerticalScrollIndicator={false}>
-        {filteredHymns.map(renderHymnCard)}
+        {filteredHymns.length === 0 ? (
+          <View style={styles.emptyState}>
+            <Text style={styles.emptyTitle}>
+              {language === 'amharic' ? 'ምንም መዝሙር አልተገኘም' : 'No hymns found'}
+            </Text>
+            <Text style={styles.emptySubtitle}>
+              {language === 'amharic'
+                ? 'የፍለጋ ቃል ወይም ምድብ ይቀይሩ እና ደግመው ይሞክሩ'
+                : 'Try adjusting your search or category filter'}
+            </Text>
+          </View>
+        ) : (
+          filteredHymns.map(renderHymnCard)
+        )}
         <View style={styles.bottomSpacing} />
       </ScrollView>
     </View>
@@ -201,6 +252,14 @@ const createStyles = (isDark: boolean) =>
     },
     settingsButton: {
       padding: 8,
+    },
+    resultsMeta: {
+      paddingHorizontal: 20,
+      marginBottom: 8,
+    },
+    resultsText: {
+      fontSize: 12,
+      color: isDark ? '#CCCCCC' : '#8B7355',
     },
     categoriesWrapper: {
       paddingHorizontal: 20,
@@ -288,6 +347,24 @@ const createStyles = (isDark: boolean) =>
       fontSize: 12,
       color: isDark ? '#CCCCCC' : '#8B7355',
       fontWeight: '500',
+    },
+    emptyState: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingTop: 40,
+      paddingHorizontal: 24,
+    },
+    emptyTitle: {
+      fontSize: 16,
+      fontWeight: '600',
+      color: isDark ? '#FFFFFF' : '#333333',
+      marginBottom: 6,
+      textAlign: 'center',
+    },
+    emptySubtitle: {
+      fontSize: 13,
+      color: '#8B7355',
+      textAlign: 'center',
     },
     bottomSpacing: {
       height: 20,

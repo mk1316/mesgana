@@ -15,6 +15,7 @@ import {
 import { ChevronLeft, Share as ShareIcon, MessageCircle } from 'lucide-react-native';
 import { router } from 'expo-router';
 import { useAppStore } from '@/store/appStore';
+import * as Haptics from 'expo-haptics';
 
 // Import version directly
 const appConfig = require('@/app.json');
@@ -29,6 +30,7 @@ export default function SettingsScreen() {
   const styles = createStyles(effectiveTheme === 'dark');
 
   const handleShare = async () => {
+    await Haptics.selectionAsync();
     try {
       const appStoreUrl = 'https://apps.apple.com/app/mesgana/id123456789';
       const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.yourcompany.mesgana';
@@ -43,7 +45,20 @@ export default function SettingsScreen() {
     }
   };
 
+  const handleResetPreferences = async () => {
+    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    setLanguage('amharic');
+    setTheme(null);
+    Alert.alert(
+      language === 'amharic' ? 'ተቀናብሯል' : 'Reset complete',
+      language === 'amharic'
+        ? 'ቋንቋ (አማርኛ) እና ገጽታ (ስርዓት) ወደ ነባር ተመለሱ'
+        : 'Language (Amharic) and theme (System) restored to defaults'
+    );
+  };
+
   const handleFeedback = async () => {
+    await Haptics.selectionAsync();
     const email = 'support@mesgana.com';
     const subject = 'Mesgana App Feedback';
     const body = `Hi,\n\nI'd like to share some feedback about the Mesgana app:\n\n[Please write your feedback here]\n\nApp Version: ${appVersion}\n\nThank you!`;
@@ -80,7 +95,10 @@ export default function SettingsScreen() {
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => router.back()}
+          onPress={async () => {
+            await Haptics.selectionAsync();
+            router.back();
+          }}
         >
           <ChevronLeft size={24} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
         </TouchableOpacity>
@@ -107,7 +125,10 @@ export default function SettingsScreen() {
                 styles.optionButton,
                 language === 'english' && styles.selectedOption,
               ]}
-              onPress={() => setLanguage('english')}
+              onPress={async () => {
+                await Haptics.selectionAsync();
+                setLanguage('english');
+              }}
             >
               <Text
                 style={[
@@ -123,7 +144,10 @@ export default function SettingsScreen() {
                 styles.optionButton,
                 language === 'amharic' && styles.selectedOption,
               ]}
-              onPress={() => setLanguage('amharic')}
+              onPress={async () => {
+                await Haptics.selectionAsync();
+                setLanguage('amharic');
+              }}
             >
               <Text
                 style={[
@@ -147,7 +171,10 @@ export default function SettingsScreen() {
                 styles.optionButton,
                 effectiveTheme === 'light' && styles.selectedOption,
               ]}
-              onPress={() => setTheme('light')}
+              onPress={async () => {
+                await Haptics.selectionAsync();
+                setTheme('light');
+              }}
             >
               <Text
                 style={[
@@ -163,7 +190,10 @@ export default function SettingsScreen() {
                 styles.optionButton,
                 effectiveTheme === 'dark' && styles.selectedOption,
               ]}
-              onPress={() => setTheme('dark')}
+              onPress={async () => {
+                await Haptics.selectionAsync();
+                setTheme('dark');
+              }}
             >
               <Text
                 style={[
@@ -179,7 +209,10 @@ export default function SettingsScreen() {
                 styles.optionButton,
                 !theme && styles.selectedOption,
               ]}
-              onPress={() => setTheme(null)}
+              onPress={async () => {
+                await Haptics.selectionAsync();
+                setTheme(null);
+              }}
             >
               <Text
                 style={[
@@ -204,6 +237,12 @@ export default function SettingsScreen() {
           <ShareIcon size={20} color="#D2691E" />
           <Text style={styles.shareButtonText}>
             {language === 'amharic' ? 'መተግበሪያውን አጋራ' : 'Share App'}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.resetButton} onPress={handleResetPreferences}>
+          <Text style={styles.resetButtonText}>
+            {language === 'amharic' ? 'ምርጫዎችን አቋርጥ' : 'Reset Preferences'}
           </Text>
         </TouchableOpacity>
 
@@ -340,6 +379,22 @@ const createStyles = (isDark: boolean) =>
       fontSize: 16,
       fontWeight: '600',
       color: '#D2691E',
+    },
+    resetButton: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 14,
+      borderRadius: 12,
+      backgroundColor: isDark ? '#2D2D2D' : '#FFFFFF',
+      borderWidth: 1,
+      borderColor: isDark ? '#404040' : '#E8E0D0',
+      marginHorizontal: 20,
+      marginBottom: 20,
+    },
+    resetButtonText: {
+      fontSize: 16,
+      fontWeight: '600',
+      color: isDark ? '#FFFFFF' : '#333333',
     },
     appInfo: {
       alignItems: 'center',

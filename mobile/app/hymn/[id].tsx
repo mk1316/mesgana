@@ -22,6 +22,7 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
+import * as Haptics from 'expo-haptics';
 
 type DisplayMode = 'english' | 'amharic' | 'both';
 
@@ -94,7 +95,8 @@ export default function HymnDetailScreen() {
     }
   };
 
-  const toggleFontSizeOptions = () => {
+  const toggleFontSizeOptions = async () => {
+    await Haptics.selectionAsync();
     setShowFontSizeOptions(!showFontSizeOptions);
   };
 
@@ -109,7 +111,7 @@ export default function HymnDetailScreen() {
         </TouchableOpacity>
         <View style={styles.headerCenter}>
           <Text style={styles.hymnTitle}>{hymn.id}. {hymn.title[language]}</Text>
-          <Text style={styles.hymnAuthor}>{hymn.author[language]}</Text>
+          <Text style={styles.hymnAuthor}>{hymn.author.english}</Text>
         </View>
       </View>
 
@@ -178,16 +180,23 @@ export default function HymnDetailScreen() {
               ]}>
                 <TouchableOpacity
                   style={styles.fontSizeOption}
-                  onPress={() => adjustFontSize(-2)}
+                  onPress={async () => {
+                    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                    adjustFontSize(-2);
+                  }}
                 >
                   <Minus size={20} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.fontSizeOption}
-                  onPress={() => adjustFontSize(2)}
+                  onPress={async () => {
+                    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                    adjustFontSize(2);
+                  }}
                 >
                   <Plus size={20} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
                 </TouchableOpacity>
+                <Text style={styles.fontSizeValue}>{fontSize}</Text>
               </View>
             )}
           </View>
@@ -199,7 +208,10 @@ export default function HymnDetailScreen() {
           ]}>
             <TouchableOpacity
               style={styles.controlButton}
-              onPress={cycleDisplayMode}
+              onPress={async () => {
+                await Haptics.selectionAsync();
+                cycleDisplayMode();
+              }}
             >
               <View style={styles.languageButton}>
                 <Text style={styles.languageButtonText}>{getDisplayModeIcon()}</Text>
@@ -208,7 +220,10 @@ export default function HymnDetailScreen() {
 
             <TouchableOpacity
               style={styles.controlButton}
-              onPress={() => toggleFavorite(hymn.id)}
+              onPress={async () => {
+                await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                toggleFavorite(hymn.id);
+              }}
             >
               <Heart
                 size={24}
@@ -330,6 +345,13 @@ const createStyles = (isDark: boolean, fontSize: number, isSmallScreen: boolean)
       paddingHorizontal: 12,
       paddingVertical: 8,
       marginRight: 8,
+    },
+    fontSizeValue: {
+      fontSize: 14,
+      color: isDark ? '#FFFFFF' : '#333333',
+      marginLeft: 4,
+      minWidth: 24,
+      textAlign: 'center',
     },
     fontSizeText: {
       fontSize: 18,
