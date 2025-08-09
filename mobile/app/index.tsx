@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
   Pressable,
 } from 'react-native';
 import { Heart, Search, Settings as SettingsIcon } from 'lucide-react-native';
+import { Animated } from 'react-native';
 import { router } from 'expo-router';
 import { allHymns as hymnsData, categories } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
@@ -24,6 +25,7 @@ export default function HymnsScreen() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   
   const { language, theme, favorites, toggleFavorite } = useAppStore();
+  const likeScalesRef = useRef<Record<string, Animated.Value>>({});
   
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
@@ -34,18 +36,36 @@ export default function HymnsScreen() {
 
     // Filter by search query
     if (searchQuery.trim()) {
+      const queryNormalized = searchQuery.trim().toLowerCase();
+      const numericQuery = searchQuery.trim().replace(/[^0-9]/g, '');
       filtered = filtered.filter(hymn => {
-        const title = language === 'amharic' ? hymn.title.amharic : hymn.title.english;
-        const author = language === 'amharic' ? hymn.author.amharic : hymn.author.english;
+        const title =
+          language === 'amharic'
+            ? (hymn.title.amharic || hymn.title.english)
+            : (hymn.title.english || hymn.title.amharic);
+        const author =
+          language === 'amharic'
+            ? (hymn.author.amharic || hymn.author.english)
+            : (hymn.author.english || hymn.author.amharic);
         
         // Search in lyrics
-        const lyrics = hymn.verses.map(verse => 
-          language === 'amharic' ? verse.amharic : verse.english
-        ).join(' ');
+        const lyrics = hymn.verses
+          .map(verse =>
+            language === 'amharic'
+              ? (verse.amharic || verse.english)
+              : (verse.english || verse.amharic)
+          )
+          .join(' ');
         
-        return title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-               author.toLowerCase().includes(searchQuery.toLowerCase()) ||
-               lyrics.toLowerCase().includes(searchQuery.toLowerCase());
+        // Search by hymn number (supports partial match, ignores non-digits in the query)
+        const idMatches = numericQuery
+          ? hymn.id.replace(/[^0-9]/g, '').startsWith(numericQuery)
+          : hymn.id.toLowerCase().includes(queryNormalized);
+
+        return idMatches ||
+               title.toLowerCase().includes(queryNormalized) ||
+               author.toLowerCase().includes(queryNormalized) ||
+               lyrics.toLowerCase().includes(queryNormalized);
       });
     }
 
@@ -70,9 +90,13 @@ export default function HymnsScreen() {
   };
 
   const renderHymnCard = (hymn: any) => {
-    const title = language === 'amharic' ? hymn.title.amharic : hymn.title.english;
+    const title = language === 'amharic'
+      ? (hymn.title.amharic || hymn.title.english)
+      : (hymn.title.english || hymn.title.amharic);
     const author = hymn.author.english;
     const isFavorited = favorites.includes(hymn.id);
+    const scale = likeScalesRef.current[hymn.id] || new Animated.Value(1);
+    if (!likeScalesRef.current[hymn.id]) likeScalesRef.current[hymn.id] = scale;
 
     return (
       <TouchableOpacity
@@ -89,14 +113,23 @@ export default function HymnsScreen() {
             <Text style={styles.hymnAuthor}>{author}</Text>
           </View>
           <TouchableOpacity
-            onPress={() => toggleFavorite(hymn.id)}
+            onPress={async () => {
+              await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+              Animated.sequence([
+                Animated.spring(scale, { toValue: 1.2, useNativeDriver: true, stiffness: 200, damping: 12, mass: 0.5 }),
+                Animated.spring(scale, { toValue: 1, useNativeDriver: true, stiffness: 220, damping: 15, mass: 0.7 }),
+              ]).start();
+              toggleFavorite(hymn.id);
+            }}
             style={styles.favoriteButton}
           >
-            <Heart
-              size={24}
-              color={isFavorited ? '#CD7F32' : '#8B7355'}
-              fill={isFavorited ? '#CD7F32' : 'transparent'}
-            />
+            <Animated.View style={{ transform: [{ scale }] }}>
+              <Heart
+                size={28}
+                color={isFavorited ? '#CD7F32' : '#8B7355'}
+                fill={isFavorited ? '#CD7F32' : 'transparent'}
+              />
+            </Animated.View>
           </TouchableOpacity>
         </View>
         <View style={styles.tagsContainer}>
@@ -302,7 +335,7 @@ const createStyles = (isDark: boolean) =>
       backgroundColor: isDark ? '#2D2D2D' : '#FFFFFF',
       borderRadius: 16,
       padding: 20,
-      marginBottom: 16,
+      marginBottom: 10,
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.1,
@@ -313,7 +346,6 @@ const createStyles = (isDark: boolean) =>
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
-      marginBottom: 12,
     },
     hymnInfo: {
       flex: 1,

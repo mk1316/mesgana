@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { ChevronLeft, Share as ShareIcon, MessageCircle } from 'lucide-react-native';
 import { router } from 'expo-router';
+import AppButton from '@/components/common/AppButton';
 import { useAppStore } from '@/store/appStore';
 import * as Haptics from 'expo-haptics';
 
@@ -23,22 +24,24 @@ const appVersion = appConfig.expo.version;
 
 export default function SettingsScreen() {
   const systemColorScheme = useColorScheme();
-  const { language, theme, setLanguage, setTheme } = useAppStore();
+  const { language, theme, setLanguage, setTheme, fontSize, setFontSize } = useAppStore();
   
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
   const styles = createStyles(effectiveTheme === 'dark');
+  const fontSizeOptions = [12, 16, 18, 22] as const;
+  const selectFontSize = async (size: number) => {
+    setFontSize(size);
+  };
+
 
   const handleShare = async () => {
-    await Haptics.selectionAsync();
     try {
-      const appStoreUrl = 'https://apps.apple.com/app/mesgana/id123456789';
-      const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.yourcompany.mesgana';
-      
+      const targetUrl = 'https://form.typeform.com/to/kx1lHXhK';
       await Share.share({
-        message: `Download Mesgana - Ethiopian Hymnal App!\n\niOS: ${appStoreUrl}\nAndroid: ${playStoreUrl}`,
+        message: `Download Mesgana - Amharic SDA Hymnal App!\n\n${targetUrl}`,
         title: 'Mesgana App',
-        url: appStoreUrl, // This will be used on iOS
+        url: targetUrl,
       });
     } catch (error) {
       Alert.alert('Error', 'Unable to share app');
@@ -58,7 +61,6 @@ export default function SettingsScreen() {
   };
 
   const handleFeedback = async () => {
-    await Haptics.selectionAsync();
     const email = 'support@mesgana.com';
     const subject = 'Mesgana App Feedback';
     const body = `Hi,\n\nI'd like to share some feedback about the Mesgana app:\n\n[Please write your feedback here]\n\nApp Version: ${appVersion}\n\nThank you!`;
@@ -120,44 +122,24 @@ export default function SettingsScreen() {
             {language === 'amharic' ? 'ቋንቋ' : 'Language'}
           </Text>
           <View style={styles.optionRow}>
-            <TouchableOpacity
-              style={[
-                styles.optionButton,
-                language === 'english' && styles.selectedOption,
-              ]}
+            <AppButton
+              label="English"
+              variant={language === 'english' ? 'primary' : 'secondary'}
+              style={{ flex: 1 }}
               onPress={async () => {
                 await Haptics.selectionAsync();
                 setLanguage('english');
               }}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  language === 'english' && styles.selectedOptionText,
-                ]}
-              >
-                English
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.optionButton,
-                language === 'amharic' && styles.selectedOption,
-              ]}
+            />
+            <AppButton
+              label="አማርኛ"
+              variant={language === 'amharic' ? 'primary' : 'secondary'}
+              style={{ flex: 1 }}
               onPress={async () => {
                 await Haptics.selectionAsync();
                 setLanguage('amharic');
               }}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  language === 'amharic' && styles.selectedOptionText,
-                ]}
-              >
-                አማርኛ
-              </Text>
-            </TouchableOpacity>
+            />
           </View>
         </View>
 
@@ -166,85 +148,79 @@ export default function SettingsScreen() {
             {language === 'amharic' ? 'ገጽታ' : 'Theme'}
           </Text>
           <View style={styles.optionRow}>
-            <TouchableOpacity
-              style={[
-                styles.optionButton,
-                effectiveTheme === 'light' && styles.selectedOption,
-              ]}
+            <AppButton
+              label={language === 'amharic' ? 'ብርሃን' : 'Light'}
+              variant={effectiveTheme === 'light' ? 'primary' : 'secondary'}
+              style={{ flex: 1 }}
               onPress={async () => {
                 await Haptics.selectionAsync();
                 setTheme('light');
               }}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  effectiveTheme === 'light' && styles.selectedOptionText,
-                ]}
-              >
-                {language === 'amharic' ? 'ብርሃን' : 'Light'}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.optionButton,
-                effectiveTheme === 'dark' && styles.selectedOption,
-              ]}
+            />
+            <AppButton
+              label={language === 'amharic' ? 'ጨለማ' : 'Dark'}
+              variant={effectiveTheme === 'dark' ? 'primary' : 'secondary'}
+              style={{ flex: 1 }}
               onPress={async () => {
                 await Haptics.selectionAsync();
                 setTheme('dark');
               }}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  effectiveTheme === 'dark' && styles.selectedOptionText,
-                ]}
-              >
-                {language === 'amharic' ? 'ጨለማ' : 'Dark'}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.optionButton,
-                !theme && styles.selectedOption,
-              ]}
+            />
+            <AppButton
+              label={language === 'amharic' ? 'ስርዓት' : 'System'}
+              variant={!theme ? 'primary' : 'secondary'}
+              style={{ flex: 1 }}
               onPress={async () => {
                 await Haptics.selectionAsync();
                 setTheme(null);
               }}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  !theme && styles.selectedOptionText,
-                ]}
-              >
-                {language === 'amharic' ? 'ስርዓት' : 'System'}
-              </Text>
-            </TouchableOpacity>
+            />
           </View>
         </View>
 
-        <TouchableOpacity style={styles.feedbackButton} onPress={handleFeedback}>
-          <MessageCircle size={20} color="#8B7355" />
-          <Text style={styles.feedbackButtonText}>
-            {language === 'amharic' ? 'አስተያየት ይስጡ' : 'Send Feedback'}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>
+            {language === 'amharic' ? 'ጽሑፍ መጠን' : 'Text Size'}
           </Text>
-        </TouchableOpacity>
+          <View style={styles.fontPresetRow}>
+            {fontSizeOptions.map((size) => (
+              <AppButton
+                key={size}
+                label="Aa"
+                variant={fontSize === size ? 'primary' : 'secondary'}
+                style={{ flex: 1 }}
+                onPress={() => selectFontSize(size)}
+                textStyle={{ fontSize: size }}
+              />
+            ))}
+          </View>
+        </View>
 
-        <TouchableOpacity style={styles.shareButton} onPress={handleShare}>
-          <ShareIcon size={20} color="#D2691E" />
-          <Text style={styles.shareButtonText}>
-            {language === 'amharic' ? 'መተግበሪያውን አጋራ' : 'Share App'}
-          </Text>
-        </TouchableOpacity>
+        <AppButton
+          label={language === 'amharic' ? 'ምርጫዎችን አቋርጥ' : 'Reset Preferences'}
+          variant="secondary"
+          onPress={handleResetPreferences}
+          fullWidth
+          style={{ marginHorizontal: 20, marginVertical: 8, borderColor: '#E8E0D0' }}
+        />
 
-        <TouchableOpacity style={styles.resetButton} onPress={handleResetPreferences}>
-          <Text style={styles.resetButtonText}>
-            {language === 'amharic' ? 'ምርጫዎችን አቋርጥ' : 'Reset Preferences'}
-          </Text>
-        </TouchableOpacity>
+        <AppButton
+          label={language === 'amharic' ? 'መተግበሪያውን አጋራ' : 'Share App'}
+          variant="secondary"
+          onPress={handleShare}
+          leftIcon={<ShareIcon size={20} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />}
+          fullWidth
+          style={{ marginHorizontal: 20, marginVertical: 8, borderColor: '#E8E0D0' }}
+        />
+
+        <AppButton
+          label={language === 'amharic' ? 'አስተያየት ይስጡ' : 'Send Feedback'}
+          variant="secondary"
+          onPress={handleFeedback}
+          leftIcon={<MessageCircle size={20} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />}
+          fullWidth
+          style={{ marginHorizontal: 20, marginVertical: 8, borderColor: '#E8E0D0' }}
+        />
 
         <View style={[
           styles.appInfo,
@@ -344,6 +320,27 @@ const createStyles = (isDark: boolean) =>
       color: '#FFFFFF',
       fontWeight: '600',
     },
+      fontPresetRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 8,
+      },
+      fontPresetButton: {
+        flex: 1,
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        borderRadius: 12,
+        backgroundColor: isDark ? '#2D2D2D' : '#FFFFFF',
+        borderWidth: 1,
+        borderColor: isDark ? '#404040' : '#E8E0D0',
+        alignItems: 'center',
+      },
+      fontPresetText: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: isDark ? '#FFFFFF' : '#333333',
+      },
+      // previewText removed per request
     feedbackButton: {
       flexDirection: 'row',
       alignItems: 'center',

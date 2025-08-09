@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -9,31 +9,31 @@ import {
   Share,
   Alert,
   Dimensions,
+  Animated,
 } from 'react-native';
+// import { Modal } from 'react-native';
+import HymnPickerModal from '@/components/modals/HymnPickerModal';
+import CreditsModal from '@/components/modals/CreditsModal';
 import { 
   ChevronLeft, 
   Heart, 
   Share as ShareIcon, 
-  Type,
-  Languages,
-  Plus,
-  Minus
+  ChevronRight
 } from 'lucide-react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
 import * as Haptics from 'expo-haptics';
 
-type DisplayMode = 'english' | 'amharic' | 'both';
-
 export default function HymnDetailScreen() {
   const systemColorScheme = useColorScheme();
   const { id } = useLocalSearchParams();
-  // const [fontSize, setFontSize] = useState(16); // Remove local state
-  const [displayMode, setDisplayMode] = useState<DisplayMode>('both');
-  const [showFontSizeOptions, setShowFontSizeOptions] = useState(false);
+  const currentId = Array.isArray(id) ? id[0] : (id ?? '').toString();
+  const [isPickerOpen, setIsPickerOpen] = useState(false);
+  const [isCreditsOpen, setIsCreditsOpen] = useState(false);
+  const likeScale = useRef(new Animated.Value(1)).current;
   
-  const { language, theme, favorites, toggleFavorite, fontSize, setFontSize } = useAppStore();
+  const { language, theme, favorites, toggleFavorite, fontSize } = useAppStore();
   
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
@@ -44,7 +44,48 @@ export default function HymnDetailScreen() {
   
   const styles = createStyles(effectiveTheme === 'dark', fontSize, isSmallScreen);
 
-  const hymn = hymnsData.find(h => h.id === id);
+  const hymn = hymnsData.find(h => h.id === currentId);
+
+  // Compute neighbors by numeric id
+  const sortedHymns = useMemo(() => {
+    return [...hymnsData].sort((a, b) => Number(a.id) - Number(b.id));
+  }, []);
+
+  const currentIndex = useMemo(() => {
+    return sortedHymns.findIndex((h) => h.id === currentId);
+  }, [sortedHymns, currentId]);
+
+  const prevId = currentIndex > 0 ? sortedHymns[currentIndex - 1]?.id ?? null : null;
+  const nextId = currentIndex >= 0 && currentIndex < sortedHymns.length - 1
+    ? sortedHymns[currentIndex + 1]?.id ?? null
+    : null;
+
+  // Determine language availability and pick content language from settings
+  const hasEnglish = Boolean(
+    hymn && (hymn.title.english?.trim() || hymn.verses.some(v => v.english?.trim()))
+  );
+  const hasAmharic = Boolean(
+    hymn && (hymn.title.amharic?.trim() || hymn.verses.some(v => v.amharic?.trim()))
+  );
+  const contentLanguage: 'english' | 'amharic' =
+    language === 'amharic' ? (hasAmharic ? 'amharic' : 'english') : (hasEnglish ? 'english' : 'amharic');
+  // Place chorus (if present) immediately after the first verse, otherwise leave as is
+  const orderedVerses = useMemo(() => {
+    if (!hymn) return [] as any[];
+    const verses = hymn.verses;
+    const chorus = verses.find(v => v.type === 'chorus');
+    const verseOnly = verses.filter(v => v.type === 'verse');
+    if (!chorus || verseOnly.length === 0) return verses;
+    return [verseOnly[0], chorus, ...verseOnly.slice(1)];
+  }, [hymn?.id]);
+
+  const filteredHymns = sortedHymns;
+
+  // Scroll to top on hymn change
+  const scrollRef = useRef<ScrollView | null>(null);
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ y: 0, animated: false });
+  }, [currentId]);
   
   if (!hymn) {
     return (
@@ -71,34 +112,6 @@ export default function HymnDetailScreen() {
     }
   };
 
-  const adjustFontSize = (increment: number) => {
-    setFontSize(Math.max(12, Math.min(24, fontSize + increment)));
-  };
-
-  const cycleDisplayMode = () => {
-    setDisplayMode(prev => {
-      switch (prev) {
-        case 'english': return 'amharic';
-        case 'amharic': return 'both';
-        case 'both': return 'english';
-        default: return 'english';
-      }
-    });
-  };
-
-  const getDisplayModeIcon = () => {
-    switch (displayMode) {
-      case 'english': return 'EN';
-      case 'amharic': return 'አማ';
-      case 'both': return 'EN/አማ';
-      default: return 'EN';
-    }
-  };
-
-  const toggleFontSizeOptions = async () => {
-    await Haptics.selectionAsync();
-    setShowFontSizeOptions(!showFontSizeOptions);
-  };
 
   return (
     <View style={styles.container}>
@@ -110,45 +123,64 @@ export default function HymnDetailScreen() {
           <ChevronLeft size={24} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
         </TouchableOpacity>
         <View style={styles.headerCenter}>
-          <Text style={styles.hymnTitle}>{hymn.id}. {hymn.title[language]}</Text>
-          <Text style={styles.hymnAuthor}>{hymn.author.english}</Text>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={async () => {
+              await Haptics.selectionAsync();
+              setIsCreditsOpen(true);
+            }}
+          >
+            <Text style={styles.hymnTitle}>
+              {(hymn.title as any)[contentLanguage] || (contentLanguage === 'amharic' ? hymn.title.english : hymn.title.amharic)}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.headerRightGroup}>
+          <TouchableOpacity
+            style={styles.headerRightButton}
+            onPress={async () => {
+              await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+              Animated.sequence([
+                Animated.spring(likeScale, { toValue: 1.2, useNativeDriver: true, stiffness: 200, damping: 12, mass: 0.5 }),
+                Animated.spring(likeScale, { toValue: 1, useNativeDriver: true, stiffness: 220, damping: 15, mass: 0.7 }),
+              ]).start();
+              toggleFavorite(hymn.id);
+            }}
+          >
+            <Animated.View style={{ transform: [{ scale: likeScale }] }}>
+              <Heart
+                size={20}
+                color={isFavorited ? '#D2691E' : (effectiveTheme === 'dark' ? '#FFFFFF' : '#333333')}
+                fill={isFavorited ? '#D2691E' : 'transparent'}
+              />
+            </Animated.View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.headerRightButton}
+            onPress={handleShare}
+          >
+            <ShareIcon size={20} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
+          </TouchableOpacity>
         </View>
       </View>
 
-      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        {hymn.verses.map((verse, index) => (
-          <View key={index} style={styles.verseContainer}>
-            <Text style={styles.verseLabel}>
-              {verse.type === 'verse' 
-                ? (language === 'amharic' ? `ቁ. ${index + 1}` : `verse ${index + 1}`)
-                : (language === 'amharic' ? 'ተከታታይ' : 'chorus')
-              }
-            </Text>
-            
-            {displayMode === 'english' && (
-              <Text style={styles.verseText}>
-                {verse.english}
+      <ScrollView ref={scrollRef} style={styles.content} showsVerticalScrollIndicator={false}>
+        {(() => {
+          let verseCounter = 0;
+          return orderedVerses.map((verse: { type: 'verse' | 'chorus'; amharic: string; english: string; }, index: number) => (
+            <View key={index} style={styles.verseContainer}>
+              <Text style={styles.verseLabel}>
+                {verse.type === 'verse'
+                  ? (contentLanguage === 'amharic' ? `ቁ. ${++verseCounter}` : `verse ${++verseCounter}`)
+                  : (contentLanguage === 'amharic' ? 'ተከታታይ' : 'chorus')}
               </Text>
-            )}
-            
-            {displayMode === 'amharic' && (
+
               <Text style={styles.verseText}>
-                {verse.amharic}
+                {contentLanguage === 'amharic' ? (verse.amharic || verse.english) : (verse.english || verse.amharic)}
               </Text>
-            )}
-            
-            {displayMode === 'both' && (
-              <>
-                <Text style={styles.verseText}>
-                  {verse.english}
-                </Text>
-                <Text style={styles.translationText}>
-                  {verse.amharic}
-                </Text>
-              </>
-            )}
-          </View>
-        ))}
+            </View>
+          ));
+        })()}
 
         <View style={styles.tagsContainer}>
           {hymn.tags.map((tag) => (
@@ -161,86 +193,70 @@ export default function HymnDetailScreen() {
         <View style={styles.bottomSpacing} />
       </ScrollView>
 
-      {/* Fixed bottom controls */}
       <View style={styles.bottomControls}>
-        <View style={styles.controlsContainer}>
-          {/* Left side - Text size control */}
-          <View style={styles.leftControls}>
+        <View style={styles.controlsRow}>
+          <View style={styles.controlsLeft}>
             <TouchableOpacity
-              style={styles.controlButton}
-              onPress={toggleFontSizeOptions}
+              disabled={!prevId}
+              style={[styles.controlButton, !prevId && styles.controlButtonDisabled]}
+              onPress={async () => {
+                if (!prevId) return;
+                await Haptics.selectionAsync();
+                router.replace(`/hymn/${prevId}`);
+              }}
             >
-              <Text style={styles.fontSizeMainText}>Aa</Text>
+              <ChevronLeft size={22} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
             </TouchableOpacity>
-            
-            {showFontSizeOptions && (
-              <View style={[
-                styles.fontSizeExpanded,
-                isSmallScreen && styles.fontSizeExpandedSmall
-              ]}>
-                <TouchableOpacity
-                  style={styles.fontSizeOption}
-                  onPress={async () => {
-                    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                    adjustFontSize(-2);
-                  }}
-                >
-                  <Minus size={20} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.fontSizeOption}
-                  onPress={async () => {
-                    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                    adjustFontSize(2);
-                  }}
-                >
-                  <Plus size={20} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
-                </TouchableOpacity>
-                <Text style={styles.fontSizeValue}>{fontSize}</Text>
-              </View>
-            )}
           </View>
 
-          {/* Right side - Other controls */}
-          <View style={[
-            styles.rightControls,
-            isSmallScreen && styles.rightControlsSmall
-          ]}>
+          <View style={styles.controlsCenter}>
             <TouchableOpacity
               style={styles.controlButton}
               onPress={async () => {
                 await Haptics.selectionAsync();
-                cycleDisplayMode();
+                setIsPickerOpen(true);
               }}
             >
-              <View style={styles.languageButton}>
-                <Text style={styles.languageButtonText}>{getDisplayModeIcon()}</Text>
-              </View>
+              <Text style={styles.selectorButtonText}>
+                {language === 'amharic' ? 'መዝሙር ' : 'Hymn '} {hymn.id}
+              </Text>
             </TouchableOpacity>
+          </View>
 
+          <View style={styles.controlsRight}>
             <TouchableOpacity
-              style={styles.controlButton}
+              disabled={!nextId}
+              style={[styles.controlButton, !nextId && styles.controlButtonDisabled]}
               onPress={async () => {
-                await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-                toggleFavorite(hymn.id);
+                if (!nextId) return;
+                await Haptics.selectionAsync();
+                router.replace(`/hymn/${nextId}`);
               }}
             >
-              <Heart
-                size={24}
-                color={isFavorited ? '#D2691E' : (effectiveTheme === 'dark' ? '#FFFFFF' : '#333333')}
-                fill={isFavorited ? '#D2691E' : 'transparent'}
-              />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.controlButton}
-              onPress={handleShare}
-            >
-              <ShareIcon size={22} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
+              <ChevronRight size={22} color={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'} />
             </TouchableOpacity>
           </View>
         </View>
       </View>
+
+      <HymnPickerModal
+        visible={isPickerOpen}
+        onClose={() => setIsPickerOpen(false)}
+        hymns={filteredHymns}
+        currentId={currentId}
+        language={language}
+        contentLanguage={contentLanguage}
+        isDark={effectiveTheme === 'dark'}
+        onSelect={(hid) => router.replace(`/hymn/${hid}`)}
+      />
+
+      <CreditsModal
+        visible={isCreditsOpen}
+        onClose={() => setIsCreditsOpen(false)}
+        hymn={hymn}
+        isDark={effectiveTheme === 'dark'}
+        language={language}
+      />
     </View>
   );
 }
@@ -265,15 +281,19 @@ const createStyles = (isDark: boolean, fontSize: number, isSmallScreen: boolean)
     headerCenter: {
       flex: 1,
     },
+    headerRightGroup: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+    },
+    headerRightButton: {
+      padding: 6,
+    },
     hymnTitle: {
       fontSize: 18,
-      fontWeight: '600',
+      fontWeight: '700',
       color: isDark ? '#FFFFFF' : '#333333',
-      marginBottom: 4,
-    },
-    hymnAuthor: {
-      fontSize: 14,
-      color: '#8B7355',
+      textAlign: 'center',
     },
     content: {
       flex: 1,
@@ -295,13 +315,7 @@ const createStyles = (isDark: boolean, fontSize: number, isSmallScreen: boolean)
       color: isDark ? '#FFFFFF' : '#333333',
       fontWeight: '400',
     },
-    translationText: {
-      fontSize: fontSize - 2,
-      lineHeight: (fontSize - 2) * 1.4,
-      color: '#8B7355',
-      marginTop: 12,
-      fontStyle: 'italic',
-    },
+    // translationText removed since we no longer show both languages at once
     tagsContainer: {
       flexDirection: 'row',
       flexWrap: 'wrap',
@@ -330,8 +344,8 @@ const createStyles = (isDark: boolean, fontSize: number, isSmallScreen: boolean)
       right: 0,
       backgroundColor: isDark ? '#1C1C1C' : '#F5F2E8',
       paddingHorizontal: 12,
-      paddingVertical: 20,
-      paddingBottom: 40,
+      paddingVertical: 14,
+      paddingBottom: 28,
     },
     fontSizeExpanded: {
       flexDirection: 'row',
@@ -358,45 +372,55 @@ const createStyles = (isDark: boolean, fontSize: number, isSmallScreen: boolean)
       color: isDark ? '#FFFFFF' : '#333333',
       fontWeight: '500',
     },
-    controlsContainer: {
+    controlsRow: {
       flexDirection: 'row',
-      justifyContent: 'flex-end',
       alignItems: 'center',
+      justifyContent: 'space-between',
       paddingHorizontal: 12,
     },
-    leftControls: {
-      position: 'absolute',
-      left: 20,
-      flexDirection: 'row',
-      alignItems: 'center',
+    controlsLeft: {
+      width: 80,
+      alignItems: 'flex-start',
+      justifyContent: 'center',
     },
-    rightControls: {
-      flexDirection: 'row',
+    controlsCenter: {
+      flex: 1,
       alignItems: 'center',
-      gap: 8,
+      justifyContent: 'center',
     },
-    rightControlsSmall: {
-      gap: 8,
+    controlsRight: {
+      width: 80,
+      alignItems: 'flex-end',
+      justifyContent: 'center',
     },
     controlButton: {
       padding: 8,
       alignItems: 'center',
       justifyContent: 'center',
     },
-    fontSizeMainText: {
-      fontSize: 20,
+    selectorButtonText: {
+      fontSize: 14,
+      fontWeight: '600',
       color: isDark ? '#FFFFFF' : '#333333',
-      fontWeight: '500',
     },
-    languageButton: {
+    controlButtonDisabled: {
+      opacity: 0.4,
+    },
+    // Modal styles
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.4)',
       alignItems: 'center',
       justifyContent: 'center',
-      minWidth: 40,
+      padding: 20,
     },
-    languageButtonText: {
-      fontSize: 14,
-      color: isDark ? '#FFFFFF' : '#333333',
-      fontWeight: '600',
+    modalCard: {
+      width: '100%',
+      maxHeight: '85%',
+      borderRadius: 16,
+      backgroundColor: isDark ? '#2D2D2D' : '#FFFFFF',
+      padding: 16,
+      paddingBottom: 8,
     },
     errorText: {
       fontSize: 18,
