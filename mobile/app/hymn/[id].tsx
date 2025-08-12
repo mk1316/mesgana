@@ -16,10 +16,10 @@ import HymnPickerModal from '@/components/modals/HymnPickerModal';
 import CreditsModal from '@/components/modals/CreditsModal';
 import { 
   ChevronLeft, 
-  Heart, 
   Share as ShareIcon, 
   ChevronRight
 } from 'lucide-react-native';
+import LikeButton from '@/components/common/LikeButton';
 import { router, useLocalSearchParams } from 'expo-router';
 import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
@@ -136,25 +136,14 @@ export default function HymnDetailScreen() {
           </TouchableOpacity>
         </View>
         <View style={styles.headerRightGroup}>
-          <TouchableOpacity
+          <LikeButton
+            isActive={isFavorited}
+            onToggle={() => toggleFavorite(hymn.id)}
+            size={20}
+            activeColor="#D2691E"
+            inactiveColor={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'}
             style={styles.headerRightButton}
-            onPress={async () => {
-              await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-              Animated.sequence([
-                Animated.spring(likeScale, { toValue: 1.2, useNativeDriver: true, stiffness: 200, damping: 12, mass: 0.5 }),
-                Animated.spring(likeScale, { toValue: 1, useNativeDriver: true, stiffness: 220, damping: 15, mass: 0.7 }),
-              ]).start();
-              toggleFavorite(hymn.id);
-            }}
-          >
-            <Animated.View style={{ transform: [{ scale: likeScale }] }}>
-              <Heart
-                size={20}
-                color={isFavorited ? '#D2691E' : (effectiveTheme === 'dark' ? '#FFFFFF' : '#333333')}
-                fill={isFavorited ? '#D2691E' : 'transparent'}
-              />
-            </Animated.View>
-          </TouchableOpacity>
+          />
           <TouchableOpacity
             style={styles.headerRightButton}
             onPress={handleShare}

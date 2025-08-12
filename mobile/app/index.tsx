@@ -9,7 +9,8 @@ import {
   useColorScheme,
   Pressable,
 } from 'react-native';
-import { Heart, Search, Settings as SettingsIcon } from 'lucide-react-native';
+import {Search, Settings as SettingsIcon } from 'lucide-react-native';
+import LikeButton from '@/components/common/LikeButton';
 import { Animated } from 'react-native';
 import { router } from 'expo-router';
 import { allHymns as hymnsData, categories } from '@/data/hymns';
@@ -112,25 +113,14 @@ export default function HymnsScreen() {
             <Text style={styles.hymnTitle}>{hymn.id}. {title}</Text>
             <Text style={styles.hymnAuthor}>{author}</Text>
           </View>
-          <TouchableOpacity
-            onPress={async () => {
-              await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-              Animated.sequence([
-                Animated.spring(scale, { toValue: 1.2, useNativeDriver: true, stiffness: 200, damping: 12, mass: 0.5 }),
-                Animated.spring(scale, { toValue: 1, useNativeDriver: true, stiffness: 220, damping: 15, mass: 0.7 }),
-              ]).start();
-              toggleFavorite(hymn.id);
-            }}
+          <LikeButton
+            isActive={isFavorited}
+            onToggle={() => toggleFavorite(hymn.id)}
+            size={28}
+            activeColor="#CD7F32"
+            inactiveColor="#8B7355"
             style={styles.favoriteButton}
-          >
-            <Animated.View style={{ transform: [{ scale }] }}>
-              <Heart
-                size={28}
-                color={isFavorited ? '#CD7F32' : '#8B7355'}
-                fill={isFavorited ? '#CD7F32' : 'transparent'}
-              />
-            </Animated.View>
-          </TouchableOpacity>
+          />
         </View>
         <View style={styles.tagsContainer}>
           {hymn.tags.slice(0, 2).map((tag: string) => (

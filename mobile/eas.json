@@ -19,7 +19,8 @@
     "production": {
       "android": {
         "serviceAccountKeyPath": "./ServiceAccountMesgana.json",
-        "track": "internal"
+        "track": "alpha",
+        "releaseStatus": "completed"
       }
     }
   }

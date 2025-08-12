@@ -5,7 +5,6 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  ScrollView,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import type { Hymn } from '@/data/hymns';
@@ -37,7 +36,7 @@ export default function CreditsModal(props: CreditsModalProps) {
           </View>
 
           <View style={styles.contentArea}>
-            <ScrollView style={styles.scrollArea} contentContainerStyle={{ paddingBottom: 0 }} showsVerticalScrollIndicator={false}>
+            <View>
               <View style={styles.row}>
                 <Text style={styles.label}>{label('Hymn', 'መዝሙር')}</Text>
                 <Text style={styles.value}>#{hymn.id}</Text>
@@ -54,7 +53,8 @@ export default function CreditsModal(props: CreditsModalProps) {
 
               <View style={styles.row}>
                 <Text style={styles.label}>{label('Author', 'ደራሲ')}</Text>
-                <Text style={styles.value}>{hymn.author[language]}</Text>
+                <Text style={styles.value}>{hymn.author.english}</Text>
+                <Text style={styles.value}>{hymn.author.amharic}</Text>
               </View>
 
               {hymn.tags?.length > 0 && (
@@ -69,7 +69,7 @@ export default function CreditsModal(props: CreditsModalProps) {
                   </View>
                 </View>
               )}
-            </ScrollView>
+            </View>
           </View>
 
           <TouchableOpacity
@@ -98,8 +98,7 @@ const createStyles = (isDark: boolean) =>
     },
     modalCard: {
       width: '94%',
-      maxWidth: 380,
-      aspectRatio: 1,
+      maxWidth: 420,
       borderRadius: 16,
       backgroundColor: isDark ? '#2D2D2D' : '#FFFFFF',
       padding: 16,
@@ -119,12 +118,7 @@ const createStyles = (isDark: boolean) =>
       width: '100%',
     },
     contentArea: {
-      flex: 1,
-      minHeight: 0,
-    },
-    scrollArea: {
-      flex: 1,
-      minHeight: 0,
+      alignSelf: 'stretch',
     },
     row: {
       flexDirection: 'column',
