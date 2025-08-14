@@ -12,7 +12,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'አንተ ነህ የደስታ ምንጭም ህይወት አንተ ነህ\nበሰማይ እና በምድር ሌላ የለኝም', english: '' },
       { type: 'chorus', amharic: 'የሱስ ክርስቶስ ፀሎቴን ስማኝ\nሌሎች ፀጋህን ሲያገኙ አትለፍብኝ', english: '' }
     ],
-    tags: ['REVIVAL & INVITATION']
+    tags: ['Christian Living']
   },
   {
     id: '52',
@@ -25,7 +25,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ጌታን ማገልገል ትመጣለህን ባፈሰሰልህ\nክቡር ደሙ ምስጋና ለአምላክህ በየቀኑ ስጥ መልካም ኃይል አለው በደሙ።', english: '' },
       { type: 'chorus', amharic: 'ክቡር  ኃይል ኃይል\nአለው በደሙ በክቡር በጉ ደም ኃይል\nሃይል አለው ግሩም ፈዋሽ አዳኝ ደም በአከበረው በጉ ደም', english: '' }
     ],
-    tags: ['REVIVAL & INVITATION']
+    tags: ['Christian Living']
   },
   {
     id: '53',
@@ -38,7 +38,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'የሱስ ነፍሴም ያድናል በእርሱ መንፃት ሆነልኝ\nእኔ በርሱ ድኛለሁ ለበጉ ክብር ይሁን', english: '' },
       { type: 'chorus', amharic: 'ባንተ አምንብሃለሁ ኦ የቀራንዮ በግ\nአንተን እለምናለሁ አድነኝ የሱስ አድነኝ', english: '' }
     ],
-    tags: ['REVIVAL & INVITATION']
+    tags: ['Christian Living']
   },
   {
     id: '54',
@@ -49,7 +49,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'እንዴት ያለ ህይወት ሆነ ለተያዙ በመርገም\nከመከራ ቀንበር ሁሉ በሞተበት ቀን ወጡ\nበደሙ የገዛቸውን ያጠራቸዋል አሁን\nተቀበል የጌታን ጥሪ ጨለማ ሳይደርስብህ።', english: '' },
       { type: 'verse', amharic: 'ማነው አሁን የሚጠራ እየጮኸ በፍቅር\nወደኔ ኑ ሁላችሁ ፀጋዬን ተቀበሉ\nእርሱ ነው መድኃኒታችን ስለ አለም የሞተው\nስለዚህ መጥራቱን አክብር ለዘላለም ልትድን።', english: '' }
     ],
-    tags: ['REVIVAL & INVITATION']
+    tags: ['Christian Living']
   },
   {
     id: '55',
@@ -60,7 +60,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ካለህ የበለጠውን ስጥ ልብህ ለጌታ ይሁን\nበአገልግሎትህ ሁሉ ጌታን አስቀድመው\nአምላክ ወዶህ ልጁን ሰጠህ ፅድቁንም አበራልህ\nየአምላክህን ፍቅር አስብ  የበለጠውን ስጠው', english: '' },
       { type: 'verse', amharic: 'ካለህ የበለጠውን ስጥ ወዶናል ይገባዋል\nላንተ ሲል ህይወቱን ሰዋ የሰማይ ክብሩን ተወ\nሃፍረትህንም ወሰደ ፅድቁን ላንተ ሰጠ\nውለታውን ሁሉ አስብ የበለጠውን ስጠው\nFine\nካለህ የበለጠውን ስጥ ወጣትነህንም\nየአምላክን ጦር እቃ ልበስ እውነትን ይዘህ ገስግስ', english: '' }
     ],
-    tags: ['REVIVAL & INVITATION']
+    tags: ['Christian Living']
   },
   {
     id: '56',
@@ -71,7 +71,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'እሁንም ቃሉን ስሙ ወዳምላክ ተመለሱ\nአሁንም ቃሉን ስሙ ወዳምላክ ተመለሱ\nግሩም ፈቃር ነው ግሩም ፈቃር ነው ጌታችን አድምጹ ቃሉን\nአሁንም ቃሉን ስሙ አሁንም ቃሉን ስሙ\nወዳምላክ ተመለሱ ወዳምላክ ተመለሱ', english: '' },
       { type: 'verse', amharic: 'ይምራል ኃጢአታችሁን ሁለተኛ አያስብም\nይምራል ኃጢአታችሁን ሁለተኛ አያስብም\nህዝቤ ሆይ ኑ ህዝቤ ሆይ ኑ ወደኔ ይጠራል አምላክ\nይምራል ኃጢአታችን ይምራል ኃጢአታችን\nሁለተኛ አያስብም ሁለተኛ አያስብም', english: '' }
     ],
-    tags: ['REVIVAL & INVITATION']
+    tags: ['Christian Living']
   },
   {
     id: '57',
@@ -82,7 +82,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ተስፋቢስ ነበርኹኝ ሊያድነኝ ሲመጣ\nግን እርሱ ነገረኝ ነጻ እንደ ምወጣ\nከዚያም አነሳና በጸጋው አዳነኝ\nእጁን ዘረጋና አዳነኝ', english: '' },
       { type: 'verse', amharic: 'የማይገለጽ ደስታ ሰላምን ሰጠኸኝ\nጌታ ህይወቴን ላንተ አስረክባለሁኝ\nእንግዲህ እጄን ያዝ ካንተም ጋር አኑረኝ\nእጁን ዘረጋና አዳነኝ።\nደሙን ለእኔ አፍስሶ አዳነኝ ደሙን\nለእኔ አፍስሶ አዳነኝ የማልረባም ብሆን\nአምላኬን የማላውቅ እጁን ዘረጋና አዳነኝ።', english: '' }
     ],
-    tags: ['REVIVAL & INVITATION']
+    tags: ['Christian Living']
   },
   {
     id: '58',
@@ -95,7 +95,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'አስገራሚ ፀጋህ ሃብቴ ጌጤ ክብሬ\nየሱስ ለኔ ሞተ ይኸው ነው መዝሙሬ', english: '' },
       { type: 'chorus', amharic: 'የሱስ ከፍሎታል ስለኔ ተሰዶ\nኃጢያቴን አጠበው ነጭ እንደ በረዶ', english: '' }
     ],
-    tags: ['REVIVAL & INVITATION']
+    tags: ['Christian Living']
   },
   {
     id: '59',
@@ -107,7 +107,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'መንፈስን ላክልኝ አሁን ለኔ\nአይኔን እንዲነካኝ እንዲያሳየኝ\nከቃልህ እውነቱን ግለፅልኝ\nበመጽሐፍህ እንዳይህ አድርገኝ', english: '' },
       { type: 'verse', amharic: 'የሕይወት እንጀራ ነህ ጌታዬ\nየቅዱሱ ቃልህ መዳኛዬ\nበልቼው እንድኖር ካንተ ጋር\nእውነትህን አስታውሰኝ ፈቃር አምላክ', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Christian Living']
   },
   {
     id: '60',
@@ -119,7 +119,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'የሱስ ለፀሎት ይጠብቀሃል ከዚያ ልትገናኘው ይሻል\nተምበርክከህ በረከት ተቀበል ከተዋበው የጸሎት ሥፍራ።', english: '' },
       { type: 'chorus', amharic: 'አስገራሚው ስፍራ የሚጸለይበት የተዋበ የጸሎት ስፍራ\nየሱስ ሲጠብቀኝ በሩን ሊከፍትልኝ ወደሚያምረው የጸሎት ሥፍራ።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Christian Living']
   },
   {
     id: '61',
@@ -130,7 +130,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ጥግ ሁነኝ ጌታ ምንም የለኝ ምን ልሰዋ\nለጌታዬ የሱስ በ እርኩስ ነገር\nልቤ ሞላ ዕድልን ስጠኝ መንጻት ሊሆነኝ\nዕድልን ስጠኝ መንጻት ሊሆነኝ።', english: '' },
       { type: 'verse', amharic: 'ጥግ ሁነኝ ጌታ ያንተ ልሁን ስንፍናዬን\nበደስታ ልተው ነኝ ሁሉንም ምቾት\nክብረትንም የተሰቀለውን የሱስን ልይ\nየተሰቀለውን የሱስን ልይ።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '62',
@@ -143,7 +143,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'የተባረከ ሰዓት ነው በጌታ ስናምን\nእርሱ ይሰጠናል የምንፈልገውን\nስቃይ ችግርም ያልፋል በሱ ኃይል ስናምን', english: '' },
       { type: 'chorus', amharic: 'እንዴት ጣፋጭ ዕረፍት ነው በዚያ መሆን ውብ ነው።\nየጸሎት ጊዜ የተባረከ\nእንዴት ጣፋጭ ዕረፍት ነው በዚያ መሆን ውብ ነው።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '63',
@@ -154,7 +154,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'የጸሎት ሰዓት የደስታ ሰዓት ጸሎቴ የሚሰማበት\nአምላኬን የማገኝበት ነፍሴ የምትረካበት\nወደዙፋኑም ከጠራኝ ጽጋዬን ታመንምካለኝ\nችግሬንም እጥላለሁ እርሱንም እለምናለሁ', english: '' },
       { type: 'verse', amharic: 'የጸሎት ሰዓት የምወደው መጽናናቱን ልካፈለው\nየሰማይን ቤት እስካየው ሩጫዬን እስክጨርሰው\nበማይሞት ስጋ እነሳለሁ ዋጋዬንም እወስዳለሁ\nበእልልታም እውላለሁ ሳመሰግን እኖራለሁ', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '64',
@@ -166,7 +166,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ፈቃድህን አድርግ ኦ ጌታ ሆይ መርምረኝ\nእና እርዳኝ ጌታ ኃይል እና ችሎት\nያንተ ናቸው ዳሰኝ ፈውሰኝ መድኃኒቴ', english: '' },
       { type: 'verse', amharic: 'ፈቃድህን አድርግ ኦ ጌታ ሆይ መርምረኝ\nግዛ ሰውነቴን በመንፈስ ሙላኝ\nሁሉ እስኪያይ አንተ መኖርህን በህይወቴ', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '65',
@@ -178,7 +178,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'በብዙ ችግር አልፌ እዚህ ደርሻለሁ\nፀጋው በድል አሳለፈኝ ቤቴም ያደርሰኛል', english: '' },
       { type: 'verse', amharic: 'እንደ ፀሐይ እያበራን  ለዘላለም ስንኖር\nእግዚአብሔርን ለማወደስ ጊዜ አያጥረንም', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '66',
@@ -187,7 +187,7 @@ export const hymns2: Hymn[] = [
     verses: [
       { type: 'verse', amharic: 'ጸሎታችንን ስማ ጌታ ሆይ\nጆሮህን አዘንብል ሰላምህን ስጠን አሜን', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '67',
@@ -200,7 +200,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ምን ያህል ጥልቅ ነው እውነተኛ ምንጭ\nየሚገኝ ካንተ ፍቅር በመጨረሻ ልናገኘው ነው\nከዚያ ስንደርስ', english: '' },
       { type: 'chorus', amharic: 'ወደ አንተ አቅርበኝ ጌታ ወደመስቀልህ ቦታ ወደ\nአንተ አንተ አቅርበኝ ጌታ ወደ መስቀልህ ቦታ', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '68',
@@ -213,7 +213,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'በነቃ ሃሳቤ ሳመሰግን\nከኃዘኔ ሥፍራ ቤቴን ልስራ\nጩኸቴን ለማቅረብ አምላኬ ወዳንተ\nአምላኬ ወዳንተ እቀርባለሁ', english: '' },
       { type: 'verse', amharic: 'ከዚህ በደስታ ወደ ሰማይ\nለመሄድ በ እልልታ እበራለሁ\nመዝሙሬን ስዘምር አምላኬ ወዳንተ\nአምላኬ ወዳንተ እቀርባለሁ', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '69',
@@ -224,7 +224,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'በማይጠቅም ደስታ ዓለም ያታልላል\nበተንኮልም ወጥመድ ሰውን ያጠምዳል\nአስታውሰኝ ያን ጊዜ ጌተሰማኔን\nደግሞም ቀራንዮን የሾህ አክሊልህን', english: '' },
       { type: 'verse', amharic: 'ሐዘንን ችግርን በምህረት ብትሰድ\nህመም ቢደርስብኝ ወዳንተ ስሄድ\nአደራ ጌታ ሆይ እጅህ ይታየኝ\nችግሬን ስነግርህ አምላክ ደግፈኝ', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '70',
@@ -236,7 +236,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'እንደ ጥንቱ ተናገር ምኞትህ ይገለፅ\nተግባሬን ሁሉ ልወቅ ፈቃድህን ልፈፅም\nምራኝ አከብርህ ዘምድም ክብርህን እንዳሳይ\nበደስታ እንድታዘዝ ሁሌም እንዳከብር', english: '' },
       { type: 'chorus', amharic: 'በለዘብታ ንገረኝ በፍቅር ንገረኝ\nታሸንፋለህ በለኝ ነፃም ትወጣለህ\nበየቀኑ ንገረኝ ሁልጊዜ አስታውሰኝ\nአሁን ቃልህን ልስማ አልተውህም ስትል', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Consecration']
   },
   {
     id: '71',
@@ -246,7 +246,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ኦ የሱስ ቅዱስ እጅህ በኔ ላይ ይስፈር\nበሃዘንም በደስታም ከአንተ ዘንድ ልረፍ\nጥበቤም ኃይሌም ጥጌም ሁሉም በ ሁሉ ይሁን\nእኔም በቀን በሌትም ፀጋ ውስጥ ልሁን', english: '' },
       { type: 'verse', amharic: 'ስጠኝ ያንተን ይቅርታ በደምህም አንፃኝ\nአግጋልኝ ቅዱስ ሃሳብ ፈቃድህም ይምራኝ\nሁላችንንም ጠብቅ መለክ በዚህ ይስፈር\nአሁንም በሰላምህ የሱስ እንደር', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '72',
@@ -258,7 +258,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ኦ መንፈስ ቅዱስ መለኮት ና ና ውረድልን\nበኃይልህም አነቃቃን ለፅድቅህም አብቃን', english: '' },
       { type: 'verse', amharic: 'የአምላክ ልጅ ሃሌሉያ በደም የዋጀኸን\nዛሬም ደግሞ አትለየን ለዘላለም አሜን።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '73',
@@ -267,7 +267,7 @@ export const hymns2: Hymn[] = [
     verses: [
         { type: 'verse', amharic: 'የምንሰጥህ ሁሉ ካንተ የመጣ ነው\nያለንም ሁሉ ያንተ ነው አደራ ያልከን ነው።', english: ''}
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '74',
@@ -276,7 +276,7 @@ export const hymns2: Hymn[] = [
     verses: [
         { type: 'verse', amharic: 'በመንፈስህ ሙላኝ በመንፈስህ ሙላኝ\nሁሉን ላንት ልስጥ እርዳኝ በመንፈስህ ሙላኝ', english: ''}
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '75',
@@ -289,7 +289,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ጌታሆይ አታግባን አሁን ከ\nክፉ ፈተና አምላክ አንተ ካልረዳኸን\nኃይል የለንምና ኃይል የለንምና', english: '' },
       { type: 'verse', amharic: 'ኃይልና ምስጋና ክብርም መን\nግሥትም ያንተ ናት አሜን እስከ ዘለዓለም\nይሁንልን እረፍት ይሁንልን ዕረፍት።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '76',
@@ -301,7 +301,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ወንድሜ ሆይ የ ዓለም ደስታ ጥማትህን አያረካም\nስለዚህ ጌታ ያረካሃል ዳግመኛ ከቶ ላትጠማ', english: '' },
       { type: 'chorus', amharic: 'የኔን ፅዋ እንካ ጌታዬ ና ውሰድና ነፍሴን አርካት\nየሰማይን እንጀራ ቆርሰህ ስጠኝ ፅዋዬን ሞልተህ አድነኝ ጌታ', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '77',
@@ -310,7 +310,7 @@ export const hymns2: Hymn[] = [
     verses: [
       { type: 'verse', amharic: 'የበረከት አምላክ የፍቅር አምላክ\nየሰላም ንጉስ የማትለወጠው\nየሱስ ሆይ ናልን ወደኛ።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '78',
@@ -321,7 +321,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'እንድቀደስ እርዳኝ ብሩክ አዳኜ\nኦ አትዘግይብኝ ለውጠኝ ጌታ\nጠባይህን አግባልኝ ሰይጣንን አውጣ\nበክብር ተገለጥ ጨለማን አጥፋ', english: '' },
       { type: 'verse', amharic: 'እንድቀደስ እርዳኝ ኦ ቅዱስ መንፈስ\nና ና ቀድስልኝ የ አንተን መቅደስ\nጣዖትን አስወግድ ዙፋንህ ይምጣ\nአንተ ብቻ ግዛ ስልጣን ያንተ ነው', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '79',
@@ -335,7 +335,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'አምላክ ሆይ የሱስን ልምሰል\nአምላክ ሆይ የሱስን ልምሰል\nአምላክ ሆይ የሱስን ልምሰል', english: '' },
       { type: 'chorus', amharic: 'በልቤ ውስጥ በልቤ ውስጥ በልቤ ውስጥ በልቤ ውስጥ', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '80',
@@ -344,7 +344,7 @@ export const hymns2: Hymn[] = [
     verses: [
       { type: 'verse', amharic: 'ወደ የሱስ ተመልከት ግሩም አስደናቂ ፊቱን የዚህ ዓለም ሐብት ሁሉ\nጠፊ ነው ሁሉም ያልፋል ግርማውን ስናይ።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['Work']
   },
   {
     id: '81',
@@ -355,7 +355,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ጠፋሁኝ ጌታ ካልደረስክልኝ የጽድቅህን መንገድ ካልመራኸኝ\nበኃጢአት ባሕር ልሰጥም ነውና ጌታ ሆይ እባክህ እጄን ያዘኝ\nአትጨክንም የሱስ በኔ በልጅህ ታውቃለህና ጉድለቴን\nጌታ ሆይ አሁን ኃጢአቴን ማረኝ የምመራበትን ብርሃን ስጠኝ።', english: '' },
       { type: 'verse', amharic: 'አየሁ ጌታዬ ወዲህ ሲመጣ እኔኑ ከጥፋት ሊያወጣ ልጁን ላከልኝ\nከሞት አዳነኝ ከእንግዲህስ ከጌታዬ ጋር ነኝ\nቀረት አልልም እርሱ ሲመራኝ እኔኑ ሊወስድ ስለሚያስብ\nመስቀሉ ለኔ ቢከብደኝ እንኳን እርሱን ለመሸከም አልቦዝንም።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['People']
   },
   {
     id: '82',
@@ -367,7 +367,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ኦ የዓለም ክፋት እንዴት ያታላል ኦ ልቤስ እንዴት\nይፈተናል ለየሱስ ልንገር እሱ እንዲረዳኝ\nድል እንዳደርጋት يቺን ዓለም።', english: '' },
       { type: 'chorus', amharic: 'ለየሱስ ልንገር ለየሱስ ልንገር ብቻዬን አልቻልኩ ልሸከመው\nለየሱስ ልንገር ለየሱስ ልንገር የሱስ ብቻ ነው የሚረዳኝ።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['People']
   },
   {
     id: '83',
@@ -377,7 +377,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'በልቤ ውስጥ በልቤ ውስጥ አንተ ግባበት ኦ የሱስ\nግባ ዛሬ ከኔ ጋር ሁን በልቤ ግባ ኦ የሱስ።', english: '' },
       { type: 'verse', amharic: 'በልቤ ውስጥ በልቤ ውስጥ ብርሃንህ ይብራ ኦ የሱስ\nዛሬም ነገም ለዘላለም በልቤ አብራ ኦ የሱስ።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['People']
   },
   {
     id: '84',
@@ -386,7 +386,7 @@ export const hymns2: Hymn[] = [
     verses: [
       { type: 'verse', amharic: 'ጌታ ሆይ ስንጸልይ ሐሳባችንን አርቀው ከከበበን የዓለም ችግር ወዳንተ ፀጋ አቅርበን\nበፍቅርህ ሕይወታችን ለውጥ ነፍሳችንን ከላይ አርካልን በዚህ\nሰዓት ያንተ ልጆች ሁሉ በፀሎት በዙፋንህ ፊት ይምጡ አሜን።', english: '' }
     ],
-    tags: ['PRAYER']
+    tags: ['People']
   },
   {
     id: '85',
@@ -398,7 +398,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'የሱስ የነፍሴ አምባ ስለኔ ሞተሃል እምነቴ\nበዚህ አምባ ለዘላለም ጸንቷል ስለዚህም ልታገሥ\nጨለማ እስኪፈፀም የምታምረውም ንጋት እስክትመጣ ድረስ።', english: '' },
       { type: 'chorus', amharic: 'ልረፍ በየሱስ ክንዶች ልረፍ በእቅፉ በፍቅሩ ከከለለኝ ነፍሴ አትፈራም ከቶ።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['People']
   },
   {
     id: '86',
@@ -410,7 +410,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ባንተ ብቻ ከታመንሁ ሁሉንም አገኛለሁ\nደግፍ የደከሙትን ፈውስ የታመሙትን\nአንተ እውነተኛ ነህ እኔ ኝ ያልነጻሁ ነኝ\nበኃጢዓት የተሞላሁ አንተ ታነጻኛለህ።', english: '' },
       { type: 'verse', amharic: 'በፀጋ የተሞላህ ለኃጢዓት ይቅርታ ሰጭ\nኃጢአቴን አስወግደህ ና በንጽህና ያዘኝ\nአንተ የሕይወት ምንጭ ነህ በነጻ ልቀበልህ\nበልቤ ውስጥም ፍለቅ ለዘላለም ኑርልኝ።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['People']
   },
   {
     id: '87',
@@ -422,7 +422,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ከየሱስ ጋር በሰላም አርፋለሁ በሌት ጨ\nለማ ስከበብ ሣለሁ በደስታ እንደምነቃም\nአውቃለሁ በሚያምረውም ቤት አብሬ እኖራለሁ።', english: '' },
       { type: 'chorus', amharic: 'ከማንም ከምንም ከቶ አልፈራም ከየሱስ በደኅና እሔዳለሁ።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['People']
   },
   {
     id: '88',
@@ -434,7 +434,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'የፍቅር ምስጋና ላቅርብ ለጌታ\nስጦታንም ደግሞ ለፈጣሪዬ\nስለጸጋውም ሁሉ ጸሎትን ላቅርብ\nበሥራዬ ሁሉ እርሱን ደስ ላሰኝ።', english: '' },
       { type: 'verse', amharic: 'ንጽህናን ስጠኝ ኃጢዓትን ልጥላ\nውስጡ ሰውነቴ ደግነት ይምላ\nራሴን ከመውደድ ነፃ አድርገኝ አባት ሆይ\nአሁን መንፈስህን ስጠኝ የሱስን ልምሰል።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['People']
   },
   {
     id: '89',
@@ -445,7 +445,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'አልችልም ብቻዬን ልሔድ ሲንዣበብ የሰማይ ሞገድ\nተጠምደው ሳል ሺህ ወጥመዶች ከበውኝ ሳል ሺህ ጠላቶች\nፀጥ አርግና ይህን ሞገድ ኦ ጌታ ሆይ አብረን እንሒድ።', english: '' },
       { type: 'verse', amharic: 'እጄን በእጅህ ላይ አድርጌ የምድርንም ተድላ ንቄ\nበድፍረት እራመዳለሁ መስቀልህን እሸከማለሁ\nወደ ጽዮን በር እስክደርስ ጌታ ሆይ አብረን እንጓዝ።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['People']
   },
   {
     id: '90',
@@ -457,7 +457,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'አልችልም እኔ ልኖር ብቻዬን ያለየሱስ በዚች ዓለም\nመንገዴ ያለ እርሱ ይጨልማል ልቤም በሐዘን ይጨነቃል።\nብኖርስ እንኳ ያለ መድህኔ በጠራኝ ጊዜ ምን ይዋጠኝ\nበሌላ መንገድ ልሄድ ብሞክር ሕይወት የለኝም ለዘላለም።', english: '' },
       { type: 'verse', amharic: 'የየሱስ መሆን ታላቅ ደስታ ነው ልብ የሚፈውስ ቸር አዳኝ ነው\nኃጢአቴን ሁሉ ይቅር ይለኛል ልቤን በደሙ ያጥብልኛል።\nየሱስን ብይዝ የሱሴን ብቻ ምንም ባልፈልግ\nከርሱ ሌላ የሚያስፈልገኝ ይሰጠኛል ለዘላለም ይጠብቀኛል።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['People']
   },
   {
     id: '91',
@@ -469,7 +469,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'እንግዲህ እንዘምር እንባችንም ይድረቅ\nባማኑኤል መንገድ ላይ ነን ድንገት ፈርተን እንዳንወድቅ\nስንጓዝ ወደርሱ ወዳማረው አገር።', english: '' },
       { type: 'chorus', amharic: 'ወደ ጽዮን እንጓዝ ወደዚያች ኢየሩሳሌም\nእንገስግስ ወደ ጽዮን ወዳምላካችን ከተማ።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   {
     id: '92',
@@ -482,7 +482,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'መድኃኒቴን አልለይም ዓይኖቹ እንዲመሩኝ\nወደ ዮርዳኖስ ሊያደርሰኝ ወዲያ ማዶ ሊያሻግረኝ።', english: '' },
       { type: 'chorus', amharic: 'አሁን ነፍሴ አትፈራም የሱሴ ይመራኛል በደስታም እታዘዛለሁ እርሱን እከተላለሁ።\nአሁን ነፍሴ አትፈራም አትፈራም የሱሴ ይመራኛል ይመራኛል', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   {
     id: '93',
@@ -493,7 +493,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'አምላካችን ሀዘንን ሁሉ ያያል የልብን ጩኸት ይሰማል\nየሚያድስ ኃይልም ይሰድልሃል በእምነት ብቻ ተቀበል\nአንተን ይወዳል በፍቅሩም ይጠራል የነፍስን ጥፋት ከቶ አልወደደም\nስለዚህ የሱስን ሊሰዋ ላከው በሞቱም ሁሉን አዳነ።', english: '' },
       { type: 'verse', amharic: 'ባጭሩ ዘመን በእግድነት ኑሮህ ጨለማ ብቻ የሞላ\nወደ ላይ አሻቅበህ የሱስን እይ ጨለማውንም ያጠፋል\nተስፋ አድርገው ለሁሉ ዘመንህ እርሱ ኃይልህ ነው\nከሞትህ ያዳነህ ብርሃኑ ይሠራል በልብህ ገብቶ ዕውርነትህን ያበራል።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   {
     id: '94',
@@ -506,7 +506,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'እላይ መድረስ እሻለሁ የክብሩን ብርሃን አያለሁ\nግን ከዚያ ላይ እስከምደርስ አምላክ ከኔ አትመለስ።', english: '' },
       { type: 'chorus', amharic: 'አምላኬ ሆይ ና አቁመኝ በሰማይ ሜዳ አድርሰኝ\nአምላኬ ደህና አዝልቀኝ ከላይኛው ሜዳ አድርሰኝ።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   {
     id: '95',
@@ -518,7 +518,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ምናልባት ጨለማ ይሆንብናል የሚፈትነን ኃዘን ይመጣል\nክቡር አዳኛችን ጠባቂያችን ነው ስለዚህ ና አገልግለው።', english: '' },
       { type: 'chorus', amharic: 'የሱስን አገልግል ዕድሜህን ሁሉ ዋጋ ታገኛለህና\nበመንገድህ እንኳ ችግር ቢያገኝህ እርሱ ጋሻ ይሆንልሃል።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   {
     id: '96',
@@ -530,7 +530,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ሥራዬ እዚህ ከፈጸምሁ በፀጋህ ድልን ካገኘሁ\nአልፈራም ሞት ቢመጣብኝ ዮርዳኖስን ካሻገርኸኝ።', english: '' },
       { type: 'chorus', amharic: 'ይመራኛል ይመራኛል በገዛ እጁ ይመራኛል\nተከታዩ እሆናለሁ በርሱ እጅ ከተመራሁ።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   {
     id: '97',
@@ -542,7 +542,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'አብሬው እቀመጣለሁ ቀን አልፎ ጨለማ ቢሆንም\nፈተናን እንዳልፍ ይፈልገኛል በየዋህ ድምፅ ይጠራኛል።', english: '' },
       { type: 'chorus', amharic: 'ከኔ ጋር ሲጓዝ ሲያነጋግረኝ የራሱ እንደሆንሁ ሲነግረኝ\nአብረንም ሣለን ደስታ አገኘን ማንም ያላገኘውን።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   {
     id: '98',
@@ -555,7 +555,7 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ለወደፊት የሚመጣ ኃዘን ወይም ደስታ\nካንተ ሊለየኝ አይችልም የኔ ተስፋ አንተ ነህ።', english: '' },
       { type: 'chorus', amharic: 'በየሰዓት በየሰዐቱ መድኃኒቴን እሻዋለሁ።\nበየሰዓት በየሰዓቱ መድኃኒቴን እሻለሁ።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   {
     id: '99',
@@ -568,13 +568,18 @@ export const hymns2: Hymn[] = [
       { type: 'verse', amharic: 'ጦርነቱ ቢበረታም እርዳታ ቀርቧል\nአዛዣችን አሁን መጥቶ አይዞአችሁ ይላል።', english: '' },
       { type: 'chorus', amharic: 'ጠንክሩ እየመጣሁ ነኝ ይላል ጌታችን\nእንሰራለን ጌታ የሱስ በፀጋህ እርዳን።', english: '' }
     ],
-    tags: ['CHRISTIAN LIVING']
+    tags: ['Hope']
   },
   { 
     id: '100',
     title: { amharic: 'መንገዱን በደስታ አብሩ', english: 'Brighten the Way with a Smile' },
-    author: { amharic: '', english: '' }, 
-    verses: [], 
-    tags: ['CHRISTIAN LIVING'] 
+    author: { amharic: '', english: 'W C Martin\nJ Lincoln Hall' }, 
+    verses: [
+      { type: 'verse', amharic: 'ዛሬ በጣም የሚያዝኑትን ልቦች ሁሉ ሁል ጊዜም በሀዘን የተሞሉ\nየአምላክን ተስፋ ሰባኮች ንገሩ በደስታም መንገዱን አብሩ።', english: '' },
+      { type: 'verse', amharic: 'ሸክማቸው የበዛባቸውንም ሁሉ በኃጢዓት ሁሉም የተሞሉ\nእላንት የአምላክን ተስፋ ተናገሩ በደስታም መንገዱን አብሩ።', english: '' },
+      { type: 'verse', amharic: 'ሰዎች ከጨለማ መውጣት ሲደክማቸው ፈታኝውም ሲፈትናቸው\nእላንት የአምላክን ተስፋ ተናገሩ በደስታም መንገዱን አብሩ።', english: '' },
+      { type: 'chorus', amharic: 'መንገዱን በደስታ አብሩ ጨለማን በብርሃን አብሩ\nያዘኑን በገርነት አስደስቱ መንገዱን በደስታ አብሩ።', english: '' }
+    ], 
+    tags: ['Hope'] 
   }
 ];

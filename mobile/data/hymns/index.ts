@@ -1,7 +1,6 @@
 // Imports
 import { Hymn } from './types';
 
-
 import { hymns1 } from './hymns1';
 import { hymns2 } from './hymns2';
 import { hymns3 } from './hymns3';
@@ -36,8 +35,33 @@ export type { Hymn } from './types';
 export const categories = [
   'Favorites',
   'Praise',
+  'Worship',
+  'Revival',
+  'Repentance',
+  'Prayer',
+  'Christian Living',
   'Consecration',
+  'Work',
+  'People',
+  'Hope',
+  'Happiness',
+  'Peace',
+  'Love',
   'Salvation',
+  'Cross',
+  'Sabbath',
+  'God\'s Word',
+  'Christian Warfare',
+  'Judgment',
+  'Second Coming',
+  'Heavenly Home',
+  'Young People',
   'Nature',
+  'Children\'s Songs',
+  'Wedding',
+  'Christmas',
   'Trust',
+  'Ordinances',
+  'Resurrection',
+  'Farewell',
 ];

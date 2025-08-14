@@ -11,7 +11,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'የነገውም ምንም አላውቅ ያደኸየኝ\nይሆናል ግን ወፏን የሚመግባት\nባጠገቤ ይቆማል። የኔም ፈንታ ጎዳናዬም\nነበልባል ወይም ጎርፍ ነው ሆኖም እርሱ\nከኔ ጋር ነው በደሙም ተሸፈንሁኝ', english: '' },
       { type: 'chorus', amharic: 'ያን ሁሉ የነገ ጣጣ የማውቀው\nአይመስለኝም ግን ባለቤቱን\nአውቃለሁ ዛሬንም ያቆመውን።', english: '' }
     ],
-    tags: ['TRUST & ASSURANCE']
+    tags: []
   },
   {
     id: '306',
@@ -25,7 +25,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'በቅዱስ አንድነት አብረን ስንቀመጥ ከርሱ ጋራ\nአብረንም ስንሔድ ሕጉን እየሠራን ከርሱ ጋር ስንኖር\nእርሱም ከሚያምኑት ጋር ይሆናል።', english: '' },
       { type: 'chorus', amharic: 'እንታመን እርሱን እንታዘዝ\nሌላ መንገድ የለንም ሰላምን የሚሰጥ', english: '' }
     ],
-    tags: ['TRUST & ASSURANCE']
+    tags: []
   },
   {
     id: '307',
@@ -37,7 +37,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ምሽግና መጠጊያችን ማዕበሉ ሲነሳብን\nጠባቂያችን አምባችን ሁን ማዕበሉ ሲነሳብን', english: '' },
       { type: 'chorus', amharic: 'ማረፊያችን ስንደክም መጠጊያችን ስንፈራ\nአይጥለንም ታማኝ መሪያችን ማዕበሉ ሲነሳብን', english: '' }
     ],
-    tags: ['TRUST & ASSURANCE']
+    tags: []
   },
   {
     id: '308',
@@ -48,7 +48,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ሥራ ብታጣ ጭንቀት ቢይዝህ ተራራ\nከፊትህ ቢታይህ ቀኑም የጨለመብህ\nቢመስልህ የሱስ ኣለልህ ካጠገብህ', english: '' },
       { type: 'verse', amharic: 'ዘመዶችህ ቢረሱህ ቢተዉህ ጓደኞችህ\nሁሉ ቢንቁህ የሚረዳህም አንዳች\nባታገኝ ይልሃል የሱስ ካንተ ጋር ነኝ\nአንዳንድ ጊዜ ፈተና ሲገጥምህ መከራ\nችግር ሲበዛብህ አንድ እንኳ ብታጣ የሚ\nረዳህ የሱስ አለልህ ካጠገብህ', english: '' }
     ],
-    tags: ['TRUST & ASSURANCE']
+    tags: []
   },
   {
     id: '309',
@@ -57,7 +57,7 @@ export const hymns7: Hymn[] = [
     verses: [
       { type: 'verse', amharic: 'አስቀድማችሁ የእግዚአብሔርን መንግሥት\nፅድቁንም እሹ\nሌላው ሁሉ ይጨምርላችኋል\nሃሌ ሉ ሃሌ ሉያ።', english: '' }
     ],
-    tags: ['TRUST & ASSURANCE']
+    tags: []
   },
   {
     id: '310',
@@ -68,7 +68,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ሌሎች ባይፈቅዱ እከተላለሁ\nሌሎች ባይፈቅዱ እከተላለሁ\nሌሎች ባይፈቅዱ እከተላለሁ', english: '' },
       { type: 'verse', amharic: 'መስቀል ከፊቴ ዓለም ከኋላ\nመስቀል ከፊቴ ዓለም ከኋላ\nመስቀል ከፊቴ ዓለም ከኋላ\nወደኋላ አልመለስም።', english: '' }
     ],
-    tags: ['TRUST & ASSURANCE']
+    tags: []
   },
   {
     id: '311',
@@ -81,7 +81,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ፀጋውም አስገራሚ ነው ደሙን አፈሰሰ\nየሱስን ብቻ ማወቅ ነው ለኔ ተሰቀለ', english: '' },
       { type: 'chorus', amharic: 'የሚያነፃውን ምንጭ አየሁ ከዚያም በመጥለሜ ነፃሁ\nምስጋና ይሁን ላነፃኝ አነፃኝ በጣም አነፃኝ', english: '' }
     ],
-    tags: ['ORDINANCES']
+    tags: []
   },
   {
     id: '312',
@@ -94,7 +94,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'አስታራቂው ጌታ በፀጋው የሚያድን\nያምላክ ፀጋ መልካሙ ደስታ ብርታታችን', english: '' },
       { type: 'chorus', amharic: 'ጌታ ሆይ አሁን ወዳንተ መጣሁ\nአንፃኝ በክቡር ደምህ ካንተ በፈሰሰው።', english: '' }
     ],
-    tags: ['ORDINANCES']
+    tags: []
   },
   {
     id: '313',
@@ -106,7 +106,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'አንተ የሞትህልኝ ጠቦት የደምህ ኃይል አለው\nየሚሞቱ ሰዎች ሁሉ እስኪነጹ ድረስ\nእስኪነጹ ድረስ እስኪነጹ ድረስ\nየሚሞቱ ሰዎች ሁሉ እስኪነጹ ድረስ', english: '' },
       { type: 'verse', amharic: 'ያን ምንጭ አየሁ በሃይማኖት ያዳነኝን ከሞት\nየገዛኝ ፍቅሩ ብቻ ነው ነፍሴን የሚያረካው\nነፍሴን የሚያረካው ነፍሴን የሚያረካው\nየገዛኝ ፍቅሩ ብቻ ነው ነፍሴን የሚያረካው', english: '' }
     ],
-    tags: ['ORDINANCES']
+    tags: []
   },
   {
     id: '314',
@@ -118,7 +118,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'የምሰጥህ የለኝም መስቀልህን ብቻ አምናለሁ\nአንተን ብቻ አመንሁኝ ፀጋህ ብቻ ያድነኝ\nከኃጢዓቴ እጠበኝ ያለዚያ እኔ ጠፊ ነኝ', english: '' },
       { type: 'verse', amharic: 'ሲያልፍ ሣለ ይኸ ሕይወት ዓይኔ ሲዘጋ በሞት\nበዚፋንህ ፊት ለፍርድ በምቀርብበቱ ቀን\nአምባዬ ከመከራ ባንተ ጥላ ሸሽገኝ', english: '' }
     ],
-    tags: ['ORDINANCES']
+    tags: []
   },
   {
     id: '315',
@@ -130,7 +130,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ጸሐይዋ ጠልቃ በጁ ሲመራኝ ወዳባቴ\nልብ ሊያቀርበኝ አብን አይቼው\nሊያነጋግረኝ ለዘልዓለም ሣይለየኝ', english: '' },
       { type: 'verse', amharic: 'ጸሐይዋ ጠልቃ ሙታን ሲነሱ ደግሞ እንደገና\nላያለቅሱ በመልካሟ አገር አንለያይም\nአብረን ልንኖር ለዘላለም', english: '' }
     ],
-    tags: ['RESURRECTION']
+    tags: []
   },
   {
     id: '316',
@@ -142,7 +142,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'በተሸከመው ስቃይ ሃሌ ሉያ\nአገኘን መድኅን ከላይ ሃሌ ሉያ\nአሁን በሰማይ ነግሷል ሃሌ ሉያ\nበክብር ተወድሷል ሃሌ ሉያ', english: '' },
       { type: 'verse', amharic: 'ምስጋና ይሁን ለአብ ሃሌ ሉያ\nወልድን ስላስነሣልን ሃሌ ሉያ\nመንፈስን አወድሱ ሃሌ ሉያ\nአንድ አምላክን ሞገሱ ሃሌ ሉያ', english: '' }
     ],
-    tags: ['RESURRECTION']
+    tags: []
   },
   {
     id: '317',
@@ -154,7 +154,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ክርስቲያን ሆይ ደስ ይበልህ ዘምር በደስታ\nለንጉሣችን የሱስ ክብር ሃሌ ሉያ\nለፈለጉት ተስፋ ነው ላገኙትም ተድላ\nአፍቃሪና ቸር ጌታ ሌላ አይገኝም', english: '' },
       { type: 'chorus', amharic: 'የሱስ ክርስቶስ ሕያው ነው ዘላለም አብረን\nስንሄድ ሊያነጋግረኝ በሕይወት ጎዳና\nሕያው ክርስቶስ ሕይወትን ይሰጣል\nብትጠይቀኝ እንዴት ብለህ ሕይወቴ ይነግራል', english: '' }
     ],
-    tags: ['RESURRECTION']
+    tags: []
   },
   {
     id: '318',
@@ -166,7 +166,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ሞትን አሸነፈ የዓለም መድኅን ሕንፃ\nፈነቀለ መድሕናችን', english: '' },
       { type: 'chorus', amharic: 'ከመቃብር ተነሣ ድል ነስቶልን\nበጠላቱ ላይ ተነሣ ድል ነስቶ ለኛ\nተነሣ ለዘላለም ሊነግሥልን በሰማይ ተነሣ\nተነሣ ድል ነስቶልን ተነሣ', english: '' }
     ],
-    tags: ['RESURRECTION']
+    tags: []
   },
   {
     id: '319',
@@ -178,7 +178,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'አምላክን በመዝሙር አመስግኑት የተሰጠን\nመንፈስ ታላቅ ነውና ሕይወታችንን በደስታ\nለማርካት ተስፋችንን በርሲ እንድንጸና', english: '' },
       { type: 'verse', amharic: 'የሱስ የኃዘንን ጨለማ አጠፋ የሰማያዊ\nክብሩን ሊያካፍለን ድል ስለነሣ ደስ ይበላችሁ\nሞትን አሸንፎ የሱስ ተነሥቷል', english: '' }
     ],
-    tags: ['RESURRECTION']
+    tags: []
   },
   {
     id: '320',
@@ -189,7 +189,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ሃሌ ሉያ አሁን እኛ ያ ሐዘን የለብንም\nሃሌ ሉያ ቅርባችን ነው ጥርጥር የለብንም\nበደመና ቢነጠቅም በነዚያ በአርባ ቀናት\nየርሱን ተስፋ አንረሳም ሁልጊዜ ከኛ ጋር ነው', english: '' },
       { type: 'verse', amharic: 'ሃሌ ሉያ ህብስታችን አንተ ለኛ ምግብ ነህ\nሃሌ ሉያ አምባችን ነህ የዕለት መጠጊያችን\nአስታራቂ ወዳጃችን ጌታችን ሆይ አማልደን\nየቅዱሳን መዝሙር ሁሉ ባሕር ተሻግሮ ሄደ', english: '' }
     ],
-    tags: ['RESURRECTION']
+    tags: []
   },
   {
     id: '321',
@@ -201,7 +201,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ስንሰበሰብ በኤድን አንድ ቀን ከነቢያት እና ቅዱሳን\nታናሽ ልጆች የሞቱ በሃይማኖት ይቆማሉ በዙፋኑ ፊት', english: '' },
       { type: 'chorus', amharic: 'በኤድን አንድ ቀን በኤድን አንድ ቀን\nመከራና ሐዘን ይጨረሣል በሰማይ ዳርቻ አንድ ቀን', english: '' }
     ],
-    tags: ['RESURRECTION']
+    tags: []
   },
   {
     id: '322',
@@ -214,7 +214,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'እግዚአብሔር ከላንተ ጋር ይሁን ፍቅሩን ይለግስላችሁ\nእስክንገናኝ በየሱስ ፊት', english: '' },
       { type: 'chorus', amharic: 'በሰማይ በሰማይ በሰማይ እስክንገናኝ\nበሰማይ በሰማይ ኦ አምላክ ሆይ አትለየን', english: '' }
     ],
-    tags: ['FAREWELL']
+    tags: []
   },
   {
     id: '323',
@@ -227,7 +227,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'መብራቴን አብርቼ ቀኑን መጠበቅ ብቻ አለብኝ\nመድኃኒቴ በሩን ሲከፍት ያኔ ወደርሱ እንድሸሽ', english: '' },
       { type: 'chorus', amharic: 'ፊት ለፊትም አየዋለሁ\nየፀጋው ታሪክም ይህ ነው ፊት ለፊት\nትም አየዋለሁ በፀጋው መዳን ለዚህ ነው', english: '' }
     ],
-    tags: ['FAREWELL']
+    tags: []
   },
   {
     id: '324',
@@ -239,7 +239,7 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'ከሙሴ ቦታ ስንደርስ በሩቅም ሲታየን\nየዓለም ምኞት ይቅርብን ከቶ አያባብለን', english: '' },
       { type: 'chorus', amharic: 'በዓለም ላይ ስንራመድ የእርሱን ድምፅ እንሰማለን\nከየሱስ ጋር እንነግሣለን ከቶ ከቶ አንለይም\nኦ አንለያይም ኦ አንለያይም\nኦ አንለያይም ኦ አንለያይም\nከየሱስ ጋር እንነግሳለን ከቶ ከቶ አንለይም', english: '' }
     ],
-    tags: ['FAREWELL']
+    tags: []
   },
   {
     id: '325',
@@ -251,6 +251,6 @@ export const hymns7: Hymn[] = [
       { type: 'verse', amharic: 'በየሱስ ተኙ በሰላም ኋላ\nሊነሱ በክብር በዚያ ሰዓት አንፈራም\nየመድኅን ኃይል ይገለጣል', english: '' },
       { type: 'verse', amharic: 'በየሱስ ተኙ ነቅተው የመለከት\nድምፅ ሲሰሙ መቃብር አይችላቸውም\nሕያው ይሆናሉ ሙታን', english: '' }
     ],
-    tags: ['FAREWELL']
+    tags: []
   }
 ];
