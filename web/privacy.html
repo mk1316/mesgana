@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Mesgana</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to Mesgana</a>
+            <h1>Privacy Policy</h1>
+            <p><strong>Last updated:</strong> July 2025</p>
+        </header>
+        
+        <div class="content">
+            <h2>Introduction</h2>
+            <p>Mesgana ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our Ethiopian Hymnal mobile application.</p>
+            
+            <h2>Information We Collect</h2>
+            
+            <h3>Local Storage Only</h3>
+            <p>Mesgana operates entirely on your device and does not collect or transmit any personal information to external servers. We only store the following information locally on your device:</p>
+            
+            <ul>
+                <li><strong>App Preferences:</strong> Language settings (English/Amharic), theme preferences (light/dark/system), and font size settings</li>
+                <li><strong>Favorites:</strong> List of hymns you've marked as favorites</li>
+                <li><strong>App Settings:</strong> Any other preferences you configure within the app</li>
+            </ul>
+
+            
+            <h2>How We Use Information</h2>
+            <p>Since all data is stored locally on your device, we do not have access to or use any of your information. Your preferences and favorites are used solely to:</p>
+            
+            <ul>
+                <li>Display hymns in your preferred language</li>
+                <li>Apply your chosen theme and font size</li>
+                <li>Show your favorite hymns in the favorites section</li>
+                <li>Provide a personalized user experience</li>
+            </ul>
+            
+            <h2>Data Storage and Security</h2>
+            <div class="highlight">
+                <ul>
+                    <li>All data is stored locally on your device using secure local storage</li>
+                    <li>No data is transmitted to external servers</li>
+                    <li>Your information remains on your device and is not shared with us or third parties</li>
+                    <li>You can delete all app data by uninstalling the app</li>
+                </ul>
+            </div>
+            
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p><strong>Email:</strong> <a href="mailto:support@mesgana.com">support@mesgana.com</a></p>
+            </div>
+            
+            
+            <p><em>This Privacy Policy is effective as of the date listed above and applies to all users of the Mesgana app.</em></p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Mesgana. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Dark mode detection and application
+        function applyTheme() {
+            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        }
+
+        // Apply theme on load
+        applyTheme();
+
+        // Listen for theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+    </script>
+</body>
+</html>
