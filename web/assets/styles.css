@@ -1,26 +1,26 @@
-/* Complete styles for Mesgana web application */
+/* Complete styles for Mesgana web application - Dark Theme */
 :root {
-    --bg-primary: #F5F2E8;
-    --bg-secondary: #FFFFFF;
-    --text-primary: #333333;
-    --text-secondary: #8B7355;
-    --accent: #D2691E;
-    --accent-hover: #B8860B;
-    --border: #E8E0D0;
-    --shadow: rgba(0,0,0,0.1);
-    --highlight: #F0EDE5;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #262626;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a8abb0;
+    --accent: #ff6d5a;
+    --accent-hover: #e55a47;
+    --border: #404040;
+    --shadow: rgba(99, 77, 255, 0.15);
+    --highlight: #2a2a2a;
 }
 
-[data-theme="dark"] {
-    --bg-primary: #1C1C1C;
-    --bg-secondary: #2D2D2D;
-    --text-primary: #FFFFFF;
-    --text-secondary: #CCCCCC;
-    --accent: #D2691E;
-    --accent-hover: #B8860B;
-    --border: #404040;
-    --shadow: rgba(0,0,0,0.3);
-    --highlight: #404040;
+[data-theme="light"] {
+    --bg-primary: #fbfcfe;
+    --bg-secondary: #ffffff;
+    --text-primary: #525356;
+    --text-secondary: #7e8186;
+    --accent: #ff6d5a;
+    --accent-hover: #e55a47;
+    --border: #dbdfe7;
+    --shadow: rgba(99, 77, 255, 0.06);
+    --highlight: #f8f9fa;
 }
 
 * {
@@ -30,7 +30,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
@@ -74,6 +74,7 @@ h1 {
     border-radius: 12px;
     margin: 30px 0;
     box-shadow: 0 2px 4px var(--shadow);
+    border: 1px solid var(--border);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -101,6 +102,7 @@ h1 {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 2px 4px var(--shadow);
+    border: 1px solid var(--border);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -122,6 +124,7 @@ h1 {
     background: var(--bg-secondary);
     border-radius: 12px;
     box-shadow: 0 2px 4px var(--shadow);
+    border: 1px solid var(--border);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -180,8 +183,6 @@ h1 {
     transform: translateY(-1px);
 }
 
-
-
 footer {
     text-align: center;
     padding: 20px;
@@ -221,6 +222,7 @@ footer {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 2px 4px var(--shadow);
+    border: 1px solid var(--border);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -277,6 +279,24 @@ footer {
     text-decoration: underline;
 }
 
+/* Theme toggle button (if needed) */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--highlight);
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 15px;
@@ -300,5 +320,14 @@ footer {
     
     .feature {
         padding: 15px;
+    }
+    
+    .theme-toggle {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 20px auto;
+        display: block;
+        width: fit-content;
     }
 }
