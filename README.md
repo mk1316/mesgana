@@ -1,13 +1,13 @@
 <p align="center">
-  <a href="https://play.google.com/store/apps/details?id=com.mesgana.app" target="_blank">
-    <img src="https://img.shields.io/badge/Android%20Play%20Store-Closed%20Testing-orange?logo=google-play&logoColor=white&style=for-the-badge" alt="Android Play Store Closed Testing"/>
+  <a href="https://apps.apple.com/us/app/mesgana/id6747017556" target="_blank">
+    <img src="https://img.shields.io/badge/iOS%20App%20Store-Download%20Now-green?logo=apple&logoColor=white&style=for-the-badge" alt="iOS App Store"/>
   </a>
-  <a href="https://play.google.com/apps/testing/com.mesgana.app" target="_blank">
-    <img src="https://img.shields.io/badge/Web%20Closed%20Testing-Click%20Here-blue?logo=google-chrome&logoColor=white&style=for-the-badge" alt="Web Closed Testing"/>
+  <a href="https://form.typeform.com/to/kx1lHXhK" target="_blank">
+    <img src="https://img.shields.io/badge/Android%20Beta-Join%20Testing-orange?logo=android&logoColor=white&style=for-the-badge" alt="Android Beta Testing"/>
   </a>
 </p>
 <p align="center">
-  <b>Note:</b> Access to closed testing requires your Google account to be added as a tester. Please contact the project maintainer to request access.
+  <b>Note:</b> Android app is currently in closed beta testing. Join the waitlist to get early access.
 </p>
 
 # Mesgana - Multilingual Hymnal App
@@ -124,6 +124,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Email**: support@mesgana.com
 - **GitHub**: [https://github.com/mk1316/mesgana](https://github.com/mk1316/mesgana)
-- **App Store**: Coming soon
+- **App Store**: [Download Mesgana for iOS](https://apps.apple.com/us/app/mesgana/id6747017556)
 - **Play Store**: [https://play.google.com/store/apps/details?id=com.mesgana.app](https://play.google.com/store/apps/details?id=com.mesgana.app)
-- **Android Closed Testing**: [https://play.google.com/apps/testing/com.mesgana.app](https://play.google.com/apps/testing/com.mesgana.app)
+- **Android Beta Testing**: [Join Android Beta](https://form.typeform.com/to/kx1lHXhK)
