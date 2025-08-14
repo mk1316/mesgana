@@ -20,12 +20,6 @@
       "destination": "/privacy.html"
     }
   ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
