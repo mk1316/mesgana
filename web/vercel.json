@@ -4,6 +4,10 @@
     {
       "src": "*.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*",
+      "use": "@vercel/static"
     }
   ],
   "rewrites": [
@@ -14,6 +18,12 @@
     {
       "source": "/privacy",
       "destination": "/privacy.html"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
     }
   ],
   "headers": [
