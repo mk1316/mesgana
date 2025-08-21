@@ -19,7 +19,7 @@ export default function DownloadSection() {
           {/* iOS Download Button */}
           <Button
             size="lg"
-            className="!w-full !min-w-0 !shrink !bg-mesgana-accent hover:!bg-mesgana-accent-hover text-white text-base sm:text-lg font-bold !px-6 sm:!px-16 !py-4 sm:!py-6 !h-auto shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-200 sm:!w-auto sm:!min-w-[280px]"
+            className="!w-full !min-w-0 !shrink !bg-[#ff8c42] hover:!bg-[#e67e3a] text-white text-base sm:text-lg font-bold !px-6 sm:!px-16 !py-4 sm:!py-6 !h-auto shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-200 sm:!w-auto sm:!min-w-[280px]"
             asChild
           >
             <a href="https://apps.apple.com/us/app/mesgana/id6747017556" className="flex items-center justify-center w-full">
@@ -32,7 +32,7 @@ export default function DownloadSection() {
           <Button
             size="lg"
             variant="outline"
-            className="!w-full !min-w-0 !shrink !border-2 !border-mesgana-accent text-mesgana-accent hover:!bg-mesgana-accent hover:!text-white text-base sm:text-lg font-bold !px-6 sm:!px-16 !py-4 sm:!py-6 !h-auto shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 sm:!w-auto sm:!min-w-[280px]"
+            className="!w-full !min-w-0 !shrink !border-0 !bg-[#ff8c42] hover:!bg-[#e67e3a] text-white text-base sm:text-lg font-bold !px-6 sm:!px-16 !py-4 sm:!py-6 !h-auto shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 sm:!w-auto sm:!min-w-[280px]"
             asChild
           >
             <a href="https://mk1316.app.n8n.cloud/form/865f844c-fe75-452b-8bd0-4c209f5bc89c" className="flex items-center justify-center w-full">
