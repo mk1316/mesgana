@@ -4,6 +4,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
 ) {
+  console.log('GET request to PostHog API route:', request.url);
   const resolvedParams = await params;
   return handlePostHogRequest(request, resolvedParams.path, 'GET');
 }
@@ -12,6 +13,7 @@ export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
 ) {
+  console.log('POST request to PostHog API route:', request.url);
   const resolvedParams = await params;
   return handlePostHogRequest(request, resolvedParams.path, 'POST');
 }
@@ -24,6 +26,8 @@ async function handlePostHogRequest(
   const path = pathSegments.join('/');
   const url = new URL(request.url);
   const searchParams = url.searchParams.toString();
+  
+  console.log(`Handling ${method} request for path: ${path}`);
   
   // Determine the correct PostHog endpoint
   let posthogUrl: string;
@@ -43,6 +47,8 @@ async function handlePostHogRequest(
   if (searchParams) {
     posthogUrl += `?${searchParams}`;
   }
+  
+  console.log(`Proxying to: ${posthogUrl}`);
   
   try {
     const headers = new Headers();
@@ -70,6 +76,8 @@ async function handlePostHogRequest(
     
     const response = await fetch(posthogUrl, requestOptions);
     
+    console.log(`PostHog response status: ${response.status}`);
+    
     // Create response with the same status and headers
     const responseHeaders = new Headers();
     response.headers.forEach((value, key) => {
@@ -92,6 +100,7 @@ async function handlePostHogRequest(
 }
 
 export async function OPTIONS() {
+  console.log('OPTIONS request to PostHog API route');
   return new NextResponse(null, {
     status: 200,
     headers: {
