@@ -2,16 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { path: string[] } }
+  { params }: { params: Promise<{ path: string[] }> }
 ) {
-  return handlePostHogRequest(request, params.path, 'GET');
+  const resolvedParams = await params;
+  return handlePostHogRequest(request, resolvedParams.path, 'GET');
 }
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { path: string[] } }
+  { params }: { params: Promise<{ path: string[] }> }
 ) {
-  return handlePostHogRequest(request, params.path, 'POST');
+  const resolvedParams = await params;
+  return handlePostHogRequest(request, resolvedParams.path, 'POST');
 }
 
 async function handlePostHogRequest(
