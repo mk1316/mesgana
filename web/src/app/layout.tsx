@@ -18,25 +18,14 @@ export const metadata: Metadata = {
   keywords: ["Mesgana", "Amharic", "SDA", "Hymnal", "Ethiopian", "Seventh-day Adventist", "Worship", "Hymns"],
   authors: [{ name: "Mesgana Team" }],
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
   openGraph: {
     title: "Mesgana - The Amharic SDA Hymnal",
     description: "Download Mesgana, the digital hymnal for Amharic-speaking Seventh-day Adventist communities worldwide.",
     type: "website",
-    images: [
-      {
-        url: '/favicon.ico',
-        width: 1200,
-        height: 630,
-        alt: 'Mesgana - The Amharic SDA Hymnal',
-      },
-    ],
   },
 };
 
@@ -48,9 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
