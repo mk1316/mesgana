@@ -11,7 +11,7 @@ export default function Description() {
       <CardContent className="pt-0">
         <p className="text-foreground leading-relaxed text-base">
           Mesgana is a digital hymnal for Amharic-speaking Seventh-day Adventist communities worldwide. 
-          Whether you're leading Sabbath services or participating in worship, Mesgana brings the worship 
+          Whether you&apos;re leading Sabbath services or participating in worship, Mesgana brings the worship 
           experience directly to your device.
         </p>
       </CardContent>

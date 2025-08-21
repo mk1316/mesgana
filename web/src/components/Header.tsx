@@ -1,4 +1,6 @@
-import { Badge } from "@/components/ui/badge"
+
+
+import Image from "next/image"
 
 interface HeaderProps {
   children?: React.ReactNode;
@@ -11,9 +13,11 @@ export default function Header({ children }: HeaderProps) {
       {children || (
         <>
           <div className="flex items-center justify-center gap-3">
-            <img 
+            <Image 
               src="/images/splash-icon-dark.png" 
               alt="Mesgana App Icon" 
+              width={112}
+              height={112}
               className="w-28 h-28 rounded-2xl shadow-lg" 
             />
             <div className="text-left">

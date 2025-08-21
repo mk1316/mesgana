@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { ArrowLeft, Mail, Shield, Smartphone } from "lucide-react"
+import { ArrowLeft, Mail, Shield } from "lucide-react"
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -31,7 +31,7 @@ export default function Privacy() {
         </CardHeader>
         <CardContent className="space-y-6">
           <p>
-            Mesgana ("we," "our," or "us") is committed to protecting your privacy. 
+            Mesgana (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your privacy. 
             This Privacy Policy explains how we collect, use, and protect your information 
             when you use our Ethiopian Hymnal mobile application.
           </p>
@@ -48,7 +48,7 @@ export default function Privacy() {
             </p>
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
               <li><strong>App Preferences:</strong> Language settings (English/Amharic), theme preferences (light/dark/system), and font size settings</li>
-              <li><strong>Favorites:</strong> List of hymns you've marked as favorites</li>
+              <li><strong>Favorites:</strong> List of hymns you&apos;ve marked as favorites</li>
               <li><strong>App Settings:</strong> Any other preferences you configure within the app</li>
             </ul>
           </div>
