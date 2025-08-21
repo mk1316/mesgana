@@ -26,21 +26,23 @@ const features = [
 
 export default function Features() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 my-4">
-      {features.map((feature, index) => (
-        <Card key={index} className="hover:shadow-lg transition-all duration-200">
-          <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-base text-mesgana-accent">
-              {feature.title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="pt-0">
-            <CardDescription className="text-sm leading-relaxed">
-              {feature.description}
-            </CardDescription>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+    <section className="w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 my-6 sm:my-8">
+        {features.map((feature, index) => (
+          <Card key={index} className="hover:shadow-lg transition-all duration-200 w-full">
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="flex items-center gap-2 text-base sm:text-lg text-mesgana-accent">
+                {feature.title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <CardDescription className="text-sm sm:text-base leading-relaxed">
+                {feature.description}
+              </CardDescription>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
   )
 }

@@ -311,15 +311,77 @@ body {
   background-color: #191919 !important;
 }
 
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+
 /* Responsive utilities */
 @media (min-width: 640px) {
   .sm\:flex-row {
     flex-direction: row;
   }
+  
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .sm\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .sm\:gap-6 {
+    gap: 1.5rem;
+  }
+  
+  .sm\:my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sm\:text-base {
+    font-size: 1rem;
+  }
+  
+  .sm\:text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .sm\:pb-4 {
+    padding-bottom: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
   .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .md\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
