@@ -20,12 +20,24 @@
       "destination": "/privacy.html"
     },
     {
-      "source": "/relay-1yqi/static/(.*)",
+      "source": "/static/(.*)",
       "destination": "https://us-assets.i.posthog.com/static/$1"
     },
     {
-      "source": "/relay-1yqi/(.*)",
-      "destination": "https://us.i.posthog.com/$1"
+      "source": "/capture",
+      "destination": "https://us.i.posthog.com/capture"
+    },
+    {
+      "source": "/decide",
+      "destination": "https://us.i.posthog.com/decide"
+    },
+    {
+      "source": "/e",
+      "destination": "https://us.i.posthog.com/e"
+    },
+    {
+      "source": "/batch",
+      "destination": "https://us.i.posthog.com/batch"
     }
   ],
   "headers": [
@@ -51,7 +63,58 @@
       ]
     },
     {
-      "source": "/relay-1yqi/(.*)",
+      "source": "/capture",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization, X-Requested-With"
+        }
+      ]
+    },
+    {
+      "source": "/decide",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization, X-Requested-With"
+        }
+      ]
+    },
+    {
+      "source": "/e",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization, X-Requested-With"
+        }
+      ]
+    },
+    {
+      "source": "/batch",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
