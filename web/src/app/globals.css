@@ -311,6 +311,22 @@ body {
   background-color: #191919 !important;
 }
 
+/* Download button specific styles */
+.download-buttons-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.download-buttons-container button,
+.download-buttons-container a {
+  width: 100% !important;
+  min-width: 0 !important;
+  flex-shrink: 1 !important;
+}
+
 /* Mobile-first responsive utilities */
 @media (max-width: 640px) {
   .container {
@@ -323,6 +339,24 @@ body {
   
   .card {
     margin-bottom: 1rem;
+  }
+  
+  /* Force mobile button layout */
+  .download-buttons-container {
+    flex-direction: column !important;
+  }
+  
+  .download-buttons-container button,
+  .download-buttons-container a {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .download-buttons-container button:last-child,
+  .download-buttons-container a:last-child {
+    margin-bottom: 0 !important;
   }
 }
 
@@ -361,6 +395,18 @@ body {
   
   .sm\:pb-4 {
     padding-bottom: 1rem;
+  }
+  
+  .sm\:flex-row {
+    flex-direction: row !important;
+  }
+  
+  .sm\:space-x-6 > * + * {
+    margin-left: 1.5rem;
+  }
+  
+  .sm\:space-y-0 > * + * {
+    margin-top: 0;
   }
 }
 
