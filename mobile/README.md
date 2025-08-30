@@ -1,41 +1,65 @@
-# Mesgana - Bilingual Hymn Book App
+# Mesgana Mobile App
 
-A mobile application for browsing and reading hymns in both Amharic and English. Built with React Native and Expo.
-Mesgana provides an intuitive interface for discovering, searching, and organizing your favorite hymns.
+A bilingual Amharic/English hymnal app for Ethiopian Seventh-day Adventist communities. Built with React Native and Expo.
 
-## 🌟 Features
+## Features
 
-- **Bilingual Support**: Full Amharic and English language support
-- **Smart Search**: Search by title, author, or lyrics content
-- **Category Filtering**: Browse hymns by categories like Praise, Consecration, Salvation, Nature, and Trust
-- **Favorites System**: Mark and filter your favorite hymns
-- **Dark/Light Theme**: Automatic theme switching with manual override
-- **Responsive Design**: Optimized for both mobile and tablet devices
-- **Offline Access**: All hymn data is bundled with the app
+- 🌍 **Bilingual**: Amharic and English support
+- 🔍 **Smart Search**: Find hymns by title, author, or lyrics
+- ⭐ **Favorites**: Save and organize your favorite hymns
+- 🌙 **Dark/Light Mode**: Automatic theme switching
+- 📱 **Offline**: All hymns available without internet
+- ♿ **Accessible**: Adjustable fonts and high contrast themes
 
-## 📱 Screenshots
+## Tech Stack
 
-*Screenshots will be added here*
+- **React Native 0.79.5** - Cross-platform mobile development
+- **Expo SDK 53** - Development platform
+- **TypeScript 5.8.3** - Type-safe development
+- **Zustand 5.0.6** - State management
+- **Expo Router 5.1.3** - Navigation
+- **React Native Reanimated** - Animations
 
-## 🎨 Key Technologies
+## Quick Start
 
-- **React Native** - Cross-platform mobile development
-- **Expo** - Development platform and build tools
-- **Expo Router** - File-based routing system
-- **TypeScript** - Type-safe development
-- **Zustand** - Lightweight state management
-- **Lucide React Native** - Beautiful icon library
-- **React Native Reanimated** - Smooth animations
+### Prerequisites
+- Node.js (v18+)
+- Expo CLI (`npm install -g @expo/cli`)
 
+### Setup
+```bash
+npm install
+npm run dev
+```
 
-## Where you can find **Mesgana**
+### Run
+- Scan QR code with Expo Go app
+- Press 'i' for iOS simulator
+- Press 'a' for Android emulator
 
-- **Google Play Store**: [Mesgana on Google Play](https://play.google.com/store/apps/details?id=com.yourcompany.mesgana)  
-  *(Coming soon!)*
+## Build
 
-- **Apple App Store**: [Mesgana on the App Store](https://apps.apple.com/app/id0000000000)  
-  *(Coming soon!)*
+```bash
+# iOS
+eas build --platform ios
 
-- **Source Code & Releases**:  
-  [GitHub Repository](https://github.com/mk1316/mesgana)
- 
+# Android
+eas build --platform android
+
+# Web
+npm run build:web
+```
+
+## Download
+
+- **iOS**: [App Store](https://apps.apple.com/us/app/mesgana/id6747017556)
+- **Android**: [Beta Testing](https://form.typeform.com/to/kx1lHXhK)
+
+## Support
+
+- **Email**: support@mesgana.com
+- **GitHub**: [mk1316/mesgana](https://github.com/mk1316/mesgana)
+
+---
+
+See main [README](../README.md) for more details. 

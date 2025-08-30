@@ -1,0 +1,16 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "categories": [
+      "MUSIC",
+      "BOOKS"
+    ],
+    "info": {
+      "en-US": {
+        "title": "Mesgana",
+        "subtitle": "Amharic SDA Hymnal",
+        "privacyPolicyUrl": "https://mesgana.com/privacy"
+      }
+    }
+  }
+}

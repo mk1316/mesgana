@@ -1,42 +1,72 @@
-# Mesgana - Amharic SDA Hymnal Web App
+# Mesgana Web App
 
-This directory contains the web application files for the Mesgana project - a digital hymnal for Amharic-speaking Seventh-day Adventist communities worldwide.
-
-## About Mesgana
-
-Mesgana is a beautiful and user-friendly Ethiopian hymnal app that brings traditional Ethiopian hymns to your mobile device. With support for both Amharic and English languages, customizable themes, and offline access, Mesgana provides an authentic worship experience wherever you are.
-
-## Download Links
-
-- **iOS App Store**: [Download Mesgana for iOS](https://apps.apple.com/us/app/mesgana/id6747017556)
-- **Android Beta**: [Join Android Beta Testing](https://form.typeform.com/to/kx1lHXhK)
+A bilingual Amharic/English hymnal web application for Ethiopian Seventh-day Adventist communities. Built with Next.js and Tailwind CSS.
 
 ## Features
 
-- 🎶 **Amharic SDA Hymns**: Complete collection of traditional Ethiopian Seventh-day Adventist hymns
-- 🌍 **SDA Bilingual Worship**: Seamlessly switch between Amharic and English
-- ⛪ **Sabbath-Ready**: Perfect for Sabbath services, prayer meetings, and personal devotion
-- 📱 **Always Available**: Complete offline access ensures your hymnal is always available
+- 🌍 **Bilingual**: Amharic and English support
+- 🎨 **Modern UI**: Beautiful, responsive design
+- 🌙 **Dark/Light Mode**: Automatic theme switching
+- 📱 **Mobile-First**: Optimized for all devices
+- ⚡ **Fast**: Built with Next.js for performance
+
+## Tech Stack
+
+- **Next.js 15.5.0** - React framework
+- **React 19.1.0** - UI library
+- **TypeScript 5** - Type safety
+- **Tailwind CSS 4** - Styling
+- **Radix UI** - Accessible components
+- **Vercel** - Hosting
 
 ## Project Structure
 
-- `index.html` - Main landing page
-- `privacy.html` - Privacy policy page
-- `assets/` - Static assets including CSS styles and images
-- `vercel.json` - Vercel deployment configuration
+```
+web/
+├── src/
+│   ├── app/              # Next.js pages
+│   ├── components/       # React components
+│   └── lib/              # Utilities
+├── public/               # Static assets
+└── package.json          # Dependencies
+```
 
-## Development
+## Quick Start
 
-This is a static web application built with HTML, CSS, and JavaScript. It features:
-- Responsive design with mobile-first approach
-- Dark mode support based on system preferences
-- Modern CSS with custom properties and transitions
-- Optimized for performance and accessibility
+### Prerequisites
+- Node.js (v18+)
 
-## Deployment
+### Setup
+```bash
+npm install
+npm run dev
+```
 
-The web app is deployed on Vercel and automatically updates when changes are pushed to the main branch.
+### Build
+```bash
+npm run build
+npm start
+```
 
-## Contact
+## Scripts
 
-For support or questions, contact us at: support@mesgana.com
+- `npm run dev` - Development server
+- `npm run build` - Production build
+- `npm start` - Production server
+- `npm run lint` - Run ESLint
+
+
+
+## Download Mobile App
+
+- **iOS**: [App Store](https://apps.apple.com/us/app/mesgana/id6747017556)
+- **Android**: [Beta Testing](https://form.typeform.com/to/kx1lHXhK)
+
+## Support
+
+- **Email**: support@mesgana.com
+- **GitHub**: [mk1316/mesgana](https://github.com/mk1316/mesgana)
+
+---
+
+See main [README](../README.md) for more details.
