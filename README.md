@@ -2,7 +2,8 @@
   <a href="https://apps.apple.com/us/app/mesgana/id6747017556" target="_blank">
     <img src="https://img.shields.io/badge/iOS%20App%20Store-Download%20Now-green?logo=apple&logoColor=white&style=for-the-badge" alt="iOS App Store"/>
   </a>
-  <a href="https://form.typeform.com/to/kx1lHXhK" target="_blank">
+  <a href="https://mk1316.app.n8n.cloud/form/865f844c-fe75-452b-8bd0-4c209f5bc89c
+" target="_blank">
     <img src="https://img.shields.io/badge/Android%20Beta-Join%20Testing-orange?logo=android&logoColor=white&style=for-the-badge" alt="Android Beta Testing"/>
   </a>
 </p>
@@ -27,16 +28,16 @@ A bilingual Amharic/English hymnal app for Ethiopian Seventh-day Adventist commu
 ## Screenshots
 
 <p align="center">
-  <img src="img/en-home-dk.png" width="150" alt="English Home Screen"/>
-  <img src="img/am-home.png" width="150" alt="Amharic Home Screen"/>
-  <img src="img/am-hymn-dk.png" width="150" alt="Hymn View"/>
+  <img src="img/1.png" width="150" alt="Home Screen"/>
+  <img src="img/2.png" width="150" alt="Hymn Screen"/>
+  <img src="img/3.png" width="150" alt="Home Screen Dark"/>
+  <img src="img/4.png" width="150" alt="Hymn Screen Dark"/>˘
 </p>
 
 ## Tech Stack
 
 - **Mobile**: React Native + Expo + TypeScript
 - **Web**: Next.js + Tailwind CSS
-- **State**: Zustand + AsyncStorage
 - **State**: Zustand + AsyncStorage
 
 ## Quick Start
@@ -56,7 +57,7 @@ npm run dev
 ## Download
 
 - **iOS**: [App Store](https://apps.apple.com/us/app/mesgana/id6747017556)
-- **Android**: [Beta Testing](https://form.typeform.com/to/kx1lHXhK)
+- **Android**: [Beta Testing](https://mk1316.app.n8n.cloud/form/865f844c-fe75-452b-8bd0-4c209f5bc89c)
 
 ## Contributing
 
