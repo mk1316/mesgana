@@ -499,7 +499,7 @@ export const hymns1: Hymn[] = [
   }, 
   {
     id: '43',
-    title: { amharic: 'ከበረዶ እነፃለሁ', english: 'Lord Jesus, I Long to be Perfectly Whole' },
+    title: { amharic: 'ከበረዶ እነፃለሁ', english: 'Whiter than Snow' },
     author: { amharic: '', english: 'James Nicholson\nWilliam G Fischer' },
     verses: [
       { type: 'verse', amharic: 'ፍጹም መሆንን እወዳለሁ የሱስ ለዘላለም፡\nበውስጤ እንድትኖር ጣዖትን ስበር ጠላትን አርቀው፡\nእጠበኝ ከበረዶ እነፃለሁ።', english: '' },
