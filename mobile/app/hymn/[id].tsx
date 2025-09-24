@@ -20,6 +20,9 @@ import {
   ChevronRight
 } from 'lucide-react-native';
 import LikeButton from '@/components/common/LikeButton';
+import AudioBar from '@/components/common/AudioBar';
+import { getAudioAssetForHymnId } from '@/assets/audio';
+import { useAudioPlayback } from '@/hooks/useAudioPlayback';
 import { router, useLocalSearchParams } from 'expo-router';
 import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
@@ -45,6 +48,25 @@ export default function HymnDetailScreen() {
   const styles = createStyles(effectiveTheme === 'dark', fontSize, isSmallScreen);
 
   const hymn = hymnsData.find(h => h.id === currentId);
+  const audioAsset = hymn ? getAudioAssetForHymnId(hymn.id) : undefined;
+
+  // Memoize audio playback props to prevent unnecessary re-renders
+  const audioPlaybackProps = useMemo(() => ({
+    audioSource: audioAsset,
+    hymnId: currentId,
+  }), [audioAsset, currentId]);
+
+  // Audio playback hook
+  const {
+    isPlaying,
+    isLoading,
+    progress,
+    play,
+    pause,
+    seek,
+    error,
+  } = useAudioPlayback(audioPlaybackProps);
+
 
   // Compute neighbors by numeric id
   const sortedHymns = useMemo(() => {
@@ -183,6 +205,16 @@ export default function HymnDetailScreen() {
       </ScrollView>
 
       <View style={styles.bottomControls}>
+        {audioAsset && (
+          <AudioBar
+            isDark={effectiveTheme === 'dark'}
+            isPlaying={isPlaying}
+            isLoading={isLoading}
+            onTogglePlay={isPlaying ? pause : play}
+            progress={progress}
+            onSeek={seek}
+          />
+        )}
         <View style={styles.controlsRow}>
           <View style={styles.controlsLeft}>
             <TouchableOpacity
