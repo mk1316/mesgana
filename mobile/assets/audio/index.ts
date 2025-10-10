@@ -1,4 +1,4 @@
-// Static mapping from three-digit hymn ID to bundled audio asset
+// Static mapping from three–digit hymn ID to bundled audio asset
 // Note: React Native requires static require paths; do not build these dynamically.
 
 export const AUDIO_BY_PADDED_ID: Record<string, any> = {
@@ -79,7 +79,7 @@ export const AUDIO_BY_PADDED_ID: Record<string, any> = {
   '104': require('./104 – Jesus, I My Cross Have Taken.mp3'),
   '105': require('./105 – Lead Me to Calvary.mp3'),
   '106': require('./106 - Living for Jesus.mp3'),
-  '107': require('./107 – Yield Not to Temptation.mp3'),
+  '107': require('./107 - Yield Not to Temptation.mp3'),
   '108': require('./108 – Jesus Is All the World to Me.mp3'),
   '109': require('./109 - Tell It to Jesus.mp3'),
   '110': require('./110 – I\'ve Found a Friend.mp3'),
@@ -151,9 +151,9 @@ export const AUDIO_BY_PADDED_ID: Record<string, any> = {
   '278': require('./278 – Away in a Manger.mp3'),
   '279': require('./279 – What Child Is This.mp3'),
   '281': require('./281 – O Little Town of Bethlehem.mp3'),
-  '282': require('./282 – Under His Wings.mp3'),
+  '282': require('./293 – Under His Wings.mp3'),
   '283': require('./283 – O Come, All Ye Faithful.mp3'),
-  '284': require('./284 – Near to the Heart of God.mp3'),
+  '284': require('./295 – Near to the Heart of God.mp3'),
   '285': require("./285 – Hark! the Herald Angels Sing.mp3"),
   '286': require('./286 – Silent Night, Holy Night.mp3'),
   '288': require('./288 – Joy to the World.mp3'),
@@ -178,7 +178,7 @@ export const AUDIO_BY_PADDED_ID: Record<string, any> = {
   '316': require('./316 – Christ the Lord Is Risen Today.mp3'),
   '317': require('./317 – He Lives.mp3'),
   '322': require('./322 – God Be With You.mp3'),
-  '388': require('./388 – Don\'t Forget the Sabbath.mp3'),
+  '388': require("./388 – Dont Forget the Sabbath.mp3"),
 };
 
 export function getAudioAssetForHymnId(id: string): any | undefined {

@@ -2,7 +2,7 @@
   "expo": {
     "name": "Mesgana",
     "slug": "mesgana",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/ios-light.png",
     "scheme": "mesgana",
@@ -26,7 +26,13 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "favicon": "./assets/images/ios-light.png"
@@ -58,6 +64,12 @@
       "eas": {
         "projectId": "3e077963-643d-434e-9004-32ba01274296"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/3e077963-643d-434e-9004-32ba01274296"
     }
   }
 }
