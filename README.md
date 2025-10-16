@@ -2,9 +2,8 @@
   <a href="https://apps.apple.com/us/app/mesgana/id6747017556" target="_blank">
     <img src="https://img.shields.io/badge/iOS%20App%20Store-Download%20Now-green?logo=apple&logoColor=white&style=for-the-badge" alt="iOS App Store"/>
   </a>
-  <a href="https://mk1316.app.n8n.cloud/form/865f844c-fe75-452b-8bd0-4c209f5bc89c
-" target="_blank">
-    <img src="https://img.shields.io/badge/Android%20Beta-Join%20Testing-orange?logo=android&logoColor=white&style=for-the-badge" alt="Android Beta Testing"/>
+  <a href="https://play.google.com/store/apps/details?id=com.mesgana.app" target="_blank">
+    <img src="https://img.shields.io/badge/Google%20Play-Download%20Now-green?logo=googleplay&logoColor=white&style=for-the-badge" alt="Google Play Store"/>
   </a>
 </p>
 
@@ -57,7 +56,7 @@ npm run dev
 ## Download
 
 - **iOS**: [App Store](https://apps.apple.com/us/app/mesgana/id6747017556)
-- **Android**: [Beta Testing](https://mk1316.app.n8n.cloud/form/865f844c-fe75-452b-8bd0-4c209f5bc89c)
+- **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=com.mesgana.app)
 
 ## Contributing
 

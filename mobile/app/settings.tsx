@@ -37,7 +37,7 @@ export default function SettingsScreen() {
 
   const handleShare = async () => {
     try {
-      const targetUrl = 'https://form.typeform.com/to/kx1lHXhK';
+      const targetUrl = 'https://play.google.com/store/apps/details?id=com.mesgana.app';
       await Share.share({
         message: `Download Mesgana - Amharic SDA Hymnal App!\n\n${targetUrl}`,
         title: 'Mesgana App',

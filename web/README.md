@@ -60,7 +60,7 @@ npm start
 ## Download Mobile App
 
 - **iOS**: [App Store](https://apps.apple.com/us/app/mesgana/id6747017556)
-- **Android**: [Beta Testing](https://form.typeform.com/to/kx1lHXhK)
+- **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=com.mesgana.app)
 
 ## Support
 

@@ -4,6 +4,7 @@ node_modules/
 # files
 docs/
 backup/
+templates/
 
 # expo
 .expo/
