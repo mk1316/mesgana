@@ -1,25 +1,28 @@
 import Link from "next/link"
+import { getTranslations } from 'next-intl/server';
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations('footer');
+
   return (
     <footer className="text-center py-4 border-t border-border mt-6">
       <div className="flex items-center justify-center gap-6">
-        <Link 
-          href="/privacy" 
+        <Link
+          href="/privacy"
           className="text-muted-foreground hover:text-foreground transition-colors"
         >
-          Privacy Policy
+          {t('privacyPolicy')}
         </Link>
         <span className="text-muted-foreground">•</span>
-        <a 
-          href="mailto:support@mesgana.com" 
+        <a
+          href="mailto:support@mesgana.com"
           className="text-muted-foreground hover:text-foreground transition-colors"
         >
-          Get Help & Support
+          {t('helpSupport')}
         </a>
         <span className="text-muted-foreground">•</span>
         <span className="text-muted-foreground text-sm">
-          &copy; 2025 Mesgana
+          &copy; {t('copyright')}
         </span>
       </div>
     </footer>

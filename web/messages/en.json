@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "title": "Mesgana - The Amharic SDA Hymnal",
+    "description": "Download Mesgana, the digital hymnal for Amharic-speaking Seventh-day Adventist communities worldwide.",
+    "keywords": "Mesgana, Amharic, SDA, Hymnal, Ethiopian, Seventh-day Adventist, Worship, Hymns"
+  },
+  "header": {
+    "appName": "Mesgana",
+    "tagline": "The Amharic SDA Hymnal"
+  },
+  "description": {
+    "title": "Your Amharic Seventh-day Adventist Hymnal",
+    "text": "Mesgana is a digital hymnal for Amharic-speaking Seventh-day Adventist communities worldwide. Whether you're leading Sabbath services or participating in worship, Mesgana brings the worship experience directly to your device."
+  },
+  "download": {
+    "title": "Join the Amharic SDA Community",
+    "subtitle": "Download Mesgana and help us build a better worship experience.",
+    "ios": "Download for iOS",
+    "android": "Download for Android"
+  },
+  "features": {
+    "hymns": {
+      "title": "Amharic SDA Hymns",
+      "description": "Complete collection of traditional Ethiopian Seventh-day Adventist hymns in their original Amharic language."
+    },
+    "bilingual": {
+      "title": "SDA Bilingual Worship",
+      "description": "Seamlessly switch between Amharic and English for multilingual SDA congregations, making worship accessible to all members of your church family."
+    },
+    "sabbath": {
+      "title": "Sabbath-Ready",
+      "description": "Perfect for Sabbath services, prayer meetings, and personal devotion. Build your favorites list for quick access during worship and study."
+    },
+    "offline": {
+      "title": "Always Available",
+      "description": "Complete offline access ensures your Amharic SDA hymnal is always available, whether you're in church, at home, or traveling for ministry."
+    }
+  },
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "helpSupport": "Get Help & Support",
+    "copyright": "2025 Mesgana"
+  },
+  "languageToggle": {
+    "switchTo": "አማርኛ"
+  }
+}
