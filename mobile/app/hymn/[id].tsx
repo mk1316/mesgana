@@ -116,8 +116,16 @@ export default function HymnDetailScreen() {
     if (hymn) {
       posthog.capture('hymn_viewed', {
         hymn_id: hymn.id,
-        hymn_title: hymn.title.english,
-        language: contentLanguage,
+        hymn_number: hymn.id,
+        hymn_title_english: hymn.title.english,
+        hymn_title_amharic: hymn.title.amharic,
+        author_english: hymn.author?.english,
+        author_amharic: hymn.author?.amharic,
+        category: hymn.tags?.[0] || 'uncategorized',
+        tags: hymn.tags,
+        has_audio: !!audioAsset,
+        display_language: contentLanguage,
+        is_favorited: favorites.includes(hymn.id),
       });
     }
   }, [currentId]);
@@ -136,11 +144,21 @@ export default function HymnDetailScreen() {
     try {
       const appStoreUrl = 'https://apps.apple.com/app/mesgana/id123456789';
       const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.yourcompany.mesgana';
-      
-      await Share.share({
+
+      const result = await Share.share({
         message: `Download Mesgana - Ethiopian Hymnal App!\n\niOS: ${appStoreUrl}\nAndroid: ${playStoreUrl}`,
         title: 'Mesgana App',
         url: appStoreUrl,
+      });
+
+      posthog.capture('share_initiated', {
+        share_type: 'app_promotion',
+        source: 'hymn_detail_screen',
+        hymn_id: hymn.id,
+        hymn_title_english: hymn.title.english,
+        share_action: result.action,
+        was_shared: result.action === Share.sharedAction,
+        was_dismissed: result.action === Share.dismissedAction,
       });
     } catch (error) {
       Alert.alert('Error', 'Unable to share hymn');
@@ -177,8 +195,15 @@ export default function HymnDetailScreen() {
               toggleFavorite(hymn.id);
               posthog.capture('hymn_favorited', {
                 hymn_id: hymn.id,
-                hymn_title: hymn.title.english,
+                hymn_number: hymn.id,
+                hymn_title_english: hymn.title.english,
+                hymn_title_amharic: hymn.title.amharic,
+                author_english: hymn.author?.english,
+                category: hymn.tags?.[0] || 'uncategorized',
                 action: isFavorited ? 'unfavorited' : 'favorited',
+                is_now_favorited: !isFavorited,
+                source: 'hymn_detail_screen',
+                total_favorites_after: isFavorited ? favorites.length - 1 : favorites.length + 1,
               });
             }}
             size={20}

@@ -26,7 +26,7 @@ export default function HymnsScreen() {
   const posthog = usePostHog();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const searchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { language, theme, favorites, toggleFavorite } = useAppStore();
   const likeScalesRef = useRef<Record<string, Animated.Value>>({});
@@ -99,8 +99,13 @@ export default function HymnsScreen() {
       searchTimeoutRef.current = setTimeout(() => {
         posthog.capture('search_performed', {
           query: searchQuery.trim(),
+          query_length: searchQuery.trim().length,
           results_count: filteredHymns.length,
+          has_results: filteredHymns.length > 0,
           category_filter: selectedCategory,
+          is_category_filtered: !!selectedCategory,
+          display_language: language,
+          total_hymns_available: hymnsData.length,
         });
       }, 500);
     }
@@ -145,8 +150,15 @@ export default function HymnsScreen() {
               toggleFavorite(hymn.id);
               posthog.capture('hymn_favorited', {
                 hymn_id: hymn.id,
-                hymn_title: hymn.title.english,
+                hymn_number: hymn.id,
+                hymn_title_english: hymn.title.english,
+                hymn_title_amharic: hymn.title.amharic,
+                author_english: hymn.author?.english,
+                category: hymn.tags?.[0] || 'uncategorized',
                 action: isFavorited ? 'unfavorited' : 'favorited',
+                is_now_favorited: !isFavorited,
+                source: 'hymn_list_screen',
+                total_favorites_after: isFavorited ? favorites.length - 1 : favorites.length + 1,
               });
             }}
             size={28}
