@@ -18,7 +18,7 @@ export default function Privacy() {
         </Button>
         <h1 className="text-3xl font-bold text-foreground">Privacy Policy</h1>
         <p className="text-muted-foreground">
-          <strong>Last updated:</strong> July 2025
+          <strong>Last updated:</strong> January 2026
         </p>
       </Header>
       
@@ -40,17 +40,29 @@ export default function Privacy() {
           
           <div>
             <h3 className="text-xl font-semibold mb-3 text-foreground">
-              Local Storage Only
+              Information Stored Locally
             </h3>
             <p className="text-muted-foreground mb-4">
-              Mesgana operates entirely on your device and does not collect or transmit 
-              any personal information to external servers.
+              The following information is stored only on your device and never transmitted to external servers:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
               <li><strong>App Preferences:</strong> Language settings (English/Amharic), theme preferences (light/dark/system), and font size settings</li>
               <li><strong>Favorites:</strong> List of hymns you&apos;ve marked as favorites</li>
               <li><strong>App Settings:</strong> Any other preferences you configure within the app</li>
             </ul>
+          </div>
+
+          <Separator />
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3 text-foreground">
+              Anonymous Analytics
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              To improve the app experience, we collect anonymous usage analytics.
+              This helps us understand how the app is used and identify areas for improvement.
+              We do not collect any personally identifiable information.
+            </p>
           </div>
 
           <Separator />
@@ -79,10 +91,9 @@ export default function Privacy() {
             </h3>
             <div className="bg-muted/50 p-4 rounded-lg border-l-4 border-mesgana-accent">
               <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                <li>All data is stored locally on your device using secure local storage</li>
-                <li>No data is transmitted to external servers</li>
-                <li>Your information remains on your device and is not shared with us or third parties</li>
-                <li>You can delete all app data by uninstalling the app</li>
+                <li>Your preferences and favorites are stored locally on your device</li>
+                <li>Anonymous analytics are sent to secure external servers</li>
+                <li>You can delete all local app data by uninstalling the app</li>
               </ul>
             </div>
           </div>
