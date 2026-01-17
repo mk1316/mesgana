@@ -17,6 +17,8 @@ const customStorage = {
 export const posthog = new PostHog(POSTHOG_API_KEY, {
   host: POSTHOG_HOST,
   customStorage,
+  captureNativeAppLifecycleEvents: true,
+  flushAt: 1,
 });
 
 export default posthog;
