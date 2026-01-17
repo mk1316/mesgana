@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
   Pressable,
 } from 'react-native';
 import {Search, Settings as SettingsIcon } from 'lucide-react-native';
+import { usePostHog } from 'posthog-react-native';
 import LikeButton from '@/components/common/LikeButton';
 import { Animated } from 'react-native';
 import { router } from 'expo-router';
@@ -22,9 +23,11 @@ import * as Haptics from 'expo-haptics';
 
 export default function HymnsScreen() {
   const systemColorScheme = useColorScheme();
+  const posthog = usePostHog();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  
+  const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const { language, theme, favorites, toggleFavorite } = useAppStore();
   const likeScalesRef = useRef<Record<string, Animated.Value>>({});
   
@@ -86,6 +89,29 @@ export default function HymnsScreen() {
     return filtered;
   }, [searchQuery, selectedCategory, language, favorites]);
 
+  // Track search with debounce
+  useEffect(() => {
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    if (searchQuery.trim()) {
+      searchTimeoutRef.current = setTimeout(() => {
+        posthog.capture('search_performed', {
+          query: searchQuery.trim(),
+          results_count: filteredHymns.length,
+          category_filter: selectedCategory,
+        });
+      }, 500);
+    }
+
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, [searchQuery, filteredHymns.length, selectedCategory]);
+
   const toggleCategory = (category: string) => {
     setSelectedCategory(prev => prev === category ? null : category);
   };
@@ -115,7 +141,14 @@ export default function HymnsScreen() {
           </View>
           <LikeButton
             isActive={isFavorited}
-            onToggle={() => toggleFavorite(hymn.id)}
+            onToggle={() => {
+              toggleFavorite(hymn.id);
+              posthog.capture('hymn_favorited', {
+                hymn_id: hymn.id,
+                hymn_title: hymn.title.english,
+                action: isFavorited ? 'unfavorited' : 'favorited',
+              });
+            }}
             size={28}
             activeColor="#CD7F32"
             inactiveColor="#8B7355"

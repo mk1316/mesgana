@@ -24,6 +24,7 @@ import AudioBar from '@/components/common/AudioBar';
 import { getAudioAssetForHymnId } from '@/assets/audio';
 import { useAudioPlayback } from '@/hooks/useAudioPlayback';
 import { router, useLocalSearchParams } from 'expo-router';
+import { usePostHog } from 'posthog-react-native';
 import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
 import * as Haptics from 'expo-haptics';
@@ -31,11 +32,12 @@ import * as Haptics from 'expo-haptics';
 export default function HymnDetailScreen() {
   const systemColorScheme = useColorScheme();
   const { id } = useLocalSearchParams();
+  const posthog = usePostHog();
   const currentId = Array.isArray(id) ? id[0] : (id ?? '').toString();
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [isCreditsOpen, setIsCreditsOpen] = useState(false);
   const likeScale = useRef(new Animated.Value(1)).current;
-  
+
   const { language, theme, favorites, toggleFavorite, fontSize } = useAppStore();
   
   // Use app theme if set, otherwise fall back to system theme
@@ -108,6 +110,17 @@ export default function HymnDetailScreen() {
   useEffect(() => {
     scrollRef.current?.scrollTo({ y: 0, animated: false });
   }, [currentId]);
+
+  // Track hymn view
+  useEffect(() => {
+    if (hymn) {
+      posthog.capture('hymn_viewed', {
+        hymn_id: hymn.id,
+        hymn_title: hymn.title.english,
+        language: contentLanguage,
+      });
+    }
+  }, [currentId]);
   
   if (!hymn) {
     return (
@@ -160,7 +173,14 @@ export default function HymnDetailScreen() {
         <View style={styles.headerRightGroup}>
           <LikeButton
             isActive={isFavorited}
-            onToggle={() => toggleFavorite(hymn.id)}
+            onToggle={() => {
+              toggleFavorite(hymn.id);
+              posthog.capture('hymn_favorited', {
+                hymn_id: hymn.id,
+                hymn_title: hymn.title.english,
+                action: isFavorited ? 'unfavorited' : 'favorited',
+              });
+            }}
             size={20}
             activeColor="#D2691E"
             inactiveColor={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'}

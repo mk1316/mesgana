@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import posthog from '@/posthog/posthog';
 
 interface UseAudioPlaybackProps {
   audioSource: any; // require() result
@@ -48,11 +49,14 @@ export function useAudioPlayback({ audioSource, hymnId }: UseAudioPlaybackProps)
   const play = useCallback(async () => {
     try {
       player.play();
+      posthog.capture('audio_played', {
+        hymn_id: hymnId,
+      });
     } catch (err) {
       console.error('Error playing audio:', err);
       setError('Failed to play audio');
     }
-  }, [player]);
+  }, [player, hymnId]);
 
   const pause = useCallback(async () => {
     try {

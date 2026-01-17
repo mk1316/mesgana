@@ -13,6 +13,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { ChevronLeft, Share as ShareIcon, MessageCircle } from 'lucide-react-native';
+import { usePostHog } from 'posthog-react-native';
 import { router } from 'expo-router';
 import AppButton from '@/components/common/AppButton';
 import { useAppStore } from '@/store/appStore';
@@ -24,14 +25,37 @@ const appVersion = appConfig.expo.version;
 
 export default function SettingsScreen() {
   const systemColorScheme = useColorScheme();
+  const posthog = usePostHog();
   const { language, theme, setLanguage, setTheme, fontSize, setFontSize } = useAppStore();
-  
+
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
   const styles = createStyles(effectiveTheme === 'dark');
   const fontSizeOptions = [12, 16, 18, 22] as const;
   const selectFontSize = async (size: number) => {
     setFontSize(size);
+    posthog.capture('settings_changed', {
+      setting: 'font_size',
+      value: size,
+    });
+  };
+
+  const handleLanguageChange = async (newLanguage: 'english' | 'amharic') => {
+    await Haptics.selectionAsync();
+    setLanguage(newLanguage);
+    posthog.capture('settings_changed', {
+      setting: 'language',
+      value: newLanguage,
+    });
+  };
+
+  const handleThemeChange = async (newTheme: 'light' | 'dark' | null) => {
+    await Haptics.selectionAsync();
+    setTheme(newTheme);
+    posthog.capture('settings_changed', {
+      setting: 'theme',
+      value: newTheme || 'system',
+    });
   };
 
 
@@ -126,19 +150,13 @@ export default function SettingsScreen() {
               label="English"
               variant={language === 'english' ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setLanguage('english');
-              }}
+              onPress={() => handleLanguageChange('english')}
             />
             <AppButton
               label="አማርኛ"
               variant={language === 'amharic' ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setLanguage('amharic');
-              }}
+              onPress={() => handleLanguageChange('amharic')}
             />
           </View>
         </View>
@@ -152,28 +170,19 @@ export default function SettingsScreen() {
               label={language === 'amharic' ? 'ብርሃን' : 'Light'}
               variant={effectiveTheme === 'light' ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setTheme('light');
-              }}
+              onPress={() => handleThemeChange('light')}
             />
             <AppButton
               label={language === 'amharic' ? 'ጨለማ' : 'Dark'}
               variant={effectiveTheme === 'dark' ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setTheme('dark');
-              }}
+              onPress={() => handleThemeChange('dark')}
             />
             <AppButton
               label={language === 'amharic' ? 'ስርዓት' : 'System'}
               variant={!theme ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setTheme(null);
-              }}
+              onPress={() => handleThemeChange(null)}
             />
           </View>
         </View>
