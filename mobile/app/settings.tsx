@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { ChevronLeft, Share as ShareIcon, MessageCircle } from 'lucide-react-native';
 import { usePostHog } from 'posthog-react-native';
+import { trackScreen, trackError } from '@/posthog/posthog';
 import { router } from 'expo-router';
 import AppButton from '@/components/common/AppButton';
 import { useAppStore } from '@/store/appStore';
@@ -32,6 +33,11 @@ export default function SettingsScreen() {
   const effectiveTheme = theme || systemColorScheme || 'light';
   const styles = createStyles(effectiveTheme === 'dark');
   const fontSizeOptions = [12, 16, 18, 22] as const;
+
+  // Track screen view
+  useEffect(() => {
+    trackScreen('Settings');
+  }, []);
   const fontSizeLabels: Record<number, string> = { 12: 'small', 16: 'medium', 18: 'large', 22: 'extra_large' };
 
   const selectFontSize = async (size: number) => {
@@ -94,6 +100,7 @@ export default function SettingsScreen() {
       });
     } catch (error) {
       Alert.alert('Error', 'Unable to share app');
+      trackError('share_failed', error as Error, { source: 'settings_screen' });
     }
   };
 

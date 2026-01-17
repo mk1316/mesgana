@@ -25,6 +25,7 @@ import { getAudioAssetForHymnId } from '@/assets/audio';
 import { useAudioPlayback } from '@/hooks/useAudioPlayback';
 import { router, useLocalSearchParams } from 'expo-router';
 import { usePostHog } from 'posthog-react-native';
+import { trackScreen, trackFunnel, trackError } from '@/posthog/posthog';
 import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
 import * as Haptics from 'expo-haptics';
@@ -114,9 +115,9 @@ export default function HymnDetailScreen() {
   // Track hymn view
   useEffect(() => {
     if (hymn) {
+      trackScreen('HymnDetail', { hymn_id: hymn.id });
       posthog.capture('hymn_viewed', {
         hymn_id: hymn.id,
-        hymn_number: hymn.id,
         hymn_title_english: hymn.title.english,
         hymn_title_amharic: hymn.title.amharic,
         author_english: hymn.author?.english,
@@ -127,6 +128,7 @@ export default function HymnDetailScreen() {
         display_language: contentLanguage,
         is_favorited: favorites.includes(hymn.id),
       });
+      trackFunnel('HYMN_VIEWED', { hymn_id: hymn.id, has_audio: !!audioAsset });
     }
   }, [currentId]);
   
@@ -162,6 +164,7 @@ export default function HymnDetailScreen() {
       });
     } catch (error) {
       Alert.alert('Error', 'Unable to share hymn');
+      trackError('share_failed', error as Error, { source: 'hymn_detail_screen', hymn_id: hymn.id });
     }
   };
 
@@ -195,7 +198,6 @@ export default function HymnDetailScreen() {
               toggleFavorite(hymn.id);
               posthog.capture('hymn_favorited', {
                 hymn_id: hymn.id,
-                hymn_number: hymn.id,
                 hymn_title_english: hymn.title.english,
                 hymn_title_amharic: hymn.title.amharic,
                 author_english: hymn.author?.english,
@@ -205,6 +207,9 @@ export default function HymnDetailScreen() {
                 source: 'hymn_detail_screen',
                 total_favorites_after: isFavorited ? favorites.length - 1 : favorites.length + 1,
               });
+              if (!isFavorited) {
+                trackFunnel('HYMN_FAVORITED', { hymn_id: hymn.id });
+              }
             }}
             size={20}
             activeColor="#D2691E"

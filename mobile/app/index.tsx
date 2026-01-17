@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {Search, Settings as SettingsIcon } from 'lucide-react-native';
 import { usePostHog } from 'posthog-react-native';
+import { trackScreen, registerUserProperties, trackFunnel } from '@/posthog/posthog';
 import LikeButton from '@/components/common/LikeButton';
 import { Animated } from 'react-native';
 import { router } from 'expo-router';
@@ -30,10 +31,20 @@ export default function HymnsScreen() {
 
   const { language, theme, favorites, toggleFavorite } = useAppStore();
   const likeScalesRef = useRef<Record<string, Animated.Value>>({});
-  
+
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
   const styles = createStyles(effectiveTheme === 'dark');
+
+  // Track screen view and register user properties
+  useEffect(() => {
+    trackScreen('HymnsList');
+    registerUserProperties({
+      app_language: language,
+      app_theme: effectiveTheme,
+      total_favorites: favorites.length,
+    });
+  }, [language, effectiveTheme, favorites.length]);
 
   const filteredHymns = useMemo(() => {
     let filtered = hymnsData;
@@ -107,6 +118,7 @@ export default function HymnsScreen() {
           display_language: language,
           total_hymns_available: hymnsData.length,
         });
+        trackFunnel('HYMN_SEARCHED', { results_count: filteredHymns.length });
       }, 500);
     }
 
@@ -150,7 +162,6 @@ export default function HymnsScreen() {
               toggleFavorite(hymn.id);
               posthog.capture('hymn_favorited', {
                 hymn_id: hymn.id,
-                hymn_number: hymn.id,
                 hymn_title_english: hymn.title.english,
                 hymn_title_amharic: hymn.title.amharic,
                 author_english: hymn.author?.english,
@@ -160,6 +171,9 @@ export default function HymnsScreen() {
                 source: 'hymn_list_screen',
                 total_favorites_after: isFavorited ? favorites.length - 1 : favorites.length + 1,
               });
+              if (!isFavorited) {
+                trackFunnel('HYMN_FAVORITED', { hymn_id: hymn.id });
+              }
             }}
             size={28}
             activeColor="#CD7F32"

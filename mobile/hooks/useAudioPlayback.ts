@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
-import posthog from '@/posthog/posthog';
+import posthog, { trackFunnel, trackError } from '@/posthog/posthog';
 
 interface UseAudioPlaybackProps {
   audioSource: any; // require() result
@@ -68,9 +68,11 @@ export function useAudioPlayback({ audioSource, hymnId }: UseAudioPlaybackProps)
         duration_seconds: Math.round(status.duration),
         is_resuming: status.currentTime > 0.5,
       });
+      trackFunnel('AUDIO_PLAYED', { hymn_id: hymnId });
     } catch (err) {
       console.error('Error playing audio:', err);
       setError('Failed to play audio');
+      trackError('audio_play_failed', err as Error, { hymn_id: hymnId });
     }
   }, [player, hymnId, status.currentTime, status.duration, progress]);
 
@@ -88,6 +90,7 @@ export function useAudioPlayback({ audioSource, hymnId }: UseAudioPlaybackProps)
     } catch (err) {
       console.error('Error pausing audio:', err);
       setError('Failed to pause audio');
+      trackError('audio_pause_failed', err as Error, { hymn_id: hymnId });
     }
   }, [player, hymnId, status.currentTime, status.duration, progress]);
 
@@ -106,8 +109,9 @@ export function useAudioPlayback({ audioSource, hymnId }: UseAudioPlaybackProps)
     } catch (err) {
       console.error('Error seeking audio:', err);
       setError('Failed to seek audio');
+      trackError('audio_seek_failed', err as Error, { hymn_id: hymnId });
     }
-  }, [player, status.isLoaded, status.duration]);
+  }, [player, status.isLoaded, status.duration, hymnId]);
 
   return {
     isPlaying,

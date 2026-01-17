@@ -4,7 +4,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { PostHogProvider } from 'posthog-react-native';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
-import posthog from '@/posthog/posthog';
+import posthog, { trackFunnel } from '@/posthog/posthog';
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
@@ -22,12 +22,12 @@ export default function RootLayout() {
   const sessionStartTime = useRef(Date.now());
 
   useEffect(() => {
-    // Track app open on mount
+    // Track app open
     posthog.capture('app_opened', {
       platform: Platform.OS,
       platform_version: Platform.Version,
-      timestamp: new Date().toISOString(),
     });
+    trackFunnel('APP_OPENED');
 
     const subscription = AppState.addEventListener('change', (nextAppState: AppStateStatus) => {
       if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
@@ -36,7 +36,6 @@ export default function RootLayout() {
         posthog.capture('app_foregrounded', {
           platform: Platform.OS,
           previous_state: appState.current,
-          timestamp: new Date().toISOString(),
         });
       } else if (appState.current === 'active' && nextAppState.match(/inactive|background/)) {
         // App went to background
@@ -45,7 +44,6 @@ export default function RootLayout() {
           platform: Platform.OS,
           next_state: nextAppState,
           session_duration_seconds: sessionDuration,
-          timestamp: new Date().toISOString(),
         });
       }
       appState.current = nextAppState;
