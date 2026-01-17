@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,8 @@ import {
   Pressable,
 } from 'react-native';
 import {Search, Settings as SettingsIcon } from 'lucide-react-native';
+import { usePostHog } from 'posthog-react-native';
+import { trackScreen, registerUserProperties, trackFunnel } from '@/posthog/posthog';
 import LikeButton from '@/components/common/LikeButton';
 import { Animated } from 'react-native';
 import { router } from 'expo-router';
@@ -22,15 +24,27 @@ import * as Haptics from 'expo-haptics';
 
 export default function HymnsScreen() {
   const systemColorScheme = useColorScheme();
+  const posthog = usePostHog();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  
+  const searchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const { language, theme, favorites, toggleFavorite } = useAppStore();
   const likeScalesRef = useRef<Record<string, Animated.Value>>({});
-  
+
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
   const styles = createStyles(effectiveTheme === 'dark');
+
+  // Track screen view and register user properties
+  useEffect(() => {
+    trackScreen('HymnsList');
+    registerUserProperties({
+      app_language: language,
+      app_theme: effectiveTheme,
+      total_favorites: favorites.length,
+    });
+  }, [language, effectiveTheme, favorites.length]);
 
   const filteredHymns = useMemo(() => {
     let filtered = hymnsData;
@@ -86,8 +100,44 @@ export default function HymnsScreen() {
     return filtered;
   }, [searchQuery, selectedCategory, language, favorites]);
 
+  // Track search with debounce
+  useEffect(() => {
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    if (searchQuery.trim()) {
+      searchTimeoutRef.current = setTimeout(() => {
+        posthog.capture('search_performed', {
+          query: searchQuery.trim(),
+          query_length: searchQuery.trim().length,
+          results_count: filteredHymns.length,
+          has_results: filteredHymns.length > 0,
+          category_filter: selectedCategory,
+          is_category_filtered: !!selectedCategory,
+          display_language: language,
+          total_hymns_available: hymnsData.length,
+        });
+        trackFunnel('HYMN_SEARCHED', { results_count: filteredHymns.length });
+      }, 500);
+    }
+
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, [searchQuery, filteredHymns.length, selectedCategory]);
+
   const toggleCategory = (category: string) => {
+    const isDeselecting = selectedCategory === category;
     setSelectedCategory(prev => prev === category ? null : category);
+
+    posthog.capture('category_selected', {
+      category: isDeselecting ? null : category,
+      previous_category: selectedCategory,
+      action: isDeselecting ? 'deselected' : 'selected',
+    });
   };
 
   const renderHymnCard = (hymn: any) => {
@@ -115,7 +165,23 @@ export default function HymnsScreen() {
           </View>
           <LikeButton
             isActive={isFavorited}
-            onToggle={() => toggleFavorite(hymn.id)}
+            onToggle={() => {
+              toggleFavorite(hymn.id);
+              posthog.capture('hymn_favorited', {
+                hymn_id: hymn.id,
+                hymn_title_english: hymn.title.english,
+                hymn_title_amharic: hymn.title.amharic,
+                author_english: hymn.author?.english,
+                category: hymn.tags?.[0] || 'uncategorized',
+                action: isFavorited ? 'unfavorited' : 'favorited',
+                is_now_favorited: !isFavorited,
+                source: 'hymn_list_screen',
+                total_favorites_after: isFavorited ? favorites.length - 1 : favorites.length + 1,
+              });
+              if (!isFavorited) {
+                trackFunnel('HYMN_FAVORITED', { hymn_id: hymn.id });
+              }
+            }}
             size={28}
             activeColor="#CD7F32"
             inactiveColor="#8B7355"

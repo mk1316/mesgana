@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
+import { usePostHog } from 'posthog-react-native';
 import type { Hymn } from '@/data/hymns';
 
 type Language = 'amharic' | 'english';
@@ -36,6 +37,7 @@ export default function HymnPickerModal(props: HymnPickerModalProps) {
     onSelect,
   } = props;
 
+  const posthog = usePostHog();
   const styles = createStyles(isDark);
 
   return (
@@ -61,7 +63,15 @@ export default function HymnPickerModal(props: HymnPickerModalProps) {
                   onPress={async () => {
                     await Haptics.selectionAsync();
                     onClose();
-                    if (!isActive) onSelect(hymn.id);
+                    if (!isActive) {
+                      posthog.capture('hymn_picker_selected', {
+                        selected_hymn_id: hymn.id,
+                        previous_hymn_id: currentId,
+                        hymn_title: displayTitle,
+                        total_hymns_in_picker: hymns.length,
+                      });
+                      onSelect(hymn.id);
+                    }
                   }}
                 >
                   <Text style={styles.modalItemText}>

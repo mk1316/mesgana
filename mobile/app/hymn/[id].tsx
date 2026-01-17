@@ -24,6 +24,8 @@ import AudioBar from '@/components/common/AudioBar';
 import { getAudioAssetForHymnId } from '@/assets/audio';
 import { useAudioPlayback } from '@/hooks/useAudioPlayback';
 import { router, useLocalSearchParams } from 'expo-router';
+import { usePostHog } from 'posthog-react-native';
+import { trackScreen, trackFunnel, trackError } from '@/posthog/posthog';
 import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
 import * as Haptics from 'expo-haptics';
@@ -31,11 +33,12 @@ import * as Haptics from 'expo-haptics';
 export default function HymnDetailScreen() {
   const systemColorScheme = useColorScheme();
   const { id } = useLocalSearchParams();
+  const posthog = usePostHog();
   const currentId = Array.isArray(id) ? id[0] : (id ?? '').toString();
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [isCreditsOpen, setIsCreditsOpen] = useState(false);
   const likeScale = useRef(new Animated.Value(1)).current;
-  
+
   const { language, theme, favorites, toggleFavorite, fontSize } = useAppStore();
   
   // Use app theme if set, otherwise fall back to system theme
@@ -108,6 +111,26 @@ export default function HymnDetailScreen() {
   useEffect(() => {
     scrollRef.current?.scrollTo({ y: 0, animated: false });
   }, [currentId]);
+
+  // Track hymn view
+  useEffect(() => {
+    if (hymn) {
+      trackScreen('HymnDetail', { hymn_id: hymn.id });
+      posthog.capture('hymn_viewed', {
+        hymn_id: hymn.id,
+        hymn_title_english: hymn.title.english,
+        hymn_title_amharic: hymn.title.amharic,
+        author_english: hymn.author?.english,
+        author_amharic: hymn.author?.amharic,
+        category: hymn.tags?.[0] || 'uncategorized',
+        tags: hymn.tags,
+        has_audio: !!audioAsset,
+        display_language: contentLanguage,
+        is_favorited: favorites.includes(hymn.id),
+      });
+      trackFunnel('HYMN_VIEWED', { hymn_id: hymn.id, has_audio: !!audioAsset });
+    }
+  }, [currentId]);
   
   if (!hymn) {
     return (
@@ -123,14 +146,25 @@ export default function HymnDetailScreen() {
     try {
       const appStoreUrl = 'https://apps.apple.com/app/mesgana/id123456789';
       const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.yourcompany.mesgana';
-      
-      await Share.share({
+
+      const result = await Share.share({
         message: `Download Mesgana - Ethiopian Hymnal App!\n\niOS: ${appStoreUrl}\nAndroid: ${playStoreUrl}`,
         title: 'Mesgana App',
         url: appStoreUrl,
       });
+
+      posthog.capture('share_initiated', {
+        share_type: 'app_promotion',
+        source: 'hymn_detail_screen',
+        hymn_id: hymn.id,
+        hymn_title_english: hymn.title.english,
+        share_action: result.action,
+        was_shared: result.action === Share.sharedAction,
+        was_dismissed: result.action === Share.dismissedAction,
+      });
     } catch (error) {
       Alert.alert('Error', 'Unable to share hymn');
+      trackError('share_failed', error as Error, { source: 'hymn_detail_screen', hymn_id: hymn.id });
     }
   };
 
@@ -160,7 +194,23 @@ export default function HymnDetailScreen() {
         <View style={styles.headerRightGroup}>
           <LikeButton
             isActive={isFavorited}
-            onToggle={() => toggleFavorite(hymn.id)}
+            onToggle={() => {
+              toggleFavorite(hymn.id);
+              posthog.capture('hymn_favorited', {
+                hymn_id: hymn.id,
+                hymn_title_english: hymn.title.english,
+                hymn_title_amharic: hymn.title.amharic,
+                author_english: hymn.author?.english,
+                category: hymn.tags?.[0] || 'uncategorized',
+                action: isFavorited ? 'unfavorited' : 'favorited',
+                is_now_favorited: !isFavorited,
+                source: 'hymn_detail_screen',
+                total_favorites_after: isFavorited ? favorites.length - 1 : favorites.length + 1,
+              });
+              if (!isFavorited) {
+                trackFunnel('HYMN_FAVORITED', { hymn_id: hymn.id });
+              }
+            }}
             size={20}
             activeColor="#D2691E"
             inactiveColor={effectiveTheme === 'dark' ? '#FFFFFF' : '#333333'}

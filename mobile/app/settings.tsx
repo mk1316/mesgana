@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import {
   Dimensions,
 } from 'react-native';
 import { ChevronLeft, Share as ShareIcon, MessageCircle } from 'lucide-react-native';
+import { usePostHog } from 'posthog-react-native';
+import { trackScreen, trackError } from '@/posthog/posthog';
 import { router } from 'expo-router';
 import AppButton from '@/components/common/AppButton';
 import { useAppStore } from '@/store/appStore';
@@ -24,27 +26,81 @@ const appVersion = appConfig.expo.version;
 
 export default function SettingsScreen() {
   const systemColorScheme = useColorScheme();
+  const posthog = usePostHog();
   const { language, theme, setLanguage, setTheme, fontSize, setFontSize } = useAppStore();
-  
+
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
   const styles = createStyles(effectiveTheme === 'dark');
   const fontSizeOptions = [12, 16, 18, 22] as const;
+
+  // Track screen view
+  useEffect(() => {
+    trackScreen('Settings');
+  }, []);
+  const fontSizeLabels: Record<number, string> = { 12: 'small', 16: 'medium', 18: 'large', 22: 'extra_large' };
+
   const selectFontSize = async (size: number) => {
+    const previousSize = fontSize;
     setFontSize(size);
+    posthog.capture('settings_changed', {
+      setting_type: 'font_size',
+      previous_value: previousSize,
+      previous_label: fontSizeLabels[previousSize] || 'unknown',
+      new_value: size,
+      new_label: fontSizeLabels[size] || 'unknown',
+      changed_from_default: previousSize !== 16,
+      is_increase: size > previousSize,
+    });
+  };
+
+  const handleLanguageChange = async (newLanguage: 'english' | 'amharic') => {
+    const previousLanguage = language;
+    await Haptics.selectionAsync();
+    setLanguage(newLanguage);
+    posthog.capture('settings_changed', {
+      setting_type: 'language',
+      previous_value: previousLanguage,
+      new_value: newLanguage,
+      switched_to_amharic: newLanguage === 'amharic',
+      switched_to_english: newLanguage === 'english',
+    });
+  };
+
+  const handleThemeChange = async (newTheme: 'light' | 'dark' | null) => {
+    const previousTheme = theme;
+    await Haptics.selectionAsync();
+    setTheme(newTheme);
+    posthog.capture('settings_changed', {
+      setting_type: 'theme',
+      previous_value: previousTheme || 'system',
+      new_value: newTheme || 'system',
+      switched_to_dark: newTheme === 'dark',
+      switched_to_light: newTheme === 'light',
+      switched_to_system: newTheme === null,
+    });
   };
 
 
   const handleShare = async () => {
     try {
       const targetUrl = 'https://play.google.com/store/apps/details?id=com.mesgana.app';
-      await Share.share({
+      const result = await Share.share({
         message: `Download Mesgana - Amharic SDA Hymnal App!\n\n${targetUrl}`,
         title: 'Mesgana App',
         url: targetUrl,
       });
+
+      posthog.capture('share_initiated', {
+        share_type: 'app_promotion',
+        source: 'settings_screen',
+        share_action: result.action,
+        was_shared: result.action === Share.sharedAction,
+        was_dismissed: result.action === Share.dismissedAction,
+      });
     } catch (error) {
       Alert.alert('Error', 'Unable to share app');
+      trackError('share_failed', error as Error, { source: 'settings_screen' });
     }
   };
 
@@ -126,19 +182,13 @@ export default function SettingsScreen() {
               label="English"
               variant={language === 'english' ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setLanguage('english');
-              }}
+              onPress={() => handleLanguageChange('english')}
             />
             <AppButton
               label="አማርኛ"
               variant={language === 'amharic' ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setLanguage('amharic');
-              }}
+              onPress={() => handleLanguageChange('amharic')}
             />
           </View>
         </View>
@@ -152,28 +202,19 @@ export default function SettingsScreen() {
               label={language === 'amharic' ? 'ብርሃን' : 'Light'}
               variant={effectiveTheme === 'light' ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setTheme('light');
-              }}
+              onPress={() => handleThemeChange('light')}
             />
             <AppButton
               label={language === 'amharic' ? 'ጨለማ' : 'Dark'}
               variant={effectiveTheme === 'dark' ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setTheme('dark');
-              }}
+              onPress={() => handleThemeChange('dark')}
             />
             <AppButton
               label={language === 'amharic' ? 'ስርዓት' : 'System'}
               variant={!theme ? 'primary' : 'secondary'}
               style={{ flex: 1 }}
-              onPress={async () => {
-                await Haptics.selectionAsync();
-                setTheme(null);
-              }}
+              onPress={() => handleThemeChange(null)}
             />
           </View>
         </View>
