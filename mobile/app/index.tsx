@@ -130,7 +130,14 @@ export default function HymnsScreen() {
   }, [searchQuery, filteredHymns.length, selectedCategory]);
 
   const toggleCategory = (category: string) => {
+    const isDeselecting = selectedCategory === category;
     setSelectedCategory(prev => prev === category ? null : category);
+
+    posthog.capture('category_selected', {
+      category: isDeselecting ? null : category,
+      previous_category: selectedCategory,
+      action: isDeselecting ? 'deselected' : 'selected',
+    });
   };
 
   const renderHymnCard = (hymn: any) => {
