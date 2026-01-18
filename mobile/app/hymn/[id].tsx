@@ -28,6 +28,7 @@ import { usePostHog } from 'posthog-react-native';
 import { trackScreen, trackFunnel, trackError } from '@/posthog/posthog';
 import { allHymns as hymnsData } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
+import { incrementSessionHymnsViewed } from '@/app/index';
 import * as Haptics from 'expo-haptics';
 
 export default function HymnDetailScreen() {
@@ -39,7 +40,7 @@ export default function HymnDetailScreen() {
   const [isCreditsOpen, setIsCreditsOpen] = useState(false);
   const likeScale = useRef(new Animated.Value(1)).current;
 
-  const { language, theme, favorites, toggleFavorite, fontSize } = useAppStore();
+  const { language, theme, favorites, toggleFavorite, fontSize, incrementHymnsViewed } = useAppStore();
   
   // Use app theme if set, otherwise fall back to system theme
   const effectiveTheme = theme || systemColorScheme || 'light';
@@ -112,9 +113,11 @@ export default function HymnDetailScreen() {
     scrollRef.current?.scrollTo({ y: 0, animated: false });
   }, [currentId]);
 
-  // Track hymn view
+  // Track hymn view and increment counters for review prompt
   useEffect(() => {
     if (hymn) {
+      incrementHymnsViewed();
+      incrementSessionHymnsViewed();
       trackScreen('HymnDetail', { hymn_id: hymn.id });
       posthog.capture('hymn_viewed', {
         hymn_id: hymn.id,

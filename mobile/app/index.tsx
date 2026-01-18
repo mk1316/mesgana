@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -13,8 +13,10 @@ import {Search, Settings as SettingsIcon } from 'lucide-react-native';
 import { usePostHog } from 'posthog-react-native';
 import { trackScreen, registerUserProperties, trackFunnel } from '@/posthog/posthog';
 import LikeButton from '@/components/common/LikeButton';
+import ReviewPromptModal from '@/components/modals/ReviewPromptModal';
+import { shouldShowReviewPrompt } from '@/utils/storeReview';
 import { Animated } from 'react-native';
-import { router } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
 import { allHymns as hymnsData, categories } from '@/data/hymns';
 import { useAppStore } from '@/store/appStore';
 import * as Haptics from 'expo-haptics';
@@ -22,14 +24,27 @@ import * as Haptics from 'expo-haptics';
 
 
 
+// Session-level counter for hymns viewed (resets on app restart)
+let sessionHymnsViewed = 0;
+
+export function incrementSessionHymnsViewed() {
+  sessionHymnsViewed++;
+}
+
+export function getSessionHymnsViewed() {
+  return sessionHymnsViewed;
+}
+
 export default function HymnsScreen() {
   const systemColorScheme = useColorScheme();
   const posthog = usePostHog();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [showReviewPrompt, setShowReviewPrompt] = useState(false);
   const searchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hasCheckedReviewThisSession = useRef(false);
 
-  const { language, theme, favorites, toggleFavorite } = useAppStore();
+  const { language, theme, favorites, toggleFavorite, review, recordReviewPrompt } = useAppStore();
   const likeScalesRef = useRef<Record<string, Animated.Value>>({});
 
   // Use app theme if set, otherwise fall back to system theme
@@ -45,6 +60,41 @@ export default function HymnsScreen() {
       total_favorites: favorites.length,
     });
   }, [language, effectiveTheme, favorites.length]);
+
+  // Check if we should show review prompt when returning to home screen
+  useFocusEffect(
+    useCallback(() => {
+      // Only check once per session to avoid annoying users
+      if (hasCheckedReviewThisSession.current) {
+        return;
+      }
+
+      // Check if user has viewed 3+ hymns this session
+      const sessionViews = getSessionHymnsViewed();
+      if (sessionViews < 3) {
+        return;
+      }
+
+      // Check if all other criteria are met
+      if (shouldShowReviewPrompt(review)) {
+        hasCheckedReviewThisSession.current = true;
+        // Small delay so the screen transition completes first
+        setTimeout(() => {
+          setShowReviewPrompt(true);
+        }, 500);
+      }
+    }, [review])
+  );
+
+  const handleReviewRequested = () => {
+    recordReviewPrompt();
+    posthog.capture('review_prompt_shown', {
+      app_opens: review.appOpenCount,
+      hymns_viewed: review.hymnsViewedCount,
+      session_hymns_viewed: getSessionHymnsViewed(),
+      prompt_number: review.reviewPromptCount + 1,
+    });
+  };
 
   const filteredHymns = useMemo(() => {
     let filtered = hymnsData;
@@ -299,6 +349,14 @@ export default function HymnsScreen() {
         )}
         <View style={styles.bottomSpacing} />
       </ScrollView>
+
+      <ReviewPromptModal
+        visible={showReviewPrompt}
+        onClose={() => setShowReviewPrompt(false)}
+        onReviewRequested={handleReviewRequested}
+        isDark={effectiveTheme === 'dark'}
+        language={language}
+      />
     </View>
   );
 }

@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { PostHogProvider } from 'posthog-react-native';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import posthog, { trackFunnel } from '@/posthog/posthog';
+import { useAppStore } from '@/store/appStore';
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
@@ -20,9 +21,11 @@ export default function RootLayout() {
 
   const appState = useRef(AppState.currentState);
   const sessionStartTime = useRef(Date.now());
+  const incrementAppOpens = useAppStore((state) => state.incrementAppOpens);
 
   useEffect(() => {
-    // Track app open
+    // Track app open and increment counter for review prompt
+    incrementAppOpens();
     posthog.capture('app_opened', {
       platform: Platform.OS,
       platform_version: Platform.Version,
